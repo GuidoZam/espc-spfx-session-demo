@@ -1,0 +1,18 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "18.18.2",
+    "sdksVersions": {},
+    "version": "1.21.1",
+    "libraryName": "espc-spfx-session-demo",
+    "libraryId": "20c09b62-3dc3-4072-9052-f6ddb4434851",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "espc-spfx-session-demo",
+    "solutionShortDescription": "espc-spfx-session-demo description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
