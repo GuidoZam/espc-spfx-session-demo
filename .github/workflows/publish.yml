@@ -1,0 +1,44 @@
+name: Publish SPFx Solution
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Build solution
+        run: gulp bundle --ship
+
+      - name: Package solution
+        run: gulp package-solution --ship
+
+      - name: Install Office 365 CLI
+        run: npm install -g @pnp/cli-microsoft365
+
+      - name: Publish to SharePoint App Catalog
+        env:
+          M365_AUTH_CLIENT_ID: ${{ secrets.M365_CLIENT_ID }}
+          M365_AUTH_CLIENT_SECRET: ${{ secrets.M365_CLIENT_SECRET }}
+          M365_AUTH_TENANT: ${{ secrets.M365_TENANT }}
+          M365_SITE_URL: ${{ secrets.M365_SITE_URL }}
+        run: |
+          m365 login --authType password --userName ${{ secrets.M365_USERNAME }} --password ${{ secrets.M365_PASSWORD }}
+          m365 spo app add --filePath ./sharepoint/solution/*.sppkg --appCatalogUrl ${{ secrets.M365_SITE_URL }} --overwrite
+          m365 spo app deploy --name $(ls ./sharepoint/solution/*.sppkg | xargs -n 1 basename) --appCatalogUrl ${{ secrets.M365_SITE_URL }}

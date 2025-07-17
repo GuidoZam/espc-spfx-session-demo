@@ -2,42 +2,64 @@ import * as React from 'react';
 import styles from './HelloWorld.module.scss';
 import type { IHelloWorldProps } from './IHelloWorldProps';
 import { escape } from '@microsoft/sp-lodash-subset';
+import { useState } from 'react';
 
-export default class HelloWorld extends React.Component<IHelloWorldProps> {
-  public render(): React.ReactElement<IHelloWorldProps> {
-    const {
-      description,
-      isDarkTheme,
-      environmentMessage,
-      hasTeamsContext,
-      userDisplayName
-    } = this.props;
+const HelloWorld: React.FC<IHelloWorldProps> = (props) => {
+  const {
+    hasTeamsContext,
+    userDisplayName
+  } = props;
 
-    return (
-      <section className={`${styles.helloWorld} ${hasTeamsContext ? styles.teams : ''}`}>
-        <div className={styles.welcome}>
-          <img alt="" src={isDarkTheme ? require('../assets/welcome-dark.png') : require('../assets/welcome-light.png')} className={styles.welcomeImage} />
-          <h2>Well done, {escape(userDisplayName)}!</h2>
-          <div>{environmentMessage}</div>
-          <div>Web part property value: <strong>{escape(description)}</strong></div>
+  const [customerName, setCustomerName] = useState('');
+  const [customerEmail, setCustomerEmail] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setCustomerName(e.target.value);
+  };
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setCustomerEmail(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent): void => {
+    e.preventDefault();
+    // Add logic to save customer data
+    alert(`Customer added: ${customerName} (${customerEmail})`);
+    setCustomerName('');
+    setCustomerEmail('');
+  };
+
+  return (
+    <section className={`${styles.helloWorld} ${hasTeamsContext ? styles.teams : ''}`}>
+      <div className={styles.welcome}>
+        <h2>Well done, {escape(userDisplayName)}!</h2>
+      </div>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="customerName">New Customer Name:</label>
+          <input
+            id="customerName"
+            type="text"
+            value={customerName}
+            onChange={handleInputChange}
+            placeholder="Enter customer name"
+            style={{ marginLeft: '0.5em' }}
+          />
         </div>
         <div>
-          <h3>Welcome to SharePoint Framework!</h3>
-          <p>
-            The SharePoint Framework (SPFx) is a extensibility model for Microsoft Viva, Microsoft Teams and SharePoint. It&#39;s the easiest way to extend Microsoft 365 with automatic Single Sign On, automatic hosting and industry standard tooling.
-          </p>
-          <h4>Learn more about SPFx development:</h4>
-          <ul className={styles.links}>
-            <li><a href="https://aka.ms/spfx" target="_blank" rel="noreferrer">SharePoint Framework Overview</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-graph" target="_blank" rel="noreferrer">Use Microsoft Graph in your solution</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-teams" target="_blank" rel="noreferrer">Build for Microsoft Teams using SharePoint Framework</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-viva" target="_blank" rel="noreferrer">Build for Microsoft Viva Connections using SharePoint Framework</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-store" target="_blank" rel="noreferrer">Publish SharePoint Framework applications to the marketplace</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-api" target="_blank" rel="noreferrer">SharePoint Framework API reference</a></li>
-            <li><a href="https://aka.ms/m365pnp" target="_blank" rel="noreferrer">Microsoft 365 Developer Community</a></li>
-          </ul>
+          <label htmlFor="customerEmail">Email:</label>
+          <input
+            id="customerEmail"
+            type="email"
+            value={customerEmail}
+            onChange={handleEmailChange}
+            placeholder="Enter customer email"
+            style={{ marginLeft: '0.5em' }}
+          />
         </div>
-      </section>
-    );
-  }
+        <button type="submit" style={{ marginLeft: '0.5em' }}>Add Customer</button>
+      </form>
+    </section>
+  );
 }
+
+export default HelloWorld;
