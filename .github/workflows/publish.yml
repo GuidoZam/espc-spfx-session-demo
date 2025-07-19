@@ -39,6 +39,6 @@ jobs:
           M365_AUTH_TENANT: ${{ vars.M365_TENANT }}
           M365_SITE_URL: ${{ vars.M365_SITE_URL }}
         run: |
-          m365 login --appId ${{ vars.M365_CLIENT_ID }} --authType clientCredentials --clientId ${{ vars.M365_CLIENT_ID }} --clientSecret ${{ secrets.M365_CLIENT_SECRET }} --tenant ${{ vars.M365_TENANT }}
+          m365 login --appId ${{ vars.M365_CLIENT_ID }} --authType secret --clientId ${{ vars.M365_CLIENT_ID }} --clientSecret ${{ secrets.M365_CLIENT_SECRET }} --tenant ${{ vars.M365_TENANT }}
           m365 spo app add --filePath ./sharepoint/solution/*.sppkg --appCatalogUrl ${{ vars.M365_SITE_URL }} --overwrite
           m365 spo app deploy --name $(ls ./sharepoint/solution/*.sppkg | xargs -n 1 basename) --appCatalogUrl ${{ vars.M365_SITE_URL }}
