@@ -1,8 +1,27 @@
 # espc-spfx-session-demo
 
-[![Publish SPFx Solution](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/publish.yml/badge.svg)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/publish.yml)
+[![Deploy SPFx Solution](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution.yml/badge.svg)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution.yml)
 
 [![Execute tests](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute%20tests.yml/badge.svg?branch=dev&event=push)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute%20tests.yml)
+
+## CI/CD Configuration
+
+This project uses GitHub Actions for Continuous Integration and Continuous Deployment:
+
+- **Deploy SPFx Solution** (`deploy-spfx-solution.yml`): Automatically builds, tests, and deploys the SPFx solution to SharePoint when code is pushed to the `main` branch
+- **Execute Tests** (`execute tests.yml`): Runs unit tests when code is pushed to the `dev` branch
+
+### Required Secrets and Variables
+
+For the deployment workflow to work, the following GitHub secrets and variables must be configured:
+
+**Secrets:**
+- `M365_CERTIFICATE`: Base64-encoded certificate for Microsoft 365 authentication
+- `M365_CERTIFICATE_PASSWORD`: Password for the certificate (if required)
+
+**Variables:**
+- `M365_CLIENT_ID`: App ID of the Entra application used for authentication  
+- `M365_TENANT`: ID of the Microsoft 365 tenant
 
 ## Summary
 
