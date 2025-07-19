@@ -1,5 +1,7 @@
 # espc-spfx-session-demo
 
+[![Publish SPFx Solution](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/publish.yml/badge.svg)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/publish.yml)
+
 ## Summary
 
 Short summary on functionality and used technologies.
