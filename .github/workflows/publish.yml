@@ -34,11 +34,11 @@ jobs:
 
       - name: Publish to SharePoint App Catalog
         env:
-          M365_AUTH_CLIENT_ID: ${{ secrets.M365_CLIENT_ID }}
+          M365_AUTH_CLIENT_ID: ${{ vars.M365_CLIENT_ID }}
           M365_AUTH_CLIENT_SECRET: ${{ secrets.M365_CLIENT_SECRET }}
-          M365_AUTH_TENANT: ${{ secrets.M365_TENANT }}
-          M365_SITE_URL: ${{ secrets.M365_SITE_URL }}
+          M365_AUTH_TENANT: ${{ vars.M365_TENANT }}
+          M365_SITE_URL: ${{ vars.M365_SITE_URL }}
         run: |
-          m365 login --authType password --userName ${{ secrets.M365_USERNAME }} --password ${{ secrets.M365_PASSWORD }}
-          m365 spo app add --filePath ./sharepoint/solution/*.sppkg --appCatalogUrl ${{ secrets.M365_SITE_URL }} --overwrite
-          m365 spo app deploy --name $(ls ./sharepoint/solution/*.sppkg | xargs -n 1 basename) --appCatalogUrl ${{ secrets.M365_SITE_URL }}
+          m365 login --appId ${{ vars.M365_CLIENT_ID }} --authType clientCredentials --clientId ${{ vars.M365_CLIENT_ID }} --clientSecret ${{ secrets.M365_CLIENT_SECRET }} --tenant ${{ vars.M365_TENANT }}
+          m365 spo app add --filePath ./sharepoint/solution/*.sppkg --appCatalogUrl ${{ vars.M365_SITE_URL }} --overwrite
+          m365 spo app deploy --name $(ls ./sharepoint/solution/*.sppkg | xargs -n 1 basename) --appCatalogUrl ${{ vars.M365_SITE_URL }}
