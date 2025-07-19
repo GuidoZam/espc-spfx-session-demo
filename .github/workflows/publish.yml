@@ -40,6 +40,6 @@ jobs:
           M365_AUTH_CERTIFICATE_PASSWORD: ${{ secrets.M365_CERTIFICATE_PASSWORD }}
           M365_SITE_URL: ${{ vars.M365_SITE_URL }}
         run: |
-          m365 login --appId ${{ vars.M365_CLIENT_ID }} --tenant ${{ vars.M365_TENANT }} --certificateBase64Encoded ${{ secrets.M365_CERTIFICATE }} --password ${{ secrets.M365_CERTIFICATE_PASSWORD }}
+          m365 login --appId ${{ vars.M365_CLIENT_ID }} --authType certificate --tenant ${{ vars.M365_TENANT }} --certificateBase64Encoded ${{ secrets.M365_CERTIFICATE }} --password ${{ secrets.M365_CERTIFICATE_PASSWORD }}
           m365 spo app add --filePath ./sharepoint/solution/*.sppkg --appCatalogUrl ${{ vars.M365_SITE_URL }} --overwrite
           m365 spo app deploy --name $(ls ./sharepoint/solution/*.sppkg | xargs -n 1 basename) --appCatalogUrl ${{ vars.M365_SITE_URL }}
