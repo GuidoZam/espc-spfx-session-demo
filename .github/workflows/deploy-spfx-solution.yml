@@ -29,7 +29,7 @@ jobs:
           CERTIFICATE_ENCODED: ${{ secrets.M365_CERTIFICATE }}
           CERTIFICATE_PASSWORD: ${{ secrets.M365_CERTIFICATE_PASSWORD }}
           APP_ID: ${{ vars.M365_CLIENT_ID }}
-          TENANT_ID: ${{ vars.M365_TENANT }}
+          TENANT: ${{ vars.M365_TENANT }}
       - name: CLI for Microsoft 365 Deploy App
         uses: pnp/action-cli-deploy@v5
         with:
