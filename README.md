@@ -23,6 +23,10 @@ For the deployment workflow to work, the following GitHub secrets and variables 
 - `M365_CLIENT_ID`: App ID of the Entra application used for authentication  
 - `M365_TENANT`: ID of the Microsoft 365 tenant
 
+### Troubleshooting
+
+If you encounter deployment issues, see the [CI/CD Troubleshooting Guide](docs/CI-CD-TROUBLESHOOTING.md) for common problems and solutions.
+
 ## Summary
 
 Short summary on functionality and used technologies.

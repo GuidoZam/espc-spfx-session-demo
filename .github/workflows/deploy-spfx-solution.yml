@@ -29,11 +29,12 @@ jobs:
           CERTIFICATE_ENCODED: ${{ secrets.M365_CERTIFICATE }}
           CERTIFICATE_PASSWORD: ${{ secrets.M365_CERTIFICATE_PASSWORD }}
           APP_ID: ${{ vars.M365_CLIENT_ID }}
-          TENANT: ${{ vars.M365_TENANT }}
+          TENANT_ID: ${{ vars.M365_TENANT }}
       - name: CLI for Microsoft 365 Deploy App
         uses: pnp/action-cli-deploy@v5
         with:
           APP_FILE_PATH: sharepoint/solution/espc-spfx-session-demo.sppkg
+          SCOPE: tenant
           SKIP_FEATURE_DEPLOYMENT: false
           OVERWRITE: true
           DEBUG: true
