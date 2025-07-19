@@ -34,6 +34,7 @@ jobs:
         uses: pnp/action-cli-deploy@v5
         with:
           APP_FILE_PATH: sharepoint/solution/espc-spfx-session-demo.sppkg
+          SCOPE: tenant
           SKIP_FEATURE_DEPLOYMENT: false
           OVERWRITE: true
           DEBUG: true
