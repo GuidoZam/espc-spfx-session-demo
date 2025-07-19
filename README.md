@@ -2,7 +2,7 @@
 
 [![Publish SPFx Solution](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/publish.yml/badge.svg)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/publish.yml)
 
-[![Execute tests](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute%20tests.yml/badge.svg?branch=dev)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute%20tests.yml)
+[![Execute tests](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute%20tests.yml/badge.svg?branch=dev&event=push)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute%20tests.yml)
 
 ## Summary
 
