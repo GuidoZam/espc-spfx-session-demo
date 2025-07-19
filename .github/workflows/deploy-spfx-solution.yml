@@ -1,38 +1,38 @@
-# name: Deploy SPFx Solution
-# on:
-#   push:
-#     branches:
-#       - main
-# jobs:
-#   build-and-deploy:
-#     runs-on: ubuntu-latest
-#     env:
-#       NodeVersion: 22.x
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4
-#       - name: Use Node.js
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: ${{ env.NodeVersion }}
-#       - name: Run npm ci
-#         run: npm ci
-#       - name: Bundle & Package
-#         run: |
-#           gulp bundle --ship
-#           gulp package-solution --ship
-#       - name: Run unit tests
-#         run: npm test
-#       - name: CLI for Microsoft 365 Login
-#         uses: pnp/action-cli-login@v2.2.4
-#         with:
-#           CERTIFICATE_ENCODED: ${{ secrets.M365_CERTIFICATE }}
-#           CERTIFICATE_PASSWORD: ${{ secrets.M365_CERTIFICATE_PASSWORD }}
-#           APP_ID: ${{ vars.M365_CLIENT_ID }}
-#           TENANT: ${{ secrets.M365_TENANT }}
-#       - name: CLI for Microsoft 365 Deploy App
-#         uses: pnp/action-cli-deploy@v4.0.0
-#         with:
-#           APP_FILE_PATH: sharepoint/solution/espc-spfx-session-demo.sppkg
-#           SKIP_FEATURE_DEPLOYMENT: false
-#           OVERWRITE: true
+name: Deploy SPFx Solution
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      NodeVersion: 22.x
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NodeVersion }}
+      - name: Run npm ci
+        run: npm ci
+      - name: Bundle & Package
+        run: |
+          gulp bundle --ship
+          gulp package-solution --ship
+      - name: Run unit tests
+        run: npm test
+      - name: CLI for Microsoft 365 Login
+        uses: pnp/action-cli-login@v2.2.4
+        with:
+          CERTIFICATE_ENCODED: ${{ secrets.M365_CERTIFICATE }}
+          CERTIFICATE_PASSWORD: ${{ secrets.M365_CERTIFICATE_PASSWORD }}
+          APP_ID: ${{ vars.M365_CLIENT_ID }}
+          TENANT: ${{ vars.M365_TENANT }}
+      - name: CLI for Microsoft 365 Deploy App
+        uses: pnp/action-cli-deploy@v4.0.0
+        with:
+          APP_FILE_PATH: sharepoint/solution/espc-spfx-session-demo.sppkg
+          SKIP_FEATURE_DEPLOYMENT: false
+          OVERWRITE: true
