@@ -20,11 +20,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run unit tests
-        run: npm test
-
       - name: Build solution
         run: gulp bundle --ship
+
+      - name: Run unit tests
+        run: npm test
 
       - name: Package solution
         run: gulp package-solution --ship
