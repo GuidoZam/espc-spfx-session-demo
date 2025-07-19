@@ -36,3 +36,5 @@ jobs:
           APP_FILE_PATH: sharepoint/solution/espc-spfx-session-demo.sppkg
           SKIP_FEATURE_DEPLOYMENT: false
           OVERWRITE: true
+          DEBUG: true
+          VERBOSE: true
