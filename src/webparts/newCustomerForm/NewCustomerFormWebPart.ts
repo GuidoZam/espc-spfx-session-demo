@@ -3,16 +3,16 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
-import HelloWorld from './components/HelloWorld';
-import { IHelloWorldProps } from './components/IHelloWorldProps';
+import NewCustomerForm from "./components/NewCustomerForm";
+import { INewCustomerFormProps } from './components/INewCustomerFormProps';
 
-export interface IHelloWorldWebPartProps {
+export interface INewCustomerFormWebPartProps {
 }
 
-export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorldWebPartProps> {
+export default class NewCustomerFormWebPart extends BaseClientSideWebPart<INewCustomerFormWebPartProps> {
   public render(): void {
-    const element: React.ReactElement<IHelloWorldProps> = React.createElement(
-      HelloWorld,
+    const element: React.ReactElement<INewCustomerFormProps> = React.createElement(
+      NewCustomerForm,
       {
         userDisplayName: this.context.pageContext.user.displayName
       }

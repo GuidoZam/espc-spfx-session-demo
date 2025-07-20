@@ -1,4 +1,4 @@
-declare interface IHelloWorldWebPartStrings {
+declare interface INewCustomerFormWebPartStrings {
 	WelcomeTitle: string;
 	FormErrorRequiredFields: string;
 	FormLabelName: string;
@@ -21,7 +21,7 @@ declare interface IHelloWorldWebPartStrings {
 	FormAlertCustomerAdded: string;
 }
 
-declare module 'HelloWorldWebPartStrings' {
-  const strings: IHelloWorldWebPartStrings;
-  export = strings;
+declare module "NewCustomerFormWebPartStrings" {
+	const strings: INewCustomerFormWebPartStrings;
+	export = strings;
 }

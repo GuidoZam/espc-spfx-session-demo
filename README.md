@@ -11,7 +11,7 @@
 
 This project demonstrates a SharePoint Framework (SPFx) web part solution integrated with modern CI/CD and automated testing practices. It features:
 
-- **HelloWorld Web Part**: A sample SPFx web part showcasing basic React integration, localization, and asset management.
+- **NewCustomerForm Web Part**: A sample SPFx web part showcasing basic React integration, localization, and asset management.
 - **Automated Testing**: End-to-end tests using Playwright, including authentication flows for Microsoft 365 and SharePoint Online.
 - **CI/CD Integration**: GitHub Actions workflows for building, testing, and deploying the solution.
 - **Azure Storage Deployment**: Example configuration for deploying assets to Azure Storage.
@@ -133,10 +133,13 @@ This extension illustrates the following concepts:
 The repository is organized as follows:
 
 - `src/` – Source code for the SPFx web part, including:
-  - `webparts/helloWorld/HelloWorldWebPart.ts` – Main web part implementation (TypeScript, React)
-  - `webparts/helloWorld/components/` – React components for the web part UI
-  - `webparts/helloWorld/assets/` – Images and static assets
-  - `webparts/helloWorld/loc/` – Localization files
+  - `webparts/newCustomerForm/NewCustomerFormWebPart.ts` – Main web part implementation (TypeScript, React)
+  - `webparts/newCustomerForm/components/NewCustomerForm.tsx` – Main React component for the web part UI
+  - `webparts/newCustomerForm/components/NewCustomerForm.module.scss` – Styles for the web part
+  - `webparts/newCustomerForm/components/NewCustomerForm.test.tsx` – Unit tests for the React component (Jest)
+  - `webparts/newCustomerForm/components/INewCustomerFormProps.ts` – Props interface for the React component
+  - `webparts/newCustomerForm/assets/` – Images and static assets
+  - `webparts/newCustomerForm/loc/` – Localization files
 - `lib/` – Transpiled output from TypeScript build
 - `config/` – Configuration files for SPFx, deployment, and manifests
 - `cert/` – Certificates for local development and deployment
@@ -148,10 +151,11 @@ The repository is organized as follows:
 - `sharepoint/solution/` – Packaged SharePoint solution files (`.sppkg`)
 
 ### Main Implementation Files
-- **HelloWorldWebPart.ts**: Implements the SPFx web part, rendering the React component and handling properties.
-- **HelloWorld.tsx**: Main React component for the web part UI.
-- **HelloWorld.module.scss**: Styles for the web part.
-- **HelloWorld.test.js**: Unit tests for the React component (Jest).
+- **NewCustomerFormWebPart.ts**: Implements the SPFx web part, rendering the React component and handling properties.
+- **NewCustomerForm.tsx**: Main React component for the web part UI.
+- **NewCustomerForm.module.scss**: Styles for the web part.
+- **NewCustomerForm.test.tsx**: Unit tests for the React component (Jest).
+- **INewCustomerFormProps.ts**: Props interface for the React component.
 - **basic.spec.ts**: Playwright E2E test for authentication and UI flows.
 
 ### Running Locally & Testing
