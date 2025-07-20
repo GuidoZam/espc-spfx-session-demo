@@ -1,16 +1,24 @@
 declare interface IHelloWorldWebPartStrings {
-  PropertyPaneDescription: string;
-  BasicGroupName: string;
-  DescriptionFieldLabel: string;
-  AppLocalEnvironmentSharePoint: string;
-  AppLocalEnvironmentTeams: string;
-  AppLocalEnvironmentOffice: string;
-  AppLocalEnvironmentOutlook: string;
-  AppSharePointEnvironment: string;
-  AppTeamsTabEnvironment: string;
-  AppOfficeEnvironment: string;
-  AppOutlookEnvironment: string;
-  UnknownEnvironment: string;
+	WelcomeTitle: string;
+	FormErrorRequiredFields: string;
+	FormLabelName: string;
+	FormLabelEmail: string;
+	FormLabelPhone: string;
+	FormLabelAddress: string;
+	FormLabelCompany: string;
+	FormLabelNotes: string;
+	FormPlaceholderName: string;
+	FormPlaceholderEmail: string;
+	FormPlaceholderPhone: string;
+	FormPlaceholderAddress: string;
+	FormPlaceholderCompany: string;
+	FormPlaceholderNotes: string;
+	FormRequired: string;
+	FormErrorNameRequired: string;
+	FormErrorEmailRequired: string;
+	FormErrorCompanyRequired: string;
+	FormButtonAddCustomer: string;
+	FormAlertCustomerAdded: string;
 }
 
 declare module 'HelloWorldWebPartStrings' {

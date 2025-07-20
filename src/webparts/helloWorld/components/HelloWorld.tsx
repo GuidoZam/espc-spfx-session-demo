@@ -3,10 +3,10 @@ import styles from './HelloWorld.module.scss';
 import type { IHelloWorldProps } from './IHelloWorldProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import { useState } from 'react';
+import * as strings from 'HelloWorldWebPartStrings';
 
 const HelloWorld: React.FC<IHelloWorldProps> = (props) => {
   const {
-    hasTeamsContext,
     userDisplayName
   } = props;
 
@@ -45,7 +45,7 @@ const HelloWorld: React.FC<IHelloWorldProps> = (props) => {
     e.preventDefault();
     setTouched({ name: true, email: true, company: true });
     if (!customerName || !customerEmail || !customerCompany) {
-      setError('Name, Email, and Company are required.');
+      setError(strings.FormErrorRequiredFields);
       return;
     }
     setError('');
@@ -56,91 +56,91 @@ const HelloWorld: React.FC<IHelloWorldProps> = (props) => {
     setCustomerCompany('');
     setCustomerNotes('');
     setTouched({ name: false, email: false, company: false });
-    alert(`Customer added: ${customerName} (${customerEmail})`);
+    alert(strings.FormAlertCustomerAdded.replace('{0}', customerName).replace('{1}', customerEmail));
   };
 
   return (
-    <section className={`${styles.helloWorld} ${hasTeamsContext ? styles.teams : ''}`}>
+    <section className={styles.helloWorld}>
       <div className={styles.welcome}>
-        <h2>Well done, {escape(userDisplayName)}!</h2>
+        <h2>{strings.WelcomeTitle.replace('{0}', escape(userDisplayName))}</h2>
       </div>
       <form onSubmit={handleSubmit} className={styles.customerForm}>
         {error && <div className={styles.formError}>{error}</div>}
         <div className={styles.formRow}>
-          <label htmlFor="customerName">Name<span className={styles.required}>*</span></label>
+          <label htmlFor="customerName">{strings.FormLabelName}<span className={styles.required}>{strings.FormRequired}</span></label>
           <input
             id="customerName"
             type="text"
             value={customerName}
             onChange={handleInputChange}
-            placeholder="Enter customer name"
+            placeholder={strings.FormPlaceholderName}
             className={styles.input}
           />
           {touched.name && !customerName && (
-            <span className={styles.fieldError}>Name is required.</span>
+            <span className={styles.fieldError}>{strings.FormErrorNameRequired}</span>
           )}
         </div>
         <div className={styles.formRow}>
-          <label htmlFor="customerEmail">Email<span className={styles.required}>*</span></label>
+          <label htmlFor="customerEmail">{strings.FormLabelEmail}<span className={styles.required}>{strings.FormRequired}</span></label>
           <input
             id="customerEmail"
             type="email"
             value={customerEmail}
             onChange={handleEmailChange}
-            placeholder="Enter customer email"
+            placeholder={strings.FormPlaceholderEmail}
             className={styles.input}
           />
           {touched.email && !customerEmail && (
-            <span className={styles.fieldError}>Email is required.</span>
+            <span className={styles.fieldError}>{strings.FormErrorEmailRequired}</span>
           )}
         </div>
         <div className={styles.formRow}>
-          <label htmlFor="customerPhone">Phone:</label>
+          <label htmlFor="customerPhone">{strings.FormLabelPhone}</label>
           <input
             id="customerPhone"
             type="tel"
             value={customerPhone}
             onChange={handlePhoneChange}
-            placeholder="Enter phone number"
+            placeholder={strings.FormPlaceholderPhone}
             className={styles.input}
           />
         </div>
         <div className={styles.formRow}>
-          <label htmlFor="customerAddress">Address:</label>
+          <label htmlFor="customerAddress">{strings.FormLabelAddress}</label>
           <input
             id="customerAddress"
             type="text"
             value={customerAddress}
             onChange={handleAddressChange}
-            placeholder="Enter address"
+            placeholder={strings.FormPlaceholderAddress}
             className={styles.input}
           />
         </div>
         <div className={styles.formRow}>
-          <label htmlFor="customerCompany">Company<span className={styles.required}>*</span></label>
+          <label htmlFor="customerCompany">{strings.FormLabelCompany}<span className={styles.required}>{strings.FormRequired}</span></label>
           <input
             id="customerCompany"
             type="text"
             value={customerCompany}
             onChange={handleCompanyChange}
-            placeholder="Enter company"
+            placeholder={strings.FormPlaceholderCompany}
             className={styles.input}
           />
           {touched.company && !customerCompany && (
-            <span className={styles.fieldError}>Company is required.</span>
+            <span className={styles.fieldError}>{strings.FormErrorCompanyRequired}</span>
           )}
         </div>
         <div className={styles.formRow}>
-          <label htmlFor="customerNotes">Notes:</label>
+          <label htmlFor="customerNotes">{strings.FormLabelNotes}</label>
           <textarea
             id="customerNotes"
             value={customerNotes}
             onChange={handleNotesChange}
-            placeholder="Additional notes"
+            placeholder={strings.FormPlaceholderNotes}
             className={styles.textarea}
           />
         </div>
-        <button type="submit" className={styles.submitBtn}>Add Customer</button>
+        <button type="submit" className={styles.submitBtn}>{strings.FormButtonAddCustomer}</button>
       </form>
     </section>
   );

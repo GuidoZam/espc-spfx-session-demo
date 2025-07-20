@@ -1,16 +1,24 @@
 define([], function() {
   return {
-    "PropertyPaneDescription": "Description",
-    "BasicGroupName": "Group Name",
-    "DescriptionFieldLabel": "Description Field",
-    "AppLocalEnvironmentSharePoint": "The app is running on your local environment as SharePoint web part",
-    "AppLocalEnvironmentTeams": "The app is running on your local environment as Microsoft Teams app",
-    "AppLocalEnvironmentOffice": "The app is running on your local environment in office.com",
-    "AppLocalEnvironmentOutlook": "The app is running on your local environment in Outlook",
-    "AppSharePointEnvironment": "The app is running on SharePoint page",
-    "AppTeamsTabEnvironment": "The app is running in Microsoft Teams",
-    "AppOfficeEnvironment": "The app is running in office.com",
-    "AppOutlookEnvironment": "The app is running in Outlook",
-    "UnknownEnvironment": "The app is running in an unknown environment"
-  }
+    WelcomeTitle: "Well done, {0}!",
+		FormErrorRequiredFields: "Name, Email, and Company are required.",
+		FormLabelName: "Name",
+		FormLabelEmail: "Email",
+		FormLabelPhone: "Phone:",
+		FormLabelAddress: "Address:",
+		FormLabelCompany: "Company",
+		FormLabelNotes: "Notes:",
+		FormPlaceholderName: "Enter customer name",
+		FormPlaceholderEmail: "Enter customer email",
+		FormPlaceholderPhone: "Enter phone number",
+		FormPlaceholderAddress: "Enter address",
+		FormPlaceholderCompany: "Enter company",
+		FormPlaceholderNotes: "Additional notes",
+		FormRequired: "*",
+		FormErrorNameRequired: "Name is required.",
+		FormErrorEmailRequired: "Email is required.",
+		FormErrorCompanyRequired: "Company is required.",
+		FormButtonAddCustomer: "Add Customer",
+		FormAlertCustomerAdded: "Customer added: {0} ({1})",
+	};
 });
