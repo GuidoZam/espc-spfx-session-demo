@@ -1,8 +1,10 @@
 # espc-spfx-session-demo
 
-[![Deploy SPFx Solution](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution.yml/badge.svg)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution.yml)
+[![Deploy SPFx Solution PROD](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_PROD.yml/badge.svg)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_PROD.yml)
+
 [![Deploy SPFx Solution TEST](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_TEST.yml/badge.svg?branch=test)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_TEST.yml)
-[![Execute tests](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute%20tests.yml/badge.svg?branch=dev&event=push)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute%20tests.yml)
+
+[![Execute unit tests](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute-unit-tests.yml/badge.svg?branch=dev)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute-unit-tests.yml)
 
 
 ## Solution Overview
@@ -125,3 +127,54 @@ This extension illustrates the following concepts:
 - [Use Microsoft Graph in your solution](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/web-parts/get-started/using-microsoft-graph-apis)
 - [Publish SharePoint Framework applications to the Marketplace](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/publish-to-marketplace-overview)
 - [Microsoft 365 Patterns and Practices](https://aka.ms/m365pnp) - Guidance, tooling, samples and open-source controls for your Microsoft 365 development
+
+## Project Structure & Implementation Details
+
+The repository is organized as follows:
+
+- `src/` – Source code for the SPFx web part, including:
+  - `webparts/helloWorld/HelloWorldWebPart.ts` – Main web part implementation (TypeScript, React)
+  - `webparts/helloWorld/components/` – React components for the web part UI
+  - `webparts/helloWorld/assets/` – Images and static assets
+  - `webparts/helloWorld/loc/` – Localization files
+- `lib/` – Transpiled output from TypeScript build
+- `config/` – Configuration files for SPFx, deployment, and manifests
+- `cert/` – Certificates for local development and deployment
+- `tests/` – Playwright E2E tests and Jest unit test setup
+- `gulpfile.js` – Gulp tasks for building, serving, and packaging the solution
+- `package.json` – Project dependencies and scripts
+- `jest.setup.ts` – Jest configuration for unit tests
+- `playwright.config.ts` – Playwright configuration for E2E tests
+- `sharepoint/solution/` – Packaged SharePoint solution files (`.sppkg`)
+
+### Main Implementation Files
+- **HelloWorldWebPart.ts**: Implements the SPFx web part, rendering the React component and handling properties.
+- **HelloWorld.tsx**: Main React component for the web part UI.
+- **HelloWorld.module.scss**: Styles for the web part.
+- **HelloWorld.test.js**: Unit tests for the React component (Jest).
+- **basic.spec.ts**: Playwright E2E test for authentication and UI flows.
+
+### Running Locally & Testing
+
+- To run the web part locally:
+  ```sh
+  npm install
+  gulp serve
+  ```
+- To run unit tests:
+  ```sh
+  npm test
+  ```
+- To run Playwright E2E tests:
+  ```sh
+  npm run test:e2e
+  ```
+
+### Deployment
+
+- Build and package the solution:
+  ```sh
+  gulp bundle --ship
+  gulp package-solution --ship
+  ```
+- Deploy the `.sppkg` file from `sharepoint/solution/` to your SharePoint App Catalog.
