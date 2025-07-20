@@ -1,0 +1,117 @@
+{
+	"$schema": "https://raw.githubusercontent.com/dotnet/dev-proxy/main/schemas/v0.29.2/rc.schema.json",
+	"plugins": [
+		{
+			"name": "RetryAfterPlugin",
+			"enabled": true,
+			"pluginPath": "~appFolder/plugins/DevProxy.Plugins.dll"
+		},
+		{
+			"name": "GraphSelectGuidancePlugin",
+			"enabled": true,
+			"pluginPath": "~appFolder/plugins/DevProxy.Plugins.dll",
+			"urlsToWatch": [
+				"https://graph.microsoft.com/v1.0/*",
+				"https://graph.microsoft.com/beta/*",
+				"https://graph.microsoft.us/v1.0/*",
+				"https://graph.microsoft.us/beta/*",
+				"https://dod-graph.microsoft.us/v1.0/*",
+				"https://dod-graph.microsoft.us/beta/*",
+				"https://microsoftgraph.chinacloudapi.cn/v1.0/*",
+				"https://microsoftgraph.chinacloudapi.cn/beta/*"
+			]
+		},
+		{
+			"name": "GraphBetaSupportGuidancePlugin",
+			"enabled": true,
+			"pluginPath": "~appFolder/plugins/DevProxy.Plugins.dll",
+			"urlsToWatch": [
+				"https://graph.microsoft.com/beta/*",
+				"https://graph.microsoft.us/beta/*",
+				"https://dod-graph.microsoft.us/beta/*",
+				"https://microsoftgraph.chinacloudapi.cn/beta/*"
+			]
+		},
+		{
+			"name": "GraphSdkGuidancePlugin",
+			"enabled": true,
+			"pluginPath": "~appFolder/plugins/DevProxy.Plugins.dll",
+			"urlsToWatch": [
+				"https://graph.microsoft.com/v1.0/*",
+				"https://graph.microsoft.com/beta/*",
+				"https://graph.microsoft.us/v1.0/*",
+				"https://graph.microsoft.us/beta/*",
+				"https://dod-graph.microsoft.us/v1.0/*",
+				"https://dod-graph.microsoft.us/beta/*",
+				"https://microsoftgraph.chinacloudapi.cn/v1.0/*",
+				"https://microsoftgraph.chinacloudapi.cn/beta/*"
+			]
+		},
+		{
+			"name": "ODataPagingGuidancePlugin",
+			"enabled": true,
+			"pluginPath": "~appFolder/plugins/DevProxy.Plugins.dll"
+		},
+		{
+			"name": "GraphClientRequestIdGuidancePlugin",
+			"enabled": true,
+			"pluginPath": "~appFolder/plugins/DevProxy.Plugins.dll",
+			"urlsToWatch": [
+				"https://graph.microsoft.com/v1.0/*",
+				"https://graph.microsoft.com/beta/*",
+				"https://graph.microsoft.us/v1.0/*",
+				"https://graph.microsoft.us/beta/*",
+				"https://dod-graph.microsoft.us/v1.0/*",
+				"https://dod-graph.microsoft.us/beta/*",
+				"https://microsoftgraph.chinacloudapi.cn/v1.0/*",
+				"https://microsoftgraph.chinacloudapi.cn/beta/*"
+			]
+		},
+		{
+			"name": "CachingGuidancePlugin",
+			"enabled": true,
+			"pluginPath": "~appFolder/plugins/DevProxy.Plugins.dll",
+			"configSection": "cachingGuidance"
+		},
+		{
+			"name": "GraphRandomErrorPlugin",
+			"enabled": true,
+			"pluginPath": "~appFolder/plugins/DevProxy.Plugins.dll",
+			"configSection": "graphRandomErrorsPlugin"
+		},
+		{
+			"name": "GraphMinimalPermissionsPlugin",
+			"enabled": true,
+			"pluginPath": "~appFolder/plugins/DevProxy.Plugins.dll",
+			"configSection": "graphMinimalPermissionsPlugin"
+		}
+	],
+	"urlsToWatch": [
+		"https://graph.microsoft.com/v1.0/*",
+		"https://graph.microsoft.com/beta/*",
+		"https://graph.microsoft.us/v1.0/*",
+		"https://graph.microsoft.us/beta/*",
+		"https://dod-graph.microsoft.us/v1.0/*",
+		"https://dod-graph.microsoft.us/beta/*",
+		"https://microsoftgraph.chinacloudapi.cn/v1.0/*",
+		"https://microsoftgraph.chinacloudapi.cn/beta/*",
+		"!https://*.sharepoint.com/_api/web/GetClientSideComponents*",
+		"https://*.sharepoint.*/*_api/*",
+		"https://*.sharepoint.*/*_vti_bin/*",
+		"https://*.sharepoint-df.*/*_api/*",
+		"https://*.sharepoint-df.*/*_vti_bin/*"
+	],
+	"graphRandomErrorsPlugin": {
+		"$schema": "https://raw.githubusercontent.com/dotnet/dev-proxy/main/schemas/v0.29.2/graphrandomerrorplugin.schema.json",
+		"allowedErrors": [429, 500, 502, 503, 504, 507],
+		"rate": 50
+	},
+	"graphMinimalPermissionsPlugin": {
+		"type": "Delegated"
+	},
+	"cachingGuidance": {
+		"cacheThresholdSeconds": 5
+	},
+	"labelMode": "text",
+	"logLevel": "information"
+}
