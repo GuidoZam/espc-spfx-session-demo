@@ -1,15 +1,33 @@
 # espc-spfx-session-demo
 
 [![Deploy SPFx Solution](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution.yml/badge.svg)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution.yml)
-
 [![Execute tests](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute%20tests.yml/badge.svg?branch=dev&event=push)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute%20tests.yml)
+
+
+## Solution Overview
+
+This project demonstrates a SharePoint Framework (SPFx) web part solution integrated with modern CI/CD and automated testing practices. It features:
+
+- **HelloWorld Web Part**: A sample SPFx web part showcasing basic React integration, localization, and asset management.
+- **Automated Testing**: End-to-end tests using Playwright, including authentication flows for Microsoft 365 and SharePoint Online.
+- **CI/CD Integration**: GitHub Actions workflows for building, testing, and deploying the solution.
+- **Azure Storage Deployment**: Example configuration for deploying assets to Azure Storage.
+
+### Key Technologies
+- SharePoint Framework (SPFx)
+- React
+- TypeScript
+- Jest (unit testing)
+- Playwright (E2E testing)
+- GitHub Actions (CI/CD)
 
 ## CI/CD Configuration
 
 This project uses GitHub Actions for Continuous Integration and Continuous Deployment:
 
-- **Deploy SPFx Solution** (`deploy-spfx-solution.yml`): Automatically builds, tests, and deploys the SPFx solution to SharePoint when code is pushed to the `main` branch
-- **Execute Tests** (`execute tests.yml`): Runs unit tests when code is pushed to the `dev` branch
+- **Execute Tests** (`execute tests.yml`): Runs unit tests using Jest when code is pushed to the `dev` branch
+- **Deploy SPFx Solution TEST** (`deploy-spfx-solution_TEST.yml`): Automatically builds, tests, and deploys the SPFx solution to SharePoint when code is pushed to the `test` branch
+- **Deploy SPFx Solution PROD** (`deploy-spfx-solution_PROD.yml`): Automatically builds, tests, and deploys the SPFx solution to SharePoint when code is pushed to the `main` branch
 
 ### Required Secrets and Variables
 
@@ -22,6 +40,8 @@ For the deployment workflow to work, the following GitHub secrets and variables 
 **Variables:**
 - `M365_CLIENT_ID`: App ID of the Entra application used for authentication  
 - `M365_TENANT`: ID of the Microsoft 365 tenant
+- `TEST_SHAREPOINT_SITE_URL`: URL of the target SharePoint site for deployment and testing
+- `TEST_USERNAME`, `TEST_PASSWORD`: Credentials for Playwright authentication (test environment)
 
 ### Troubleshooting
 
@@ -29,9 +49,14 @@ If you encounter deployment issues, see the [CI/CD Troubleshooting Guide](docs/C
 
 ## Summary
 
-Short summary on functionality and used technologies.
+This solution provides a reference implementation for:
+- Building SPFx web parts with React and TypeScript
+- Automating deployment and testing using GitHub Actions
+- Implementing unit tests with Jest
+- Integrating Playwright for robust E2E testing of SharePoint authentication and UI flows
+- Managing assets and configuration for enterprise scenarios
 
-[picture of the solution in action, if possible]
+![SPFx Solution Screenshot](release/assets/welcome-light_a2dcb0d64c8d6e80cf49.png)
 
 ## Used SharePoint Framework Version
 
@@ -46,20 +71,21 @@ Short summary on functionality and used technologies.
 
 ## Prerequisites
 
-> Any special pre-requisites?
+- Node.js LTS
+- SPFx development environment
+- Microsoft 365 developer tenant
 
 ## Solution
 
 | Solution    | Author(s)                                               |
 | ----------- | ------------------------------------------------------- |
-| folder name | Author details (name, company, twitter alias with link) |
+| espc-spfx-session-demo | Guido Zambarda ([@GuidoZam](https://twitter.com/GuidoZam)) |
 
 ## Version history
 
 | Version | Date             | Comments        |
 | ------- | ---------------- | --------------- |
-| 1.1     | March 10, 2021   | Update comment  |
-| 1.0     | January 29, 2021 | Initial release |
+| 1.0     | July 20, 2025 | Initial release |
 
 ## Disclaimer
 
@@ -79,13 +105,13 @@ Short summary on functionality and used technologies.
 
 ## Features
 
-Description of the extension that expands upon high-level summary above.
-
 This extension illustrates the following concepts:
 
-- topic 1
-- topic 2
-- topic 3
+- SPFx web part development with React
+- Localization and asset management
+- Unit testing with Jest
+- Automated E2E testing with Playwright
+- CI/CD with GitHub Actions
 
 > Notice that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions advance.
 
