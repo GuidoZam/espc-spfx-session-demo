@@ -40,4 +40,8 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install
       - name: Run e2e tests
+        env:
+          USERNAME: ${{ secrets.TEST_USERNAME }}
+          PASSWORD: ${{ secrets.TEST_PASSWORD }}
+          SHAREPOINT_SITE_URL: ${{ secrets.TEST_SHAREPOINT_SITE_URL }}
         run: npm run test:e2e
