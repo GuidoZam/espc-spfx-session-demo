@@ -1,40 +1,40 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
-  "solution": {
-    "name": "espc-spfx-session-demo-client-side-solution",
-    "id": "20c09b62-3dc3-4072-9052-f6ddb4434851",
-    "version": "1.0.0.0",
-    "includeClientSideAssets": true,
-    "skipFeatureDeployment": true,
-    "isDomainIsolated": false,
-    "developer": {
-      "name": "",
-      "websiteUrl": "",
-      "privacyUrl": "",
-      "termsOfUseUrl": "",
-      "mpnId": "Undefined-1.21.1"
+    "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+    "solution": {
+        "name": "espc-spfx-session-demo-client-side-solution",
+        "id": "20c09b62-3dc3-4072-9052-f6ddb4434851",
+        "version": "1.0.2.0",
+        "includeClientSideAssets": true,
+        "skipFeatureDeployment": true,
+        "isDomainIsolated": false,
+        "developer": {
+            "name": "",
+            "websiteUrl": "",
+            "privacyUrl": "",
+            "termsOfUseUrl": "",
+            "mpnId": "Undefined-1.21.1"
+        },
+        "metadata": {
+            "shortDescription": {
+                "default": "espc-spfx-session-demo description"
+            },
+            "longDescription": {
+                "default": "espc-spfx-session-demo description"
+            },
+            "screenshotPaths": [],
+            "videoUrl": "",
+            "categories": []
+        },
+        "features": [
+            {
+                "title": "espc-spfx-session-demo Feature",
+                "description": "The feature that activates elements of the espc-spfx-session-demo solution.",
+                "id": "cf989a45-81e4-4e6e-92f1-1863dd8999ec",
+                "version": "1.0.2.0"
+            }
+        ]
     },
-    "metadata": {
-      "shortDescription": {
-        "default": "espc-spfx-session-demo description"
-      },
-      "longDescription": {
-        "default": "espc-spfx-session-demo description"
-      },
-      "screenshotPaths": [],
-      "videoUrl": "",
-      "categories": []
-    },
-    "features": [
-      {
-        "title": "espc-spfx-session-demo Feature",
-        "description": "The feature that activates elements of the espc-spfx-session-demo solution.",
-        "id": "cf989a45-81e4-4e6e-92f1-1863dd8999ec",
-        "version": "1.0.0.0"
-      }
-    ]
-  },
-  "paths": {
-    "zippedPackage": "solution/espc-spfx-session-demo.sppkg"
-  }
+    "paths": {
+        "zippedPackage": "solution/espc-spfx-session-demo.sppkg"
+    }
 }
