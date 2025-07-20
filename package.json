@@ -10,6 +10,7 @@
 		"build": "gulp bundle",
 		"clean": "gulp clean",
 		"serve": "gulp serve",
+		"serve:proxy": "devproxy --config-file config/devproxy-spfx-config.json & gulp serve --nobrowser",
 		"version:patch": "npm version patch --no-git-tag-version && gulp sync-version",
 		"test": "jest --passWithNoTests",
 		"test:e2e": "playwright test"
