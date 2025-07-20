@@ -38,7 +38,7 @@ jobs:
           SKIP_FEATURE_DEPLOYMENT: false
           OVERWRITE: true
       - name: Install Playwright Browsers
-        run: npx playwright install
+        run: npx playwright install --with-deps
       - name: Run e2e tests
         env:
           TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
