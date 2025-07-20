@@ -1,3 +1,4 @@
+// jest.mock calls must come first
 jest.mock('NewCustomerFormWebPartStrings', () => ({
   FormAlertCustomerAdded: 'Customer {0} ({1}) added successfully.',
   FormErrorRequiredFields: 'Required fields missing.',
@@ -6,7 +7,20 @@ jest.mock('NewCustomerFormWebPartStrings', () => ({
   FormErrorCompanyRequired: 'Company is required',
   WelcomeTitle: 'Welcome, {0}!'
 }));
+
 jest.mock('@fluentui/react');
+
+jest.mock('@fluentui/react', () => {
+  const original = jest.requireActual('@fluentui/react');
+  const ReactImport = require('react'); // eslint-disable-line @typescript-eslint/no-var-requires
+  return {
+    ...original,
+    MessageBar: ReactImport.forwardRef(
+      (props: { children?: React.ReactNode }, ref: React.Ref<HTMLDivElement>) =>
+        <div ref={ref}>{props.children}</div>
+    )
+  };
+});
 
 import * as React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
@@ -94,13 +108,4 @@ describe('NewCustomerForm Component', () => {
     expect(screen.queryAllByText(/Name is required/i).length).toBe(0);
     expect(screen.queryAllByText(/Email is required/i).length).toBe(0);
   });
-});
-
-jest.mock('@fluentui/react', () => {
-  const original = jest.requireActual('@fluentui/react');
-  const React = require('react');
-  return {
-    ...original,
-    MessageBar: React.forwardRef((props: { children: React.ReactNode }, ref: React.Ref<HTMLDivElement>) => <div ref={ref}>{props.children}</div>)
-  };
 });
