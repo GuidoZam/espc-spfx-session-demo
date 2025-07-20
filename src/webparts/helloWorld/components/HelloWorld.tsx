@@ -49,7 +49,6 @@ const HelloWorld: React.FC<IHelloWorldProps> = (props) => {
       return;
     }
     setError('');
-    alert(`Customer added: ${customerName} (${customerEmail})`);
     setCustomerName('');
     setCustomerEmail('');
     setCustomerPhone('');
@@ -57,6 +56,7 @@ const HelloWorld: React.FC<IHelloWorldProps> = (props) => {
     setCustomerCompany('');
     setCustomerNotes('');
     setTouched({ name: false, email: false, company: false });
+    alert(`Customer added: ${customerName} (${customerEmail})`);
   };
 
   return (
