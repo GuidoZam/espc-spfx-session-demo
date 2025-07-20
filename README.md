@@ -1,8 +1,10 @@
 # espc-spfx-session-demo
 
-[![Deploy SPFx Solution](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution.yml/badge.svg)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution.yml)
+[![Deploy SPFx Solution PROD](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_PROD.yml/badge.svg)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_PROD.yml)
+
 [![Deploy SPFx Solution TEST](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_TEST.yml/badge.svg?branch=test)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_TEST.yml)
-[![Execute tests](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute%20tests.yml/badge.svg?branch=dev&event=push)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute%20tests.yml)
+
+[![Execute unit tests](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute-unit-tests.yml/badge.svg?branch=dev)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute-unit-tests.yml)
 
 
 ## Solution Overview
