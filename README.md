@@ -11,7 +11,7 @@
 
 This project demonstrates a SharePoint Framework (SPFx) web part solution integrated with modern CI/CD and automated testing practices. It features:
 
-- **HelloWorld Web Part**: A sample SPFx web part showcasing basic React integration, localization, and asset management.
+- **NewCustomerForm Web Part**: A sample SPFx web part showcasing basic React integration, localization, and asset management.
 - **Automated Testing**: End-to-end tests using Playwright, including authentication flows for Microsoft 365 and SharePoint Online.
 - **CI/CD Integration**: GitHub Actions workflows for building, testing, and deploying the solution.
 - **Azure Storage Deployment**: Example configuration for deploying assets to Azure Storage.
@@ -123,20 +123,23 @@ This extension illustrates the following concepts:
 ## References
 
 - [Getting started with SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-developer-tenant)
-- [Building for Microsoft teams](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/build-for-teams-overview)
-- [Use Microsoft Graph in your solution](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/web-parts/get-started/using-microsoft-graph-apis)
-- [Publish SharePoint Framework applications to the Marketplace](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/publish-to-marketplace-overview)
+- [Use PnPjs to access Graph APIs](https://pnp.github.io/pnpjs/)
 - [Microsoft 365 Patterns and Practices](https://aka.ms/m365pnp) - Guidance, tooling, samples and open-source controls for your Microsoft 365 development
+- [DevProxy setup](https://learn.microsoft.com/en-us/microsoft-cloud/dev/dev-proxy/get-started/set-up)
+- [DevProxy configuration](https://github.com/pnp/proxy-samples/tree/9a4287685c1f856230431864f2802f5712184083/samples/spfx) - Proxy configuration for SPFx development
 
 ## Project Structure & Implementation Details
 
 The repository is organized as follows:
 
 - `src/` – Source code for the SPFx web part, including:
-  - `webparts/helloWorld/HelloWorldWebPart.ts` – Main web part implementation (TypeScript, React)
-  - `webparts/helloWorld/components/` – React components for the web part UI
-  - `webparts/helloWorld/assets/` – Images and static assets
-  - `webparts/helloWorld/loc/` – Localization files
+  - `webparts/newCustomerForm/NewCustomerFormWebPart.ts` – Main web part implementation (TypeScript, React)
+  - `webparts/newCustomerForm/components/NewCustomerForm.tsx` – Main React component for the web part UI
+  - `webparts/newCustomerForm/components/NewCustomerForm.module.scss` – Styles for the web part
+  - `webparts/newCustomerForm/components/NewCustomerForm.test.tsx` – Unit tests for the React component (Jest)
+  - `webparts/newCustomerForm/components/INewCustomerFormProps.ts` – Props interface for the React component
+  - `webparts/newCustomerForm/assets/` – Images and static assets
+  - `webparts/newCustomerForm/loc/` – Localization files
 - `lib/` – Transpiled output from TypeScript build
 - `config/` – Configuration files for SPFx, deployment, and manifests
 - `cert/` – Certificates for local development and deployment
@@ -148,10 +151,11 @@ The repository is organized as follows:
 - `sharepoint/solution/` – Packaged SharePoint solution files (`.sppkg`)
 
 ### Main Implementation Files
-- **HelloWorldWebPart.ts**: Implements the SPFx web part, rendering the React component and handling properties.
-- **HelloWorld.tsx**: Main React component for the web part UI.
-- **HelloWorld.module.scss**: Styles for the web part.
-- **HelloWorld.test.js**: Unit tests for the React component (Jest).
+- **NewCustomerFormWebPart.ts**: Implements the SPFx web part, rendering the React component and handling properties.
+- **NewCustomerForm.tsx**: Main React component for the web part UI.
+- **NewCustomerForm.module.scss**: Styles for the web part.
+- **NewCustomerForm.test.tsx**: Unit tests for the React component (Jest).
+- **INewCustomerFormProps.ts**: Props interface for the React component.
 - **basic.spec.ts**: Playwright E2E test for authentication and UI flows.
 
 ### Running Locally & Testing

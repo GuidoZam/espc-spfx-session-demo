@@ -1,19 +1,15 @@
 import * as React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import HelloWorld from './HelloWorld';
+import NewCustomerForm from './NewCustomerForm';
 
 const baseProps = {
-  hasTeamsContext: false,
-  userDisplayName: 'Test User',
-  description: '',
-  isDarkTheme: false,
-  environmentMessage: ''
+  userDisplayName: 'Test User'
 };
 
-describe('HelloWorld Component', () => {
+describe('NewCustomerForm Component', () => {
   it('renders all customer fields', () => {
-    render(<HelloWorld {...baseProps} />);
+    render(<NewCustomerForm {...baseProps} />);
     expect(screen.getByLabelText(/Name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Email/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Phone/i)).toBeInTheDocument();
@@ -25,7 +21,7 @@ describe('HelloWorld Component', () => {
 
   it('handles input and submit when required fields are filled', () => {
     window.alert = jest.fn();
-    render(<HelloWorld {...baseProps} />);
+    render(<NewCustomerForm {...baseProps} />);
     fireEvent.change(screen.getByLabelText(/Name/i), { target: { value: 'John Doe' } });
     fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john@example.com' } });
     fireEvent.change(screen.getByLabelText(/Company/i), { target: { value: 'Acme Corp' } });
@@ -33,7 +29,7 @@ describe('HelloWorld Component', () => {
     fireEvent.change(screen.getByLabelText(/Address/i), { target: { value: '123 Main St' } });
     fireEvent.change(screen.getByLabelText(/Notes/i), { target: { value: 'VIP customer' } });
     fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));
-    expect(window.alert).toHaveBeenCalledWith('Customer added: John Doe (john@example.com)');
+    expect(window.alert).toHaveBeenCalledWith('Customer John Doe (john@example.com) added successfully.');
     expect(screen.getByLabelText(/Name/i)).toHaveValue('');
     expect(screen.getByLabelText(/Email/i)).toHaveValue('');
     expect(screen.getByLabelText(/Company/i)).toHaveValue('');
@@ -43,7 +39,7 @@ describe('HelloWorld Component', () => {
   });
 
   it('shows error message only for missing field when submitting blank form', () => {
-    render(<HelloWorld {...baseProps} />);
+    render(<NewCustomerForm {...baseProps} />);
     fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));
     expect(screen.queryAllByText(/Name is required/i).length).toBeGreaterThan(0);
     expect(screen.queryAllByText(/Email is required/i).length).toBeGreaterThan(0);
@@ -51,7 +47,7 @@ describe('HelloWorld Component', () => {
   });
 
   it('shows error message only for missing Name', () => {
-    render(<HelloWorld {...baseProps} />);
+    render(<NewCustomerForm {...baseProps} />);
     fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john@example.com' } });
     fireEvent.change(screen.getByLabelText(/Company/i), { target: { value: 'Acme Corp' } });
     fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));
@@ -61,7 +57,7 @@ describe('HelloWorld Component', () => {
   });
 
   it('shows error message only for missing Email', () => {
-    render(<HelloWorld {...baseProps} />);
+    render(<NewCustomerForm {...baseProps} />);
     fireEvent.change(screen.getByLabelText(/Name/i), { target: { value: 'John Doe' } });
     fireEvent.change(screen.getByLabelText(/Company/i), { target: { value: 'Acme Corp' } });
     fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));
@@ -71,7 +67,7 @@ describe('HelloWorld Component', () => {
   });
 
   it('shows error message only for missing Company', () => {
-    render(<HelloWorld {...baseProps} />);
+    render(<NewCustomerForm {...baseProps} />);
     fireEvent.change(screen.getByLabelText(/Name/i), { target: { value: 'John Doe' } });
     fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john@example.com' } });
     fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));

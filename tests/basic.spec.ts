@@ -34,7 +34,7 @@ test.describe("Page load", () => {
 		await page.click('button[type="submit"]');
 
 		// dismiss dialog or alert
-		await page.on('dialog', async dialog => {
+		page.on('dialog', async dialog => {
 			expect(dialog.message()).toContain('Customer added');
 			await dialog.dismiss();
 		});
