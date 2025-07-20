@@ -19,7 +19,8 @@ jobs:
         run: npm ci
       - name: Bundle & Package
         run: |
-          npm run package
+          gulp bundle --ship
+          gulp package-solution --ship
       - name: Run unit tests
         run: npm test
       - name: CLI for Microsoft 365 Login

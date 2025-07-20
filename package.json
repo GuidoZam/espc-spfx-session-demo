@@ -10,7 +10,7 @@
 		"build": "gulp bundle",
 		"clean": "gulp clean",
 		"serve": "gulp serve",
-		"package": "gulp build && npm version patch --no-git-tag-version && gulp sync-version && gulp bundle --ship && gulp package-solution --ship",
+		"version:patch": "npm version patch --no-git-tag-version && gulp sync-version",
 		"test": "jest --passWithNoTests",
 		"test:e2e": "playwright test"
 	},
