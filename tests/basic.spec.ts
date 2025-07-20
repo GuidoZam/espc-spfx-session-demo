@@ -6,7 +6,7 @@ test.describe("Page load", () => {
 	test.beforeAll(async ({ browser }) => {
 		// Open a new page to be reused between tests
 		page = await browser.newPage();
-		await page.goto(process.env.SHAREPOINT_SITE_URL || "", {
+		await page.goto(process.env.TEST_SHAREPOINT_SITE_URL || "", {
 			waitUntil: "domcontentloaded",
 		});
 	});

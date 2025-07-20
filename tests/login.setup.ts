@@ -1,19 +1,20 @@
+require('dotenv').config();
 import { test as setup } from "@playwright/test";
 import { AuthFile } from "./constants/AuthFile";
 
-console.log("Starting authentication setup for user " + process.env.USERNAME);
+console.log("Starting authentication setup for user " + process.env.TEST_USERNAME);
 
 /**
  * Login to Microsoft 365
  * More info: https://playwright.dev/docs/auth
  */
 setup("authenticate", async ({ page }) => {
-	await page.goto(process.env.SHAREPOINT_SITE_URL || "");
+	await page.goto(process.env.TEST_SHAREPOINT_SITE_URL || "");
 
 	const emailInput = page.locator("input[type=email]");
 	await emailInput.waitFor();
 	await emailInput.click();
-	await emailInput.fill(process.env.USERNAME || "");
+	await emailInput.fill(process.env.TEST_USERNAME || "");
 
 	await page.getByRole("button", { name: "Next" }).click();
 	console.log("Clicked 'Next' after entering email.");
@@ -21,7 +22,7 @@ setup("authenticate", async ({ page }) => {
 	const passwordInput = page.locator("input[type=password]");
 	await passwordInput.waitFor();
 	await passwordInput.click();
-	await passwordInput.fill(process.env.PASSWORD || "");
+	await passwordInput.fill(process.env.TEST_PASSWORD || "");
 
 	await page.locator("input[type=submit][value='Sign in']").click();
   console.log("Clicked 'Sign in' after entering password.");
@@ -34,8 +35,10 @@ setup("authenticate", async ({ page }) => {
   console.log("Clicked 'Yes' to stay signed in.");
 
 	// Check if already on the target URL before waiting
-	if (page.url() !== (process.env.SHAREPOINT_SITE_URL || "")) {
-		await page.waitForURL(process.env.SHAREPOINT_SITE_URL || "", { timeout: 45000 });
+	if (page.url() !== (process.env.TEST_SHAREPOINT_SITE_URL || "")) {
+		await page.waitForURL(process.env.TEST_SHAREPOINT_SITE_URL || "", {
+			timeout: 45000,
+		});
 	} else {
 		console.log("Already on target URL, skipping waitForURL.");
 	}
