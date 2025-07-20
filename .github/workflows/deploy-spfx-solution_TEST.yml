@@ -1,8 +1,8 @@
-name: Deploy SPFx Solution
+name: Deploy SPFx Solution TEST
 on:
   push:
     branches:
-      - main
+      - test
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -37,5 +37,11 @@ jobs:
           SCOPE: tenant
           SKIP_FEATURE_DEPLOYMENT: false
           OVERWRITE: true
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
       - name: Run e2e tests
+        env:
+          TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+          TEST_SHAREPOINT_SITE_URL: ${{ vars.TEST_SHAREPOINT_SITE_URL }}
         run: npm run test:e2e
