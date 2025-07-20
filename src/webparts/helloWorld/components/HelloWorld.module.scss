@@ -8,10 +8,17 @@
   &.teams {
     font-family: $ms-font-family-fallbacks;
   }
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  padding: 2rem;
+  max-width: 500px;
+  margin: 2rem auto;
 }
 
 .welcome {
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .welcomeImage {
@@ -19,16 +26,67 @@
   max-width: 420px;
 }
 
-.links {
-  a {
-    text-decoration: none;
-    color: "[theme:link, default:#03787c]";
-    color: var(--link); // note: CSS Custom Properties support is limited to modern browsers only
+.customerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
 
-    &:hover {
-      text-decoration: underline;
-      color: "[theme:linkHovered, default: #014446]";
-      color: var(--linkHovered); // note: CSS Custom Properties support is limited to modern browsers only
-    }
-  }
+.formRow {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  padding: 0.7em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  margin-top: 0.3em;
+}
+
+.textarea {
+  padding: 0.7em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  margin-top: 0.3em;
+  min-height: 60px;
+  resize: vertical;
+}
+
+.submitBtn {
+  background: linear-gradient(90deg, #0078d4 0%, #005a9e 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8em 1.5em;
+  font-size: 1.1em;
+  cursor: pointer;
+  margin-top: 1em;
+  transition: background 0.2s;
+}
+
+.submitBtn:hover {
+  background: linear-gradient(90deg, #005a9e 0%, #0078d4 100%);
+}
+
+.required {
+  color: #d13438;
+  margin-left: 0.2em;
+  font-weight: bold;
+}
+
+.formError {
+  color: #d13438;
+  font-size: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.fieldError {
+  color: #d13438;
+  font-size: 0.95em;
+  margin-top: 0.2em;
+  margin-left: 0.1em;
 }
