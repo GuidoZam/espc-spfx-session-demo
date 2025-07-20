@@ -1,6 +1,6 @@
 {
 	"name": "espc-spfx-session-demo",
-	"version": "0.0.1",
+	"version": "1.0.2",
 	"private": true,
 	"engines": {
 		"node": ">=22.14.0 < 23.0.0"
@@ -10,6 +10,7 @@
 		"build": "gulp bundle",
 		"clean": "gulp clean",
 		"serve": "gulp serve",
+		"version:patch": "npm version patch --no-git-tag-version && gulp sync-version",
 		"test": "jest --passWithNoTests",
 		"test:e2e": "playwright test"
 	},
@@ -40,6 +41,7 @@
 		"@microsoft/sp-property-pane": "1.21.1",
 		"@microsoft/sp-webpart-base": "1.21.1",
 		"@types/node": "^24.0.15",
+		"gulp-util": "^3.0.8",
 		"react": "17.0.1",
 		"react-dom": "17.0.1",
 		"tslib": "2.3.1"
