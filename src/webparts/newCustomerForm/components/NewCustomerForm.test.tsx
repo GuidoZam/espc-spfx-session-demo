@@ -1,11 +1,26 @@
+jest.mock('NewCustomerFormWebPartStrings', () => ({
+  FormAlertCustomerAdded: 'Customer {0} ({1}) added successfully.',
+  FormErrorRequiredFields: 'Required fields missing.',
+  FormErrorNameRequired: 'Name is required',
+  FormErrorEmailRequired: 'Email is required',
+  FormErrorCompanyRequired: 'Company is required',
+  WelcomeTitle: 'Welcome, {0}!'
+}));
+jest.mock('@fluentui/react');
+
 import * as React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import NewCustomerForm from './NewCustomerForm';
+import { initializeIcons } from '@fluentui/react';
 
 const baseProps = {
   userDisplayName: 'Test User'
 };
+
+beforeAll(() => {
+  initializeIcons();
+});
 
 describe('NewCustomerForm Component', () => {
   it('renders all customer fields', () => {
@@ -29,7 +44,11 @@ describe('NewCustomerForm Component', () => {
     fireEvent.change(screen.getByLabelText(/Address/i), { target: { value: '123 Main St' } });
     fireEvent.change(screen.getByLabelText(/Notes/i), { target: { value: 'VIP customer' } });
     fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));
-    expect(window.alert).toHaveBeenCalledWith('Customer John Doe (john@example.com) added successfully.');
+    expect(
+      screen.getByText((content, element) =>
+        typeof content === 'string' && content.indexOf('Customer John Doe (john@example.com) added successfully') !== -1
+      )
+    ).toBeInTheDocument();
     expect(screen.getByLabelText(/Name/i)).toHaveValue('');
     expect(screen.getByLabelText(/Email/i)).toHaveValue('');
     expect(screen.getByLabelText(/Company/i)).toHaveValue('');
@@ -75,4 +94,13 @@ describe('NewCustomerForm Component', () => {
     expect(screen.queryAllByText(/Name is required/i).length).toBe(0);
     expect(screen.queryAllByText(/Email is required/i).length).toBe(0);
   });
+});
+
+jest.mock('@fluentui/react', () => {
+  const original = jest.requireActual('@fluentui/react');
+  const React = require('react');
+  return {
+    ...original,
+    MessageBar: React.forwardRef((props: { children: React.ReactNode }, ref: React.Ref<HTMLDivElement>) => <div ref={ref}>{props.children}</div>)
+  };
 });

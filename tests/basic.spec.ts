@@ -34,10 +34,9 @@ test.describe("Page load", () => {
 		await page.click('button[type="submit"]');
 
 		// dismiss dialog or alert
-		page.on('dialog', async dialog => {
-			expect(dialog.message()).toContain('Customer added');
-			await dialog.dismiss();
-		});
+		const notification = page.locator('.ms-MessageBar');
+		await notification.waitFor({ state: 'visible' });
+		await expect(notification).toContainText('Customer added');
 
 		// Optionally, check for form reset or success message
 		await expect(page.locator('input[id="customerName"]')).toHaveValue('');

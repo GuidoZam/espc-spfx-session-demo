@@ -4,6 +4,8 @@ import type { INewCustomerFormProps } from './INewCustomerFormProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import { useState } from 'react';
 import * as strings from 'NewCustomerFormWebPartStrings';
+import Notification from './Notification';
+import { MessageBarType } from '@fluentui/react';
 
 const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
   const {
@@ -18,6 +20,7 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
   const [customerNotes, setCustomerNotes] = useState('');
   const [error, setError] = useState('');
   const [touched, setTouched] = useState({ name: false, email: false, company: false });
+  const [notification, setNotification] = useState<string | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setCustomerName(e.target.value);
@@ -56,11 +59,18 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
     setCustomerCompany('');
     setCustomerNotes('');
     setTouched({ name: false, email: false, company: false });
-    alert(strings.FormAlertCustomerAdded.replace('{0}', customerName).replace('{1}', customerEmail));
+    setNotification(strings.FormAlertCustomerAdded.replace('{0}', customerName).replace('{1}', customerEmail));
   };
 
   return (
     <section className={styles.newCustomerForm}>
+      {notification && (
+        <Notification
+          message={notification}
+          type={MessageBarType.success}
+          onDismiss={() => setNotification(null)}
+        />
+      )}
       <div className={styles.welcome}>
         <h2>{strings.WelcomeTitle.replace('{0}', escape(userDisplayName))}</h2>
       </div>
