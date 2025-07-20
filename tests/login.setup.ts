@@ -30,13 +30,6 @@ setup("authenticate", async ({ page }) => {
 	const yesButton = page.locator("input[type=submit][value='Yes']");
   await yesButton.waitFor();
   console.log("Found 'Yes' button and ready for interaction.");
-	// if (await yesButton.waitFor({ timeout: 15000 }).catch(() => false)) {
-	// 	console.log("Clicking 'Yes' to stay signed in...");
-	// 	await yesButton.click();
-	// } else {
-	// 	console.log("'Yes' button not found, continuing without clicking.");
-	// }
-
   await yesButton.click();
   console.log("Clicked 'Yes' to stay signed in.");
 
