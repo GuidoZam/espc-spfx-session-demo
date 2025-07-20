@@ -16,7 +16,7 @@ setup("authenticate", async ({ page }) => {
 	await emailInput.fill(process.env.USERNAME || "");
 
 	await page.getByRole("button", { name: "Next" }).click();
-  console.log("Clicked 'Next' after entering email.");
+	console.log("Clicked 'Next' after entering email.");
 
 	const passwordInput = page.locator("input[type=password]");
 	await passwordInput.waitFor();
