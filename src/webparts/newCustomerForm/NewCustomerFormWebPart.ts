@@ -20,7 +20,7 @@ export default class NewCustomerFormWebPart extends BaseClientSideWebPart<INewCu
       const graph = graphfi().using(SPFx(this.context));
       const me = await graph.me();
       this.userFullName = me.displayName || '';
-    } catch (error: any) {
+    } catch (error) {
       if (error && (error.statusCode === 429 || error.statusCode === 502)) {
         console.warn(`Graph API error (${error.statusCode}): ${error.message || error}`);
       } else {
