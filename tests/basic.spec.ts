@@ -33,6 +33,12 @@ test.describe("Page load", () => {
 
 		await page.click('button[type="submit"]');
 
+		// dismiss dialog or alert
+		await page.on('dialog', async dialog => {
+			expect(dialog.message()).toContain('Customer added');
+			await dialog.dismiss();
+		});
+
 		// Optionally, check for form reset or success message
 		await expect(page.locator('input[id="customerName"]')).toHaveValue('');
 		await expect(page.locator('input[id="customerEmail"]')).toHaveValue('');
