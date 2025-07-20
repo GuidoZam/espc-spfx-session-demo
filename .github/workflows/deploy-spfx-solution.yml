@@ -37,5 +37,5 @@ jobs:
           SCOPE: tenant
           SKIP_FEATURE_DEPLOYMENT: false
           OVERWRITE: true
-          DEBUG: true
-          VERBOSE: true
+      - name: Run e2e tests
+        run: npm run test:e2e
