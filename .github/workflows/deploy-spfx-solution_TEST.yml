@@ -1,4 +1,4 @@
-name: Deploy SPFx Solution
+name: Deploy SPFx Solution TEST
 on:
   push:
     branches:
