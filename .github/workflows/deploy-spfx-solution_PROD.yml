@@ -37,5 +37,7 @@ jobs:
           SCOPE: tenant
           SKIP_FEATURE_DEPLOYMENT: false
           OVERWRITE: true
+      - name: Install Playwright Browsers
+        run: npx playwright install
       - name: Run e2e tests
         run: npm run test:e2e
