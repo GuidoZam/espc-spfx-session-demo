@@ -82,7 +82,7 @@ This solution provides a reference implementation for:
 
 | Solution    | Author(s)                                               |
 | ----------- | ------------------------------------------------------- |
-| espc-spfx-session-demo | Guido Zambarda ([@GuidoZam](https://twitter.com/GuidoZam)) |
+| espc-spfx-session-demo | Guido Zambarda ([@GuidoZam](https://x.com/iamguidozam)) & Peter Paul Kirschner ([@petkir_at](https://x.com/petkir_at)) |
 
 ## Version history
 
