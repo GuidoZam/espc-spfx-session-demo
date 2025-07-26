@@ -59,8 +59,6 @@ This solution provides a reference implementation for:
 - Integrating Playwright for robust E2E testing of SharePoint authentication and UI flows
 - Managing assets and configuration for enterprise scenarios
 
-![SPFx Solution Screenshot](release/assets/welcome-light_a2dcb0d64c8d6e80cf49.png)
-
 ## Used SharePoint Framework Version
 
 ![version](https://img.shields.io/badge/version-1.21.1-green.svg)
@@ -104,8 +102,6 @@ This solution provides a reference implementation for:
   - **npm install**
   - **gulp serve**
 
-> Include any additional steps as needed.
-
 ## Features
 
 This extension illustrates the following concepts:
@@ -115,10 +111,6 @@ This extension illustrates the following concepts:
 - Unit testing with Jest
 - Automated E2E testing with Playwright
 - CI/CD with GitHub Actions
-
-> Notice that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions advance.
-
-> Share your web part with others through Microsoft 365 Patterns and Practices program to get visibility and exposure. More details on the community, open-source projects and other activities from http://aka.ms/m365pnp.
 
 ## References
 
