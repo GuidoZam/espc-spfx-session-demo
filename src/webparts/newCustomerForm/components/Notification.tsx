@@ -13,6 +13,7 @@ const Notification: React.FC<NotificationProps> = ({ message, type = MessageBarT
     isMultiline={false}
     onDismiss={onDismiss}
     dismissButtonAriaLabel="Close"
+    data-testid="customer-notification"
   >
     {message}
   </MessageBar>
