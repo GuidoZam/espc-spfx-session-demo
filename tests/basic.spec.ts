@@ -80,5 +80,6 @@ test.describe("Page load", () => {
 		await expect(page.locator('input[id="customerPhone"]')).toHaveValue('');
 		await expect(page.locator('input[id="customerAddress"]')).toHaveValue('');
 		await expect(page.locator('textarea[id="customerNotes"]')).toHaveValue('');
+
 	});
 });

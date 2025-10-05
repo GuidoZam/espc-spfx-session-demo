@@ -296,6 +296,191 @@
           "highlightWholeLine": true
         }
       ]
+    },
+    {
+      "title": "Let's make a change",
+      "steps": [
+        {
+          "action": "openSlide",
+          "path": ".demo/slides/Lets make a change.md"
+        }
+      ]
+    },
+    {
+      "title": "Form - Add a new field for social media handle",
+      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
+      "steps": [
+        {
+          "action": "insert",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "content": "  const [customerSocialHandle, setCustomerSocialHandle] = useState('');",
+          "position": "20",
+          "highlightWholeLine": true
+        }
+      ],
+      "id": "demo-mgdye6at-fowb"
+    },
+    {
+      "title": "Form - Add a new field for social media handle 2",
+      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
+      "steps": [
+        {
+          "action": "insert",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "content": "  const [touched, setTouched] = useState({ name: false, email: false, company: false, socialHandle: false });",
+          "position": "22",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "Form - Add a new field for social media handle 3",
+      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
+      "steps": [
+        {
+          "action": "insert",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "content": "  const handleSocialHandleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {\n    setCustomerSocialHandle(e.target.value);\n    setTouched(t => ({ ...t, socialHandle: true }));\n  };\n",
+          "position": "47",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant"
+        }
+      ],
+      "id": "demo-mgdym6j6-eihv"
+    },
+    {
+      "title": "Form - Add a new field for social media handle 4",
+      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
+      "steps": [
+        {
+          "action": "insert",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "content": "    if (customerSocialHandle && customerSocialHandle.indexOf('@') !== 0) {\n      setError(strings.FormErrorSocialHandleFormat);\n      return;\n    }\n",
+          "position": "59",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant"
+        }
+      ],
+      "id": "demo-mgdyyzc3-bgtr"
+    },
+    {
+      "title": "Form - Add a new field for social media handle 5",
+      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
+      "steps": [
+        {
+          "action": "insert",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "content": "    setCustomerSocialHandle('');",
+          "position": "71",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant"
+        }
+      ],
+      "id": "demo-mgdz0i3r-m862"
+    },
+    {
+      "title": "Form - Add a new field for social media handle 6",
+      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
+      "steps": [
+        {
+          "action": "insert",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "content": "        <div className={styles.formRow}>\n          <label htmlFor=\"customerSocialHandle\">Social Handle</label>\n          <input id=\"customerSocialHandle\" type=\"text\" value={customerSocialHandle} onChange={handleSocialHandleChange} className={styles.input} placeholder={strings.FormPlaceholderSocialHandle} />\n          {touched.socialHandle && customerSocialHandle && customerSocialHandle.indexOf('@') !== 0 && (\n            <span className={styles.fieldError}>{strings.FormErrorSocialHandleFormat}</span>\n          )}\n        </div>",
+          "position": "119",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant"
+        }
+      ],
+      "id": "demo-mgdz1kga-ikvo"
+    },
+    {
+      "title": "Unit Test - Add a new field for social media handle",
+      "description": "Enhance unit tests with the new field.",
+      "steps": [
+        {
+          "action": "insert",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+          "position": "49",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant",
+          "content": "    expect(screen.getByLabelText(/Social Handle/i)).toBeInTheDocument();"
+        }
+      ],
+      "id": "demo-mgdz4une-l7ae"
+    },
+    {
+      "title": "Unit Test - Add a new field for social media handle 2",
+      "description": "Enhance unit tests with the new field.",
+      "steps": [
+        {
+          "action": "insert",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+          "position": "59",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant",
+          "content": "    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: '@johndoe' } });"
+        }
+      ],
+      "id": "demo-mgdz8b3x-iuk3"
+    },
+    {
+      "title": "Unit Test - Add a new field for social media handle 3",
+      "description": "Enhance unit tests with the new field.",
+      "steps": [
+        {
+          "action": "insert",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+          "position": "72",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant",
+          "content": "    expect(screen.getByLabelText(/Social Handle/i)).toHaveValue('');"
+        }
+      ],
+      "id": "demo-mgdz91xo-xk6r"
+    },
+    {
+      "title": "Unit Test - Add a new field for social media handle 4",
+      "description": "Enhance unit tests with the new field.",
+      "steps": [
+        {
+          "action": "insert",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+          "position": "85",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant",
+          "content": "\n  it('shows error for social handle not starting with @', () => {\n    render(<NewCustomerForm {...baseProps} />);\n    fireEvent.change(screen.getByLabelText(/Name/i), { target: { value: 'John Doe' } });\n    fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john@example.com' } });\n    fireEvent.change(screen.getByLabelText(/Company/i), { target: { value: 'Acme Corp' } });\n    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: 'johndoe' } });\n    fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));\n    expect(screen.queryAllByText(/Social handle must start with @/i).length).toBeGreaterThan(0);\n  });"
+        }
+      ],
+      "id": "demo-mgdz9zs6-1wxe"
+    },
+    {
+      "title": "E2E Test - Add a new field for social media handle",
+      "description": "Enhance unit tests with the new field.",
+      "steps": [
+        {
+          "action": "insert",
+          "path": "tests/basic.spec.ts",
+          "position": "56",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant",
+          "content": "\t\tawait page.fill('input[id=\"customerSocialHandle\"]', '@janedoe');"
+        }
+      ]
+    },
+    {
+      "title": "E2E Test - Add a new field for social media handle 2",
+      "description": "Enhance unit tests with the new field.",
+      "steps": [
+        {
+          "action": "insert",
+          "path": "tests/basic.spec.ts",
+          "position": "83",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant",
+          "content": "\t\tawait expect(page.locator('input[id=\"customerSocialHandle\"]')).toHaveValue('');"
+        }
+      ],
+      "id": "demo-mgdzdhzo-hozh"
     }
   ]
 }

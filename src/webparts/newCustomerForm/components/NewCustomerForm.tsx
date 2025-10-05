@@ -17,6 +17,7 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
   const [customerPhone, setCustomerPhone] = useState('');
   const [customerAddress, setCustomerAddress] = useState('');
   const [customerCompany, setCustomerCompany] = useState('');
+
   const [customerNotes, setCustomerNotes] = useState('');
   const [error, setError] = useState('');
   const [touched, setTouched] = useState({ name: false, email: false, company: false });
@@ -51,6 +52,7 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
       setError(strings.FormErrorRequiredFields);
       return;
     }
+
     setError('');
     setCustomerName('');
     setCustomerEmail('');
@@ -58,6 +60,7 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
     setCustomerAddress('');
     setCustomerCompany('');
     setCustomerNotes('');
+
     setTouched({ name: false, email: false, company: false });
     setNotification(strings.FormAlertCustomerAdded.replace('{0}', customerName).replace('{1}', customerEmail));
   };
@@ -105,6 +108,7 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
             <span className={styles.fieldError}>{strings.FormErrorCompanyRequired}</span>
           )}
         </div>
+
         <div className={styles.formRow}>
           <label htmlFor="customerNotes">Notes</label>
           <textarea id="customerNotes" value={customerNotes} onChange={handleNotesChange} className={styles.textarea} />
