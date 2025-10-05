@@ -17,8 +17,8 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
   const [customerPhone, setCustomerPhone] = useState('');
   const [customerAddress, setCustomerAddress] = useState('');
   const [customerCompany, setCustomerCompany] = useState('');
-
   const [customerNotes, setCustomerNotes] = useState('');
+
   const [error, setError] = useState('');
   const [touched, setTouched] = useState({ name: false, email: false, company: false });
   const [notification, setNotification] = useState<string | null>(null);

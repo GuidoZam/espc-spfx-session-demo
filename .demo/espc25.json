@@ -76,7 +76,7 @@
         {
           "action": "highlight",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "position": "77:113",
+          "position": "77:117",
           "highlightWholeLine": true
         }
       ]
@@ -88,7 +88,7 @@
         {
           "action": "highlight",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "position": "112",
+          "position": "116",
           "highlightWholeLine": true
         }
       ]
@@ -100,7 +100,7 @@
         {
           "action": "highlight",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "position": "47:63",
+          "position": "48:66",
           "highlightWholeLine": true
         }
       ]
@@ -124,7 +124,7 @@
         {
           "action": "highlight",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "40:49",
+          "position": "40:51",
           "highlightWholeLine": true
         }
       ]
@@ -136,7 +136,7 @@
         {
           "action": "highlight",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "82:90",
+          "position": "87:95",
           "highlightWholeLine": true
         }
       ]
@@ -314,7 +314,7 @@
           "action": "insert",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
           "content": "  const [customerSocialHandle, setCustomerSocialHandle] = useState('');",
-          "position": "20",
+          "position": "21",
           "highlightWholeLine": true
         }
       ],
@@ -328,7 +328,7 @@
           "action": "insert",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
           "content": "  const [touched, setTouched] = useState({ name: false, email: false, company: false, socialHandle: false });",
-          "position": "22",
+          "position": "23",
           "highlightWholeLine": true
         }
       ]
@@ -380,6 +380,21 @@
     },
     {
       "title": "Form - Add a new field for social media handle 6",
+      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
+      "steps": [
+        {
+          "action": "insert",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "content": "    setCustomerSocialHandle('');\n    setTouched({ name: false, email: false, company: false, socialHandle: false });",
+          "position": "71",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant"
+        }
+      ],
+      "id": "demo-mge6ummf-s4lw"
+    },
+    {
+      "title": "Form - Add a new field for social media handle 7",
       "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
       "steps": [
         {
