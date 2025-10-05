@@ -1,0 +1,301 @@
+{
+  "$schema": "https://demotime.show/demo-time.schema.json",
+  "title": "ESPC 2025 Session Demo",
+  "description": "Demo highlights for ESPC 2025 session, covering project structure, form, tests, and CI/CD.",
+  "version": 2,
+  "demos": [
+    {
+      "title": "Title",
+      "steps": [
+        {
+          "action": "openSlide",
+          "path": ".demo/slides/Title.md"
+        }
+      ]
+    },
+    {
+      "title": "Speakers",
+      "steps": [
+        {
+          "action": "openSlide",
+          "path": ".demo/slides/Speakers.md",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "title": "Web Part Form to Insert Data",
+      "description": "Showcase the NewCustomerForm web part, demonstrating how users can input and submit new customer data.",
+      "steps": [
+        {
+          "action": "open",
+          "title": "Open NewCustomerForm web part",
+          "path": "src/webparts/newCustomerForm/NewCustomerFormWebPart.ts",
+          "description": "Display the form UI and explain its fields and submission logic."
+        }
+      ]
+    },
+    {
+      "title": "Web Part Form to Insert Data",
+      "description": "Showcase the NewCustomerForm web part, demonstrating how users can input and submit new customer data.",
+      "steps": [
+        {
+          "action": "highlight",
+          "position": "33:42",
+          "highlightWholeLine": true,
+          "path": "src/webparts/newCustomerForm/NewCustomerFormWebPart.ts"
+        }
+      ]
+    },
+    {
+      "title": "Form to Insert Data",
+      "description": "Showcase the NewCustomerForm web part, demonstrating how users can input and submit new customer data.",
+      "steps": [
+        {
+          "action": "open",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx"
+        }
+      ]
+    },
+    {
+      "title": "Form - State hooks",
+      "description": "Showcase the NewCustomerForm web part, state hooks.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "position": "15:20",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "Form - Actual form",
+      "description": "Showcase the NewCustomerForm web part, form tag.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "position": "77:113",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "Form - Form submit button",
+      "description": "Showcase the NewCustomerForm web part, form submit button.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "position": "112",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "Form - Form submit handler",
+      "description": "Showcase the NewCustomerForm web part, form submit handler.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "position": "47:63",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "Unit Tests using Jest",
+      "description": "Demonstrate the project's unit testing using Jest, setup and examples, highlighting test coverage for core logic.",
+      "steps": [
+        {
+          "action": "open",
+          "title": "Show unit test files",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+          "description": "Open a test file and explain the structure and purpose of the tests."
+        }
+      ]
+    },
+    {
+      "title": "Unit Tests - Check field presence",
+      "description": "Shows how jest check for the form fields to be present in the HTML.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+          "position": "40:49",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "Unit Tests - Check if error is returned when name is empty",
+      "description": "Shows how jest check if there is an error returned when the field name has no value specified.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+          "position": "82:90",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "End to End Tests",
+      "description": "Present the Playwright-based E2E tests, showing how user flows are validated automatically.",
+      "steps": [
+        {
+          "action": "open",
+          "title": "Open Playwright config",
+          "path": "tests/basic.spec.ts",
+          "description": "Show the Playwright configuration and describe the E2E test setup."
+        }
+      ]
+    },
+    {
+      "title": "End to End Tests - Check page title",
+      "description": "Check that the page title has a specific string.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": "tests/basic.spec.ts",
+          "position": "19:23",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "GitHub Actions for Unit Testing",
+      "description": "Explain the CI/CD pipeline, focusing on automated testing for specific branches using GitHub Actions.",
+      "steps": [
+        {
+          "action": "open",
+          "title": "Show GitHub Actions workflow",
+          "path": ".github/workflows/execute-unit-tests.yml",
+          "description": "Open the workflow file and explain the testing steps."
+        }
+      ]
+    },
+    {
+      "title": "GitHub Actions - Specific branch trigger",
+      "description": "Explain how GitHub action is triggered for a specific branch.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": ".github/workflows/execute-unit-tests.yml",
+          "position": "3:6",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "GitHub Actions - Setup the testing environment",
+      "description": "Explain how GitHub action prepare the environment for testing.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": ".github/workflows/execute-unit-tests.yml",
+          "position": "13:20",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "GitHub Actions - Install dependencies and bundle",
+      "description": "Explain how GitHub action install dependencies and run bundle.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": ".github/workflows/execute-unit-tests.yml",
+          "position": "22:26",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "GitHub Actions - Run the unit tests",
+      "description": "Explain how GitHub action run unit tests.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": ".github/workflows/execute-unit-tests.yml",
+          "position": "28:29",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "GitHub Actions for Deployment and Testing",
+      "description": "Explain the CI/CD pipeline, focusing on automated deployment and testing for specific branches using GitHub Actions.",
+      "steps": [
+        {
+          "action": "open",
+          "title": "Show GitHub Actions workflow",
+          "path": ".github/workflows/deploy-spfx-solution_TEST.yml",
+          "description": "Open the workflow file and explain the deployment and testing steps."
+        }
+      ]
+    },
+    {
+      "title": "GitHub Actions for Deployment and Testing - Specific branch trigger",
+      "description": "Explain how GitHub action is triggered for a specific branch.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": ".github/workflows/deploy-spfx-solution_TEST.yml",
+          "position": "2:5",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "GitHub Actions for Deployment and Testing - Package solution",
+      "description": "Explain how GitHub action package the SPFx solution.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": ".github/workflows/deploy-spfx-solution_TEST.yml",
+          "position": "20:23",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "GitHub Actions for Deployment and Testing - Setup M365 CLI",
+      "description": "Explain how GitHub action setup M365 CLI.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": ".github/workflows/deploy-spfx-solution_TEST.yml",
+          "position": "26:32",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "GitHub Actions for Deployment and Testing - Deploy application",
+      "description": "Explain how GitHub action deploy the application to the tenant.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": ".github/workflows/deploy-spfx-solution_TEST.yml",
+          "position": "33:39",
+          "highlightWholeLine": true
+        }
+      ]
+    },
+    {
+      "title": "GitHub Actions for Deployment and Testing - Execute end to end tests",
+      "description": "Explain how GitHub action execute end to end tests.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": ".github/workflows/deploy-spfx-solution_TEST.yml",
+          "position": "40:47",
+          "highlightWholeLine": true
+        }
+      ]
+    }
+  ]
+}

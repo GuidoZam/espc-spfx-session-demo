@@ -15,12 +15,14 @@ test.describe("Page load", () => {
 		await page.close();
 	});
 
+	// Check that the page title is present and contains "Test" text
 	test("Check site header title", async () => {
 		const header = page.locator("[data-automationid='SiteHeaderTitle'] a");
 		await header.waitFor();
 		await expect(header).toHaveText(/Test/);
 	});
 
+	// Test to fill and submit the customer form
 	test("Add customer form works with all fields", async () => {
 		// Ensure the form is present and visible before interacting
 		await expect(page.locator('form[class*="customerForm"]')).toBeVisible({ timeout: 10000 });
