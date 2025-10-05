@@ -370,21 +370,6 @@
         {
           "action": "insert",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "    setCustomerSocialHandle('');",
-          "position": "71",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant"
-        }
-      ],
-      "id": "demo-mgdz0i3r-m862"
-    },
-    {
-      "title": "Form - Add a new field for social media handle 6",
-      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
-      "steps": [
-        {
-          "action": "insert",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
           "content": "    setCustomerSocialHandle('');\n    setTouched({ name: false, email: false, company: false, socialHandle: false });",
           "position": "71",
           "highlightWholeLine": true,
@@ -394,7 +379,7 @@
       "id": "demo-mge6ummf-s4lw"
     },
     {
-      "title": "Form - Add a new field for social media handle 7",
+      "title": "Form - Add a new field for social media handle 6",
       "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
       "steps": [
         {
