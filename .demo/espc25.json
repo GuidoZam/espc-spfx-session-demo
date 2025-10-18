@@ -178,6 +178,9 @@
       "description": "Show how to perform unit tests locally.",
       "steps": [
         {
+          "action": "openTerminal"
+        },
+        {
           "action": "executeTerminalCommand",
           "command": "npm run test"
         }
@@ -188,6 +191,9 @@
       "title": "End to End Tests",
       "description": "Present the Playwright-based E2E tests, showing how user flows are validated automatically.",
       "steps": [
+        {
+          "action": "closeTerminal"
+        },
         {
           "action": "open",
           "title": "Open Playwright config",
@@ -213,6 +219,9 @@
       "description": "Show how to perform unit tests locally.",
       "steps": [
         {
+          "action": "openTerminal"
+        },
+        {
           "action": "executeTerminalCommand",
           "command": "npm run test:e2e"
         }
@@ -222,6 +231,9 @@
     {
       "title": "CI/CD",
       "steps": [
+        {
+          "action": "closeTerminal"
+        },
         {
           "action": "openSlide",
           "path": ".demo/slides/CICD.md",
