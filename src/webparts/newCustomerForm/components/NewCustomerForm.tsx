@@ -18,9 +18,9 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
   const [customerAddress, setCustomerAddress] = useState('');
   const [customerCompany, setCustomerCompany] = useState('');
   const [customerNotes, setCustomerNotes] = useState('');
-  const [customerSocialHandle, setCustomerSocialHandle] = useState('');
+
   const [error, setError] = useState('');
-  const [touched, setTouched] = useState({ name: false, email: false, company: false, socialHandle: false });
+  const [touched, setTouched] = useState({ name: false, email: false, company: false });
   const [notification, setNotification] = useState<string | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -44,20 +44,12 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
   const handleNotesChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     setCustomerNotes(e.target.value);
   };
-  const handleSocialHandleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setCustomerSocialHandle(e.target.value);
-    setTouched(t => ({ ...t, socialHandle: true }));
-  };
 
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
-    setTouched({ name: true, email: true, company: true, socialHandle: true });
+    setTouched({ name: true, email: true, company: true });
     if (!customerName || !customerEmail || !customerCompany) {
       setError(strings.FormErrorRequiredFields);
-      return;
-    }
-    if (customerSocialHandle && customerSocialHandle.indexOf('@') !== 0) {
-      setError(strings.FormErrorSocialHandleFormat);
       return;
     }
 
@@ -68,9 +60,8 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
     setCustomerAddress('');
     setCustomerCompany('');
     setCustomerNotes('');
-    setCustomerSocialHandle('');
-    setTouched({ name: false, email: false, company: false, socialHandle: false });
 
+    setTouched({ name: false, email: false, company: false });
     setNotification(strings.FormAlertCustomerAdded.replace('{0}', customerName).replace('{1}', customerEmail));
   };
 
@@ -117,13 +108,7 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
             <span className={styles.fieldError}>{strings.FormErrorCompanyRequired}</span>
           )}
         </div>
-        <div className={styles.formRow}>
-          <label htmlFor="customerSocialHandle">Social Handle</label>
-          <input id="customerSocialHandle" type="text" value={customerSocialHandle} onChange={handleSocialHandleChange} className={styles.input} placeholder={strings.FormPlaceholderSocialHandle} />
-          {touched.socialHandle && customerSocialHandle && customerSocialHandle.indexOf('@') !== 0 && (
-            <span className={styles.fieldError}>{strings.FormErrorSocialHandleFormat}</span>
-          )}
-        </div>
+
         <div className={styles.formRow}>
           <label htmlFor="customerNotes">Notes</label>
           <textarea id="customerNotes" value={customerNotes} onChange={handleNotesChange} className={styles.textarea} />
