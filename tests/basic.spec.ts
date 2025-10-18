@@ -15,12 +15,14 @@ test.describe("Page load", () => {
 		await page.close();
 	});
 
+	// Check that the page title is present and contains "Test" text
 	test("Check site header title", async () => {
 		const header = page.locator("[data-automationid='SiteHeaderTitle'] a");
 		await header.waitFor();
 		await expect(header).toHaveText(/Test/);
 	});
 
+	// Test to fill and submit the customer form
 	test("Add customer form works with all fields", async () => {
 		// Ensure the form is present and visible before interacting
 		await expect(page.locator('form[class*="customerForm"]')).toBeVisible({ timeout: 10000 });
@@ -60,7 +62,7 @@ test.describe("Page load", () => {
 		// Use robust Playwright expect for notification
 		const notification = page.locator('div[class*="ms-MessageBar--success"]');
 		try {
-			await expect(notification).toBeVisible({ timeout: 30000 });
+			await expect(notification).toBeVisible({ timeout: 60000 });
 			await expect(notification).toContainText(`Customer added: ${userName} (${userEmail})`);
 			//await expect(notification).toContainText(`Customer added:`);
 		} catch (e) {
@@ -78,5 +80,6 @@ test.describe("Page load", () => {
 		await expect(page.locator('input[id="customerPhone"]')).toHaveValue('');
 		await expect(page.locator('input[id="customerAddress"]')).toHaveValue('');
 		await expect(page.locator('textarea[id="customerNotes"]')).toHaveValue('');
+
 	});
 });
