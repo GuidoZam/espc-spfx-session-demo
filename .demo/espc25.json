@@ -393,6 +393,13 @@
           "content": "  const [customerSocialHandle, setCustomerSocialHandle] = useState('');",
           "position": "21",
           "highlightWholeLine": true
+        },
+        {
+          "action": "highlight",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "content": "  const [customerSocialHandle, setCustomerSocialHandle] = useState('');",
+          "position": "21",
+          "highlightWholeLine": true
         }
       ],
       "id": "demo-mgdye6at-fowb"
@@ -403,6 +410,13 @@
       "steps": [
         {
           "action": "insert",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "content": "  const [touched, setTouched] = useState({ name: false, email: false, company: false, socialHandle: false });",
+          "position": "23",
+          "highlightWholeLine": true
+        },
+        {
+          "action": "highlight",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
           "content": "  const [touched, setTouched] = useState({ name: false, email: false, company: false, socialHandle: false });",
           "position": "23",
@@ -421,6 +435,14 @@
           "position": "47",
           "highlightWholeLine": true,
           "insertTypingMode": "instant"
+        },
+        {
+          "action": "highlight",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "content": "  const handleSocialHandleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {\n    setCustomerSocialHandle(e.target.value);\n    setTouched(t => ({ ...t, socialHandle: true }));\n  };\n",
+          "position": "47:50",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant"
         }
       ],
       "id": "demo-mgdym6j6-eihv"
@@ -434,6 +456,14 @@
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
           "content": "    if (customerSocialHandle && customerSocialHandle.indexOf('@') !== 0) {\n      setError(strings.FormErrorSocialHandleFormat);\n      return;\n    }\n",
           "position": "59",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant"
+        },
+        {
+          "action": "highlight",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "content": "    if (customerSocialHandle && customerSocialHandle.indexOf('@') !== 0) {\n      setError(strings.FormErrorSocialHandleFormat);\n      return;\n    }\n",
+          "position": "59:62",
           "highlightWholeLine": true,
           "insertTypingMode": "instant"
         }
@@ -451,6 +481,14 @@
           "position": "71",
           "highlightWholeLine": true,
           "insertTypingMode": "instant"
+        },
+        {
+          "action": "highlight",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "content": "    setCustomerSocialHandle('');\n    setTouched({ name: false, email: false, company: false, socialHandle: false });",
+          "position": "71:72",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant"
         }
       ],
       "id": "demo-mge6ummf-s4lw"
@@ -466,6 +504,14 @@
           "position": "119",
           "highlightWholeLine": true,
           "insertTypingMode": "instant"
+        },
+        {
+          "action": "highlight",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "content": "        <div className={styles.formRow}>\n          <label htmlFor=\"customerSocialHandle\">Social Handle</label>\n          <input id=\"customerSocialHandle\" type=\"text\" value={customerSocialHandle} onChange={handleSocialHandleChange} className={styles.input} placeholder={strings.FormPlaceholderSocialHandle} />\n          {touched.socialHandle && customerSocialHandle && customerSocialHandle.indexOf('@') !== 0 && (\n            <span className={styles.fieldError}>{strings.FormErrorSocialHandleFormat}</span>\n          )}\n        </div>",
+          "position": "119:124",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant"
         }
       ],
       "id": "demo-mgdz1kga-ikvo"
@@ -476,6 +522,14 @@
       "steps": [
         {
           "action": "insert",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+          "position": "49",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant",
+          "content": "    expect(screen.getByLabelText(/Social Handle/i)).toBeInTheDocument();"
+        },
+        {
+          "action": "highlight",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
           "position": "49",
           "highlightWholeLine": true,
@@ -496,6 +550,14 @@
           "highlightWholeLine": true,
           "insertTypingMode": "instant",
           "content": "    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: '@johndoe' } });"
+        },
+        {
+          "action": "highlight",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+          "position": "59",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant",
+          "content": "    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: '@johndoe' } });"
         }
       ],
       "id": "demo-mgdz8b3x-iuk3"
@@ -506,6 +568,14 @@
       "steps": [
         {
           "action": "insert",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+          "position": "72",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant",
+          "content": "    expect(screen.getByLabelText(/Social Handle/i)).toHaveValue('');"
+        },
+        {
+          "action": "highlight",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
           "position": "72",
           "highlightWholeLine": true,
@@ -526,16 +596,49 @@
           "highlightWholeLine": true,
           "insertTypingMode": "instant",
           "content": "\n  it('shows error for social handle not starting with @', () => {\n    render(<NewCustomerForm {...baseProps} />);\n    fireEvent.change(screen.getByLabelText(/Name/i), { target: { value: 'John Doe' } });\n    fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john@example.com' } });\n    fireEvent.change(screen.getByLabelText(/Company/i), { target: { value: 'Acme Corp' } });\n    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: 'johndoe' } });\n    fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));\n    expect(screen.queryAllByText(/Social handle must start with @/i).length).toBeGreaterThan(0);\n  });"
+        },
+        {
+          "action": "highlight",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+          "position": "85:94",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant",
+          "content": "\n  it('shows error for social handle not starting with @', () => {\n    render(<NewCustomerForm {...baseProps} />);\n    fireEvent.change(screen.getByLabelText(/Name/i), { target: { value: 'John Doe' } });\n    fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john@example.com' } });\n    fireEvent.change(screen.getByLabelText(/Company/i), { target: { value: 'Acme Corp' } });\n    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: 'johndoe' } });\n    fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));\n    expect(screen.queryAllByText(/Social handle must start with @/i).length).toBeGreaterThan(0);\n  });"
         }
       ],
       "id": "demo-mgdz9zs6-1wxe"
+    },
+    {
+      "title": "Run unit test with changes",
+      "description": "Run unit tests with the new field.",
+      "steps": [
+        {
+          "action": "openTerminal"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm run test"
+        }
+      ],
+      "id": "demo-mgwarbja-t60l"
     },
     {
       "title": "E2E Test - Add a new field for social media handle",
       "description": "Enhance unit tests with the new field.",
       "steps": [
         {
+          "action": "closeTerminal"
+        },
+        {
           "action": "insert",
+          "path": "tests/basic.spec.ts",
+          "position": "56",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant",
+          "content": "\t\tawait page.fill('input[id=\"customerSocialHandle\"]', '@janedoe');"
+        },
+        {
+          "action": "highlight",
           "path": "tests/basic.spec.ts",
           "position": "56",
           "highlightWholeLine": true,
@@ -555,9 +658,60 @@
           "highlightWholeLine": true,
           "insertTypingMode": "instant",
           "content": "\t\tawait expect(page.locator('input[id=\"customerSocialHandle\"]')).toHaveValue('');"
+        },
+        {
+          "action": "highlight",
+          "path": "tests/basic.spec.ts",
+          "position": "83",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant",
+          "content": "\t\tawait expect(page.locator('input[id=\"customerSocialHandle\"]')).toHaveValue('');"
         }
       ],
       "id": "demo-mgdzdhzo-hozh"
+    },
+    {
+      "title": "Run e2e test with changes",
+      "description": "Run e2e tests with the new field.",
+      "steps": [
+        {
+          "action": "openTerminal"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm run test:e2e"
+        }
+      ],
+      "id": "demo-mgwatm8k-f379"
+    },
+    {
+      "id": "demo-mgwamme2-oznn",
+      "title": "Commit to GitHub",
+      "steps": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "git add -A"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "git commit -m \"Added new social handle field\""
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "git push"
+        }
+      ]
+    },
+    {
+      "title": "The End",
+      "steps": [
+        {
+          "action": "openSlide",
+          "path": ".demo/slides/The end.md",
+          "disabled": false
+        }
+      ],
+      "id": "demo-mgwb3iyz-iufy"
     }
   ]
 }
