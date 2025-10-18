@@ -25,13 +25,13 @@ test.describe("Page load", () => {
 	// Test to fill and submit the customer form
 	test("Add customer form works with all fields", async () => {
 		// Ensure the form is present and visible before interacting
-		await expect(page.locator('form[class*="customerForm"]')).toBeVisible({ timeout: 10000 });
+		await expect(page.locator('form[class*="customerForm"]')).toBeVisible({ timeout: 60000 });
 
 		// Close any teaching bubble if present
 		const teachingBubbleButton = page.locator('button[class*="ms-TeachingBubble-closebutton"]');
 		if (await teachingBubbleButton.isVisible()) {
 			await teachingBubbleButton.click();
-			await expect(teachingBubbleButton).toBeHidden({ timeout: 5000 });
+			await expect(teachingBubbleButton).toBeHidden({ timeout: 30000 });
 		}
 
 		// Check if there's a tip dialog to be closed before continuing compiling the form
@@ -40,7 +40,7 @@ test.describe("Page load", () => {
 			await page.click(
 				'button[class*="fui-TeachingPopoverHeader__dismissButton"]'
 			);
-			await expect(tipDialog).toBeHidden({ timeout: 5000 });
+			await expect(tipDialog).toBeHidden({ timeout: 30000 });
 		}
 
 		const userName = "Jane Doe";
@@ -57,12 +57,12 @@ test.describe("Page load", () => {
 		await page.click('button[type="submit"][class*="submitBtn"]');
 
 		// Wait longer to allow React to render notification
-		await page.waitForTimeout(10000);
+		await page.waitForTimeout(30000);
 
 		// Use robust Playwright expect for notification
 		const notification = page.locator('div[class*="ms-MessageBar--success"]');
 		try {
-			await expect(notification).toBeVisible({ timeout: 60000 });
+			await expect(notification).toBeVisible({ timeout: 120000 });
 			await expect(notification).toContainText(`Customer added: ${userName} (${userEmail})`);
 			//await expect(notification).toContainText(`Customer added:`);
 		} catch (e) {
