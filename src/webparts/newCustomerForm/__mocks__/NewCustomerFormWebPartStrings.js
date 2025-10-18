@@ -15,6 +15,7 @@ module.exports = {
   FormErrorNameRequired: 'Name is required',
   FormErrorEmailRequired: 'Email is required',
   FormErrorCompanyRequired: 'Company is required',
-  FormAlertCustomerAdded: 'Customer {0} ({1}) added successfully.'
+  FormAlertCustomerAdded: 'Customer {0} ({1}) added successfully.',
+  FormErrorSocialHandleFormat: 'Social handle must start with @.'
   // Add other string keys as needed
 };
