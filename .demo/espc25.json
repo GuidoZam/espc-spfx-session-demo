@@ -403,14 +403,14 @@
         {
           "action": "insert",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "  const [customerSocial, setCustomerSocialHandle] = useState('');",
+          "content": "  const [customerSocialHandle, setCustomerSocialHandle] = useState('');",
           "position": "21",
           "highlightWholeLine": true
         },
         {
           "action": "highlight",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "  const [customerSocial, setCustomerSocialHandle] = useState('');",
+          "content": "  const [customerSocialHandle, setCustomerSocialHandle] = useState('');",
           "position": "21",
           "highlightWholeLine": true
         }
@@ -489,7 +489,7 @@
         {
           "action": "insert",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "    if (customerSocial && customerSocial.indexOf('@') !== 0) {\n      setError(strings.FormErrorSocialHandleFormat);\n      return;\n    }\n",
+          "content": "    if (customerSocialHandle && customerSocialHandle.indexOf('@') !== 0) {\n      setError(strings.FormErrorSocialHandleFormat);\n      return;\n    }\n",
           "position": "59",
           "highlightWholeLine": true,
           "insertTypingMode": "instant"
@@ -497,7 +497,7 @@
         {
           "action": "highlight",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "    if (customerSocial && customerSocial.indexOf('@') !== 0) {\n      setError(strings.FormErrorSocialHandleFormat);\n      return;\n    }\n",
+          "content": "    if (customerSocialHandle && customerSocialHandle.indexOf('@') !== 0) {\n      setError(strings.FormErrorSocialHandleFormat);\n      return;\n    }\n",
           "position": "59:62",
           "highlightWholeLine": true,
           "insertTypingMode": "instant"
@@ -541,7 +541,7 @@
         {
           "action": "insert",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "        <div className={styles.formRow}>\n          <label htmlFor=\"customerSocial\">Social Handle</label>\n          <input id=\"customerSocial\" type=\"text\" value={customerSocial} onChange={handleSocialHandleChange} className={styles.input} placeholder={strings.FormPlaceholderSocialHandle} />\n          {touched.socialHandle && customerSocial && customerSocial.indexOf('@') !== 0 && (\n            <span className={styles.fieldError}>{strings.FormErrorSocialHandleFormat}</span>\n          )}\n        </div>",
+          "content": "        <div className={styles.formRow}>\n          <label htmlFor=\"customerSocialHandle\">Social Handle</label>\n          <input id=\"customerSocialHandle\" type=\"text\" value={customerSocialHandle} onChange={handleSocialHandleChange} className={styles.input} placeholder={strings.FormPlaceholderSocialHandle} />\n          {touched.socialHandle && customerSocialHandle && customerSocialHandle.indexOf('@') !== 0 && (\n            <span className={styles.fieldError}>{strings.FormErrorSocialHandleFormat}</span>\n          )}\n        </div>",
           "position": "120",
           "highlightWholeLine": true,
           "insertTypingMode": "instant"
@@ -549,7 +549,7 @@
         {
           "action": "highlight",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "        <div className={styles.formRow}>\n          <label htmlFor=\"customerSocial\">Social Handle</label>\n          <input id=\"customerSocial\" type=\"text\" value={customerSocial} onChange={handleSocialHandleChange} className={styles.input} placeholder={strings.FormPlaceholderSocialHandle} />\n          {touched.socialHandle && customerSocial && customerSocial.indexOf('@') !== 0 && (\n            <span className={styles.fieldError}>{strings.FormErrorSocialHandleFormat}</span>\n          )}\n        </div>",
+          "content": "        <div className={styles.formRow}>\n          <label htmlFor=\"customerSocialHandle\">Social Handle</label>\n          <input id=\"customerSocialHandle\" type=\"text\" value={customerSocialHandle} onChange={handleSocialHandleChange} className={styles.input} placeholder={strings.FormPlaceholderSocialHandle} />\n          {touched.socialHandle && customerSocialHandle && customerSocialHandle.indexOf('@') !== 0 && (\n            <span className={styles.fieldError}>{strings.FormErrorSocialHandleFormat}</span>\n          )}\n        </div>",
           "position": "120:126",
           "highlightWholeLine": true,
           "insertTypingMode": "instant"
@@ -675,7 +675,7 @@
           "position": "56",
           "highlightWholeLine": true,
           "insertTypingMode": "instant",
-          "content": "\t\tawait page.fill('input[id=\"customerSocial\"]', '@janedoe');"
+          "content": "\t\tawait page.fill('input[id=\"customerSocialHandle\"]', '@janedoe');"
         },
         {
           "action": "highlight",
@@ -683,7 +683,7 @@
           "position": "56",
           "highlightWholeLine": true,
           "insertTypingMode": "instant",
-          "content": "\t\tawait page.fill('input[id=\"customerSocial\"]', '@janedoe');"
+          "content": "\t\tawait page.fill('input[id=\"customerSocialHandle\"]', '@janedoe');"
         }
       ]
     },
@@ -697,7 +697,7 @@
           "position": "83",
           "highlightWholeLine": true,
           "insertTypingMode": "instant",
-          "content": "\t\tawait expect(page.locator('input[id=\"customerSocial\"]')).toHaveValue('');"
+          "content": "\t\tawait expect(page.locator('input[id=\"customerSocialHandle\"]')).toHaveValue('');"
         },
         {
           "action": "highlight",
@@ -705,7 +705,7 @@
           "position": "83",
           "highlightWholeLine": true,
           "insertTypingMode": "instant",
-          "content": "\t\tawait expect(page.locator('input[id=\"customerSocial\"]')).toHaveValue('');"
+          "content": "\t\tawait expect(page.locator('input[id=\"customerSocialHandle\"]')).toHaveValue('');"
         }
       ],
       "id": "demo-mgdzdhzo-hozh"
