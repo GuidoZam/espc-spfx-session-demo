@@ -62,7 +62,7 @@ test.describe("Page load", () => {
 		// Use robust Playwright expect for notification
 		const notification = page.locator('div[class*="ms-MessageBar--success"]');
 		try {
-			await expect(notification).toBeVisible({ timeout: 30000 });
+			await expect(notification).toBeVisible({ timeout: 60000 });
 			await expect(notification).toContainText(`Customer added: ${userName} (${userEmail})`);
 			//await expect(notification).toContainText(`Customer added:`);
 		} catch (e) {

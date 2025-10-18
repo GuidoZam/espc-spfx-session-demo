@@ -454,6 +454,28 @@
         {
           "action": "insert",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "content": "    setTouched({ name: true, email: true, company: true, socialHandle: true });",
+          "position": "54",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant"
+        },
+        {
+          "action": "highlight",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+          "position": "54",
+          "highlightWholeLine": true,
+          "insertTypingMode": "instant"
+        }
+      ],
+      "id": "demo-mgwdnxtn-ny96"
+    },
+    {
+      "title": "Form - Add a new field for social media handle 5",
+      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
+      "steps": [
+        {
+          "action": "insert",
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
           "content": "    if (customerSocialHandle && customerSocialHandle.indexOf('@') !== 0) {\n      setError(strings.FormErrorSocialHandleFormat);\n      return;\n    }\n",
           "position": "59",
           "highlightWholeLine": true,
@@ -471,7 +493,7 @@
       "id": "demo-mgdyyzc3-bgtr"
     },
     {
-      "title": "Form - Add a new field for social media handle 5",
+      "title": "Form - Add a new field for social media handle 6",
       "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
       "steps": [
         {
@@ -489,19 +511,25 @@
           "position": "71:72",
           "highlightWholeLine": true,
           "insertTypingMode": "instant"
+        },
+        {
+          "action": "delete",
+          "position": "73",
+          "highlightWholeLine": true,
+          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx"
         }
       ],
       "id": "demo-mge6ummf-s4lw"
     },
     {
-      "title": "Form - Add a new field for social media handle 6",
+      "title": "Form - Add a new field for social media handle 7",
       "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
       "steps": [
         {
           "action": "insert",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
           "content": "        <div className={styles.formRow}>\n          <label htmlFor=\"customerSocialHandle\">Social Handle</label>\n          <input id=\"customerSocialHandle\" type=\"text\" value={customerSocialHandle} onChange={handleSocialHandleChange} className={styles.input} placeholder={strings.FormPlaceholderSocialHandle} />\n          {touched.socialHandle && customerSocialHandle && customerSocialHandle.indexOf('@') !== 0 && (\n            <span className={styles.fieldError}>{strings.FormErrorSocialHandleFormat}</span>\n          )}\n        </div>",
-          "position": "119",
+          "position": "120",
           "highlightWholeLine": true,
           "insertTypingMode": "instant"
         },
@@ -509,7 +537,7 @@
           "action": "highlight",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
           "content": "        <div className={styles.formRow}>\n          <label htmlFor=\"customerSocialHandle\">Social Handle</label>\n          <input id=\"customerSocialHandle\" type=\"text\" value={customerSocialHandle} onChange={handleSocialHandleChange} className={styles.input} placeholder={strings.FormPlaceholderSocialHandle} />\n          {touched.socialHandle && customerSocialHandle && customerSocialHandle.indexOf('@') !== 0 && (\n            <span className={styles.fieldError}>{strings.FormErrorSocialHandleFormat}</span>\n          )}\n        </div>",
-          "position": "119:124",
+          "position": "120:126",
           "highlightWholeLine": true,
           "insertTypingMode": "instant"
         }
@@ -546,7 +574,7 @@
         {
           "action": "insert",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "59",
+          "position": "62",
           "highlightWholeLine": true,
           "insertTypingMode": "instant",
           "content": "    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: '@johndoe' } });"
@@ -554,7 +582,7 @@
         {
           "action": "highlight",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "59",
+          "position": "62",
           "highlightWholeLine": true,
           "insertTypingMode": "instant",
           "content": "    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: '@johndoe' } });"
@@ -569,7 +597,7 @@
         {
           "action": "insert",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "72",
+          "position": "75",
           "highlightWholeLine": true,
           "insertTypingMode": "instant",
           "content": "    expect(screen.getByLabelText(/Social Handle/i)).toHaveValue('');"
@@ -577,10 +605,9 @@
         {
           "action": "highlight",
           "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "72",
+          "position": "75",
           "highlightWholeLine": true,
-          "insertTypingMode": "instant",
-          "content": "    expect(screen.getByLabelText(/Social Handle/i)).toHaveValue('');"
+          "insertTypingMode": "instant"
         }
       ],
       "id": "demo-mgdz91xo-xk6r"
