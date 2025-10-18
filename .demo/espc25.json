@@ -24,6 +24,27 @@
       ]
     },
     {
+      "title": "Introduction",
+      "steps": [
+        {
+          "action": "openSlide",
+          "path": ".demo/slides/Introduction.md",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "title": "Explore the solution",
+      "steps": [
+        {
+          "action": "openSlide",
+          "path": ".demo/slides/Explore the solution.md",
+          "disabled": false
+        }
+      ],
+      "id": "demo-mgw0r003-w4fp"
+    },
+    {
       "title": "Web Part Form to Insert Data",
       "description": "Showcase the NewCustomerForm web part, demonstrating how users can input and submit new customer data.",
       "steps": [
@@ -106,6 +127,17 @@
       ]
     },
     {
+      "title": "Tests",
+      "steps": [
+        {
+          "action": "openSlide",
+          "path": ".demo/slides/Tests.md",
+          "disabled": false
+        }
+      ],
+      "id": "demo-mgw0ui0p-w5vh"
+    },
+    {
       "title": "Unit Tests using Jest",
       "description": "Demonstrate the project's unit testing using Jest, setup and examples, highlighting test coverage for core logic.",
       "steps": [
@@ -142,6 +174,17 @@
       ]
     },
     {
+      "title": "Unit Tests - Run tests locally",
+      "description": "Show how to perform unit tests locally.",
+      "steps": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm run test"
+        }
+      ],
+      "id": "demo-mgw103hj-vvx4"
+    },
+    {
       "title": "End to End Tests",
       "description": "Present the Playwright-based E2E tests, showing how user flows are validated automatically.",
       "steps": [
@@ -164,6 +207,28 @@
           "highlightWholeLine": true
         }
       ]
+    },
+    {
+      "title": "E2E Tests - Run tests locally",
+      "description": "Show how to perform unit tests locally.",
+      "steps": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm run test:e2e"
+        }
+      ],
+      "id": "demo-mgw124av-rq2y"
+    },
+    {
+      "title": "CI/CD",
+      "steps": [
+        {
+          "action": "openSlide",
+          "path": ".demo/slides/CICD.md",
+          "disabled": false
+        }
+      ],
+      "id": "demo-mgw0wgyw-bpie"
     },
     {
       "title": "GitHub Actions for Unit Testing",

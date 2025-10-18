@@ -2,6 +2,6 @@
 layout: intro
 ---
 
-# Demo title
+# Developing, Testing, and Deploying SharePoint Framework Solutions with Success
 
-Welcome to our demo session!
+Welcome to our session!
