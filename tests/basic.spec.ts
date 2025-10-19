@@ -15,11 +15,11 @@ test.describe("Page load", () => {
 		await page.close();
 	});
 
-	// Check that the page title is present and contains "Test" text
+	// Check that the page title is present and contains "ESPC25" text
 	test("Check site header title", async () => {
 		const header = page.locator("[data-automationid='SiteHeaderTitle'] a");
 		await header.waitFor();
-		await expect(header).toHaveText(/Test/);
+		await expect(header).toHaveText(/ESPC25/);
 	});
 
 	// Test to fill and submit the customer form
