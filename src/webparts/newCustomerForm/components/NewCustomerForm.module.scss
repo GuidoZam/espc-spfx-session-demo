@@ -71,30 +71,30 @@
   background: linear-gradient(90deg, #005a9e 0%, #0078d4 100%);
 }
 
-.required {
-  background-color: #d13438;
+
+// Shared error base styles
+.errorBase {
+  background-color: orangered;
   color: #fff;
-  margin-left: 0.2em;
-  font-weight: bold;
   border-radius: 20px;
   text-align: center;
+  font-weight: bold;
+  margin-top: 0.2em;
+  margin-left: 0.1em;
+}
+
+.required {
+  @extend .errorBase;
+  font-weight: bold;
 }
 
 .formError {
-  background-color: #d13438;
-  color: #fff;
+  @extend .errorBase;
   font-size: 1em;
   margin-bottom: 1em;
-  border-radius: 20px;
-  text-align: center;
 }
 
 .fieldError {
-  background-color: #d13438;
-  color: #fff;
+  @extend .errorBase;
   font-size: 0.95em;
-  margin-top: 0.2em;
-  margin-left: 0.1em;
-  border-radius: 20px;
-  text-align: center;
 }
