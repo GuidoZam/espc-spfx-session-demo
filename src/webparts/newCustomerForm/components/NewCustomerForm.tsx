@@ -75,7 +75,7 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
         />
       )}
       <div className={styles.welcome}>
-        <h2>{strings.WelcomeTitle}</h2>
+        <h2>{strings.WelcomeTitle.replace('{0}', escape(userDisplayName))}</h2>
       </div>
       <form onSubmit={handleSubmit} className={styles.customerForm}>
         {error && <div className={styles.formError}>{error}</div>}

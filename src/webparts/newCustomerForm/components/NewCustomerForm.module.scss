@@ -8,7 +8,7 @@
   &.teams {
     font-family: $ms-font-family-fallbacks;
   }
-  background: #fff;
+  background: "theme:bodyBackground, default: #ffffff]";
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   padding: 2rem;
@@ -72,21 +72,29 @@
 }
 
 .required {
-  color: #d13438;
+  background-color: #d13438;
+  color: #fff;
   margin-left: 0.2em;
   font-weight: bold;
+  border-radius: 20px;
+  text-align: center;
 }
 
 .formError {
-  color: #d13438;
+  background-color: #d13438;
+  color: #fff;
   font-size: 1em;
   margin-bottom: 1em;
+  border-radius: 20px;
   text-align: center;
 }
 
 .fieldError {
-  color: #d13438;
+  background-color: #d13438;
+  color: #fff;
   font-size: 0.95em;
   margin-top: 0.2em;
   margin-left: 0.1em;
+  border-radius: 20px;
+  text-align: center;
 }

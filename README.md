@@ -16,6 +16,14 @@ This project demonstrates a SharePoint Framework (SPFx) web part solution integr
 - **CI/CD Integration**: GitHub Actions workflows for building, testing, and deploying the solution.
 - **Azure Storage Deployment**: Example configuration for deploying assets to Azure Storage.
 
+### Solution screenshots
+
+![SharePoint UI](assets/sp-ui.png)
+
+![Form](assets/webpart-highlight.png)
+
+![Form with errors](assets/webpart-errors.png)
+
 ### Key Technologies
 - SharePoint Framework (SPFx)
 - React
