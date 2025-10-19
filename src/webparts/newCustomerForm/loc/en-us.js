@@ -1,6 +1,6 @@
 define([], function() {
   return {
-    WelcomeTitle: "Well done, {0}!",
+    WelcomeTitle: "Specify new customer details",
 		FormErrorRequiredFields: "Name, Email, and and Company are required.",
 		FormLabelName: "Name",
 		FormLabelEmail: "Email",
