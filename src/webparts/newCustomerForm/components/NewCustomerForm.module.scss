@@ -8,7 +8,7 @@
   &.teams {
     font-family: $ms-font-family-fallbacks;
   }
-  background: #fff;
+  background: "theme:bodyBackground, default: #ffffff]";
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   padding: 2rem;
@@ -71,22 +71,30 @@
   background: linear-gradient(90deg, #005a9e 0%, #0078d4 100%);
 }
 
+
+// Shared error base styles
+.errorBase {
+  background-color: orangered;
+  color: #fff;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 0.2em;
+  margin-left: 0.1em;
+}
+
 .required {
-  color: #d13438;
-  margin-left: 0.2em;
+  @extend .errorBase;
   font-weight: bold;
 }
 
 .formError {
-  color: #d13438;
+  @extend .errorBase;
   font-size: 1em;
   margin-bottom: 1em;
-  text-align: center;
 }
 
 .fieldError {
-  color: #d13438;
+  @extend .errorBase;
   font-size: 0.95em;
-  margin-top: 0.2em;
-  margin-left: 0.1em;
 }
