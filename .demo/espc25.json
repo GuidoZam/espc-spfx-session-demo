@@ -34,6 +34,17 @@
       ]
     },
     {
+      "title": "Steps performed",
+      "steps": [
+        {
+          "action": "openSlide",
+          "path": ".demo/slides/Steps performed.md",
+          "disabled": false
+        }
+      ],
+      "id": "demo-mh0z488q-ymyw"
+    },
+    {
       "title": "Explore the solution",
       "steps": [
         {
