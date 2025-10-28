@@ -82,4 +82,6 @@ test.describe("Page load", () => {
 		await expect(page.locator('textarea[id="customerNotes"]')).toHaveValue('');
 
 	});
+
+	// TODO: add snapshots creation
 });

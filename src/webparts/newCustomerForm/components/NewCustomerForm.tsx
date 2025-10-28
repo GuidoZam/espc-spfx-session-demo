@@ -12,6 +12,10 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
     userDisplayName
   } = props;
 
+  // TODO: implement a dropdown that shows or hide a field, update the Jest tests with the logic and Playwright with the UI
+  // Is non profit sector?
+  // Is private sector
+  // Is government sector? -> check box for NDA
   const [customerName, setCustomerName] = useState('');
   const [customerEmail, setCustomerEmail] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
