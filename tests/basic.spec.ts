@@ -43,6 +43,9 @@ test.describe("Page load", () => {
 			await expect(tipDialog).toBeHidden({ timeout: 5000 });
 		}
 
+		// Take initial form snapshot
+		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('01-initial-form.png');
+
 		const userName = "Jane Doe";
 		const userEmail = "jane@example.com";
 
@@ -52,8 +55,19 @@ test.describe("Page load", () => {
 		await page.fill('input[id="customerPhone"]', '1234567890');
 		await page.fill('input[id="customerAddress"]', '123 Main St');
 		await page.fill('input[id="customerCompany"]', 'Acme Corp');
+		
+		// Take snapshot after filling basic fields but before sector selection
+		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('02-form-filled-basic-fields.png');
+		
 		await page.selectOption('select[id="customerSector"]', 'Private');
+		
+		// Take snapshot after selecting Private sector (NDA checkbox should be hidden)
+		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('03-form-private-sector-selected.png');
+		
 		await page.fill('textarea[id="customerNotes"]', 'VIP customer');
+
+		// Take snapshot of completed form before submission
+		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('04-form-completed-ready-to-submit.png');
 
 		await page.click('button[type="submit"][class*="submitBtn"]');
 
@@ -65,6 +79,10 @@ test.describe("Page load", () => {
 		try {
 			await expect(notification).toBeVisible({ timeout: 60000 });
 			await expect(notification).toContainText(`Customer added: ${userName} (${userEmail})`);
+			
+			// Take snapshot of success notification
+			await expect(page.locator('section[class*="newCustomerForm"]')).toHaveScreenshot('05-form-success-notification.png');
+			
 			//await expect(notification).toContainText(`Customer added:`);
 		} catch (e) {
 			// Log page HTML for debugging if notification is not found
@@ -82,6 +100,9 @@ test.describe("Page load", () => {
 		await expect(page.locator('input[id="customerAddress"]')).toHaveValue('');
 		await expect(page.locator('select[id="customerSector"]')).toHaveValue('');
 		await expect(page.locator('textarea[id="customerNotes"]')).toHaveValue('');
+
+		// Take final snapshot of reset form
+		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('06-form-reset-after-submit.png');
 
 	});
 
@@ -110,22 +131,34 @@ test.describe("Page load", () => {
 
 		// Initially, NDA checkbox should not be visible
 		await expect(ndaCheckbox).toBeHidden();
+		
+		// Take snapshot of initial state (no sector selected, NDA hidden)
+		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('nda-01-initial-no-sector-nda-hidden.png');
 
 		// Select Government sector
 		await page.selectOption('select[id="customerSector"]', 'Government');
 		
 		// Now NDA checkbox should be visible
 		await expect(ndaCheckbox).toBeVisible();
+		
+		// Take snapshot highlighting Government sector with visible NDA checkbox
+		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('nda-02-government-sector-nda-visible.png');
 
 		// Check the NDA checkbox
 		await ndaCheckbox.check();
 		await expect(ndaCheckbox).toBeChecked();
+		
+		// Take snapshot of checked NDA checkbox
+		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('nda-03-government-sector-nda-checked.png');
 
 		// Select Private sector
 		await page.selectOption('select[id="customerSector"]', 'Private');
 		
 		// NDA checkbox should be hidden again
 		await expect(ndaCheckbox).toBeHidden();
+		
+		// Take snapshot highlighting Private sector with hidden NDA checkbox
+		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('nda-04-private-sector-nda-hidden.png');
 
 		// Select Government sector again
 		await page.selectOption('select[id="customerSector"]', 'Government');
@@ -133,14 +166,101 @@ test.describe("Page load", () => {
 		// NDA checkbox should be visible but unchecked (reset when sector changed)
 		await expect(ndaCheckbox).toBeVisible();
 		await expect(ndaCheckbox).not.toBeChecked();
+		
+		// Take snapshot highlighting reset behavior (Government sector, NDA visible but unchecked)
+		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('nda-05-government-sector-nda-reset-unchecked.png');
 
 		// Select Non profit sector
 		await page.selectOption('select[id="customerSector"]', 'Non profit');
 		
 		// NDA checkbox should be hidden
 		await expect(ndaCheckbox).toBeHidden();
+		
+		// Take snapshot highlighting Non profit sector with hidden NDA checkbox
+		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('nda-06-nonprofit-sector-nda-hidden.png');
 
 	});
 
-	// TODO: add snapshots creation
+	// Test complete Government customer workflow with NDA
+	test("Complete Government customer workflow with NDA checkbox", async () => {
+		// Ensure the form is present and visible before interacting
+		await expect(page.locator('form[class*="customerForm"]')).toBeVisible({ timeout: 10000 });
+
+		// Close any teaching bubble if present
+		const teachingBubbleButton = page.locator('button[class*="ms-TeachingBubble-closebutton"]');
+		if (await teachingBubbleButton.isVisible()) {
+			await teachingBubbleButton.click();
+			await expect(teachingBubbleButton).toBeHidden({ timeout: 5000 });
+		}
+
+		// Check if there's a tip dialog to be closed before continuing
+		const tipDialog = page.locator('div[class*="fui-PopoverSurface"]');
+		if (await tipDialog.isVisible()) {
+			await page.click(
+				'button[class*="fui-TeachingPopoverHeader__dismissButton"]'
+			);
+			await expect(tipDialog).toBeHidden({ timeout: 5000 });
+		}
+
+		const userName = "Government Official";
+		const userEmail = "official@government.gov";
+
+		// Fill basic customer information
+		await page.fill('input[id="customerName"]', userName);
+		await page.fill('input[id="customerEmail"]', userEmail);
+		await page.fill('input[id="customerPhone"]', '+1-202-555-0123');
+		await page.fill('input[id="customerAddress"]', '1600 Pennsylvania Avenue NW, Washington, DC');
+		await page.fill('input[id="customerCompany"]', 'US Department of Commerce');
+
+		// Take snapshot before selecting Government sector
+		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('gov-01-form-filled-before-sector.png');
+
+		// Select Government sector - this should make NDA checkbox visible
+		await page.selectOption('select[id="customerSector"]', 'Government');
+
+		// Verify NDA checkbox is visible and take snapshot
+		const ndaCheckbox = page.locator('input[id="requiresNDA"]');
+		await expect(ndaCheckbox).toBeVisible();
+		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('gov-02-government-sector-nda-visible.png');
+
+		// Check the NDA checkbox
+		await ndaCheckbox.check();
+		await expect(ndaCheckbox).toBeChecked();
+
+		// Add notes
+		await page.fill('textarea[id="customerNotes"]', 'High-security government contract requiring NDA');
+
+		// Take snapshot of complete Government form with NDA checked
+		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('gov-03-complete-government-form-nda-checked.png');
+
+		// Submit the form
+		await page.click('button[type="submit"][class*="submitBtn"]');
+
+		// Wait for success notification
+		await page.waitForTimeout(10000);
+		const notification = page.locator('div[class*="ms-MessageBar--success"]');
+		
+		try {
+			await expect(notification).toBeVisible({ timeout: 60000 });
+			await expect(notification).toContainText(`Customer added: ${userName} (${userEmail})`);
+			
+			// Take snapshot of success notification for Government customer
+			await expect(page.locator('section[class*="newCustomerForm"]')).toHaveScreenshot('gov-04-government-customer-success.png');
+			
+		} catch (e) {
+			if (!page.isClosed()) {
+				console.error(e);
+			}
+			throw e;
+		}
+
+		// Verify form is reset
+		await expect(page.locator('input[id="customerName"]')).toHaveValue('');
+		await expect(page.locator('select[id="customerSector"]')).toHaveValue('');
+		await expect(ndaCheckbox).toBeHidden(); // Should be hidden again after reset
+
+		// Take final snapshot showing reset form
+		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('gov-05-form-reset-nda-hidden.png');
+
+	});
 });

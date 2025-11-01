@@ -10,6 +10,15 @@ export default defineConfig({
 		baseURL: process.env.TEST_SHAREPOINT_SITE_URL,
 		trace: "on-first-retry",
 	},
+	// Configure screenshot and snapshot behavior
+	expect: {
+		// Enable animations control for consistent snapshots
+		toHaveScreenshot: {
+			animations: 'disabled',
+			scale: 'css',
+			threshold: 0.2
+		}
+	},
 	projects: [
 		{
 			name: "setup",
