@@ -8,6 +8,8 @@ declare interface INewCustomerFormWebPartStrings {
 	FormLabelCompany: string;
 	FormLabelSocialHandle: string;
 	FormLabelNotes: string;
+	FormLabelCustomerSector: string;
+	FormLabelRequiresNDA: string;
 	FormPlaceholderName: string;
 	FormPlaceholderEmail: string;
 	FormPlaceholderPhone: string;
@@ -22,6 +24,9 @@ declare interface INewCustomerFormWebPartStrings {
 	FormErrorSocialHandleFormat: string;
 	FormButtonAddCustomer: string;
 	FormAlertCustomerAdded: string;
+	FormSectorNonProfit: string;
+	FormSectorPrivate: string;
+	FormSectorGovernment: string;
 }
 
 declare module "NewCustomerFormWebPartStrings" {

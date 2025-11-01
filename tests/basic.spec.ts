@@ -52,6 +52,7 @@ test.describe("Page load", () => {
 		await page.fill('input[id="customerPhone"]', '1234567890');
 		await page.fill('input[id="customerAddress"]', '123 Main St');
 		await page.fill('input[id="customerCompany"]', 'Acme Corp');
+		await page.selectOption('select[id="customerSector"]', 'Private');
 		await page.fill('textarea[id="customerNotes"]', 'VIP customer');
 
 		await page.click('button[type="submit"][class*="submitBtn"]');
@@ -79,7 +80,65 @@ test.describe("Page load", () => {
 		await expect(page.locator('input[id="customerCompany"]')).toHaveValue('');
 		await expect(page.locator('input[id="customerPhone"]')).toHaveValue('');
 		await expect(page.locator('input[id="customerAddress"]')).toHaveValue('');
+		await expect(page.locator('select[id="customerSector"]')).toHaveValue('');
 		await expect(page.locator('textarea[id="customerNotes"]')).toHaveValue('');
+
+	});
+
+	// Test NDA checkbox visibility based on customer sector selection
+	test("NDA checkbox visibility based on customer sector", async () => {
+		// Ensure the form is present and visible before interacting
+		await expect(page.locator('form[class*="customerForm"]')).toBeVisible({ timeout: 10000 });
+
+		// Close any teaching bubble if present
+		const teachingBubbleButton = page.locator('button[class*="ms-TeachingBubble-closebutton"]');
+		if (await teachingBubbleButton.isVisible()) {
+			await teachingBubbleButton.click();
+			await expect(teachingBubbleButton).toBeHidden({ timeout: 5000 });
+		}
+
+		// Check if there's a tip dialog to be closed before continuing compiling the form
+		const tipDialog = page.locator('div[class*="fui-PopoverSurface"]');
+		if (await tipDialog.isVisible()) {
+			await page.click(
+				'button[class*="fui-TeachingPopoverHeader__dismissButton"]'
+			);
+			await expect(tipDialog).toBeHidden({ timeout: 5000 });
+		}
+
+		const ndaCheckbox = page.locator('input[id="requiresNDA"]');
+
+		// Initially, NDA checkbox should not be visible
+		await expect(ndaCheckbox).toBeHidden();
+
+		// Select Government sector
+		await page.selectOption('select[id="customerSector"]', 'Government');
+		
+		// Now NDA checkbox should be visible
+		await expect(ndaCheckbox).toBeVisible();
+
+		// Check the NDA checkbox
+		await ndaCheckbox.check();
+		await expect(ndaCheckbox).toBeChecked();
+
+		// Select Private sector
+		await page.selectOption('select[id="customerSector"]', 'Private');
+		
+		// NDA checkbox should be hidden again
+		await expect(ndaCheckbox).toBeHidden();
+
+		// Select Government sector again
+		await page.selectOption('select[id="customerSector"]', 'Government');
+		
+		// NDA checkbox should be visible but unchecked (reset when sector changed)
+		await expect(ndaCheckbox).toBeVisible();
+		await expect(ndaCheckbox).not.toBeChecked();
+
+		// Select Non profit sector
+		await page.selectOption('select[id="customerSector"]', 'Non profit');
+		
+		// NDA checkbox should be hidden
+		await expect(ndaCheckbox).toBeHidden();
 
 	});
 

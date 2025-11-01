@@ -7,21 +7,21 @@ import * as strings from 'NewCustomerFormWebPartStrings';
 import Notification from './Notification';
 import { MessageBarType } from '@fluentui/react';
 
+// TODO: update to version 1.22
+
 const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
   const {
     userDisplayName
   } = props;
 
-  // TODO: implement a dropdown that shows or hide a field, update the Jest tests with the logic and Playwright with the UI
-  // Is non profit sector?
-  // Is private sector
-  // Is government sector? -> check box for NDA
   const [customerName, setCustomerName] = useState('');
   const [customerEmail, setCustomerEmail] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
   const [customerAddress, setCustomerAddress] = useState('');
   const [customerCompany, setCustomerCompany] = useState('');
   const [customerNotes, setCustomerNotes] = useState('');
+  const [customerSector, setCustomerSector] = useState('');
+  const [requiresNDA, setRequiresNDA] = useState(false);
 
   const [error, setError] = useState('');
   const [touched, setTouched] = useState({ name: false, email: false, company: false });
@@ -48,6 +48,15 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
   const handleNotesChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     setCustomerNotes(e.target.value);
   };
+  const handleSectorChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    const sector = e.target.value;
+    setCustomerSector(sector);
+    // Reset NDA checkbox when sector changes
+    setRequiresNDA(false);
+  };
+  const handleNDAChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setRequiresNDA(e.target.checked);
+  };
 
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
@@ -57,6 +66,21 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
       return;
     }
 
+    // Create customer data object with NDA logic
+    const customerData = {
+      name: customerName,
+      email: customerEmail,
+      phone: customerPhone,
+      address: customerAddress,
+      company: customerCompany,
+      notes: customerNotes,
+      sector: customerSector,
+      requiresNDA: customerSector === 'Government' ? requiresNDA : false
+    };
+
+    // For demonstration purposes, we'll just log the customer data
+    console.log('Customer data:', customerData);
+
     setError('');
     setCustomerName('');
     setCustomerEmail('');
@@ -64,6 +88,8 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
     setCustomerAddress('');
     setCustomerCompany('');
     setCustomerNotes('');
+    setCustomerSector('');
+    setRequiresNDA(false);
 
     setTouched({ name: false, email: false, company: false });
     setNotification(strings.FormAlertCustomerAdded.replace('{0}', customerName).replace('{1}', customerEmail));
@@ -112,6 +138,30 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
             <span className={styles.fieldError}>{strings.FormErrorCompanyRequired}</span>
           )}
         </div>
+
+        <div className={styles.formRow}>
+          <label htmlFor="customerSector">{strings.FormLabelCustomerSector}</label>
+          <select id="customerSector" value={customerSector} onChange={handleSectorChange} className={styles.input}>
+            <option value="">Select sector...</option>
+            <option value="Non profit">{strings.FormSectorNonProfit}</option>
+            <option value="Private">{strings.FormSectorPrivate}</option>
+            <option value="Government">{strings.FormSectorGovernment}</option>
+          </select>
+        </div>
+
+        {customerSector === 'Government' && (
+          <div className={styles.formRow}>
+            <label htmlFor="requiresNDA">
+              <input 
+                id="requiresNDA" 
+                type="checkbox" 
+                checked={requiresNDA} 
+                onChange={handleNDAChange} 
+              />
+              {strings.FormLabelRequiresNDA}
+            </label>
+          </div>
+        )}
 
         <div className={styles.formRow}>
           <label htmlFor="customerNotes">Notes</label>
