@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Build solution
-        run: gulp bundle --ship
+        run: npm run build
 
       - name: Run unit tests
         run: npm test
