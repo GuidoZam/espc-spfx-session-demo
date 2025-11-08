@@ -4,7 +4,7 @@ import { test, expect, Page } from '@playwright/test';
 async function checkCustomerFormExists(page: Page): Promise<boolean> {
 	console.log("Checking for customer form on page...");
 
-	await page.waitForTimeout(20000); // Extra wait for SPFx web part to initialize
+	await page.waitForTimeout(30000); // Extra wait for SPFx web part to initialize
 	
 	// Check for the specific inputs we know should exist
 	const customerNameInput = await page.locator('input#customerName').count();
