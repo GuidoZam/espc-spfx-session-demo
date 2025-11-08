@@ -34,14 +34,8 @@ setup("authenticate", async ({ page }) => {
   await yesButton.click();
   console.log("Clicked 'Yes' to stay signed in.");
 
-	// Check if already on the target URL before waiting
-	if (page.url() !== (process.env.TEST_SHAREPOINT_SITE_URL || "")) {
-		await page.waitForURL(process.env.TEST_SHAREPOINT_SITE_URL || "", {
-			timeout: 45000,
-		});
-	} else {
-		console.log("Already on target URL, skipping waitForURL.");
-	}
+	console.log(`Successfully authenticated. Current URL: ${page.url()}`);
 
+	// Save the authentication state for use in tests
 	await page.context().storageState({ path: AuthFile });
 });

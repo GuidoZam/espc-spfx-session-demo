@@ -16,5 +16,6 @@
   },
   "typescript.tsdk": ".\\node_modules\\typescript\\lib",
   "demoTime.defaultFileType": "json",
-  "demoTime.previousEnabled": true
+  "demoTime.previousEnabled": true,
+  "demoTime.api.enabled": true
 }

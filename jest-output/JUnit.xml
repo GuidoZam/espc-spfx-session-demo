@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="9" failures="0" errors="0" time="1.293">
+  <testsuite name="NewCustomerForm Component" errors="0" failures="0" skipped="0" timestamp="2025-11-08T10:16:06" time="0.989" tests="9">
+    <testcase classname="NewCustomerForm Component &gt; " name="renders all customer fields (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.037">
+    </testcase>
+    <testcase classname="NewCustomerForm Component &gt; " name="handles input and submit when required fields are filled (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.039">
+    </testcase>
+    <testcase classname="NewCustomerForm Component &gt; " name="shows error message only for missing field when submitting blank form (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.012">
+    </testcase>
+    <testcase classname="NewCustomerForm Component &gt; " name="shows error message only for missing Name (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.012">
+    </testcase>
+    <testcase classname="NewCustomerForm Component &gt; " name="shows error message only for missing Email (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.012">
+    </testcase>
+    <testcase classname="NewCustomerForm Component &gt; " name="shows error message only for missing Company (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.013">
+    </testcase>
+    <testcase classname="NewCustomerForm Component &gt; " name="shows NDA checkbox only when Government sector is selected (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.006">
+    </testcase>
+    <testcase classname="NewCustomerForm Component &gt; " name="resets NDA checkbox when sector changes (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.008">
+    </testcase>
+    <testcase classname="NewCustomerForm Component &gt; " name="submits customer with NDA true only for Government sector (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.025">
+    </testcase>
+  </testsuite>
+</testsuites>
