@@ -39,9 +39,15 @@ jobs:
           OVERWRITE: true
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: Run e2e tests
+      - name: Run e2e snapshots update
         env:
           TEST_USERNAME: ${{ secrets.PROD_USERNAME }}
           TEST_PASSWORD: ${{ secrets.PROD_PASSWORD }}
           TEST_SHAREPOINT_SITE_URL: ${{ vars.PROD_SHAREPOINT_SITE_URL }}
         run: npm run test:e2e:update-snapshots
+      - name: Run e2e tests
+        env:
+          TEST_USERNAME: ${{ secrets.PROD_USERNAME }}
+          TEST_PASSWORD: ${{ secrets.PROD_PASSWORD }}
+          TEST_SHAREPOINT_SITE_URL: ${{ vars.PROD_SHAREPOINT_SITE_URL }}
+        run: npm run test:e2e
