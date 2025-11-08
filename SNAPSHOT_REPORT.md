@@ -1,18 +1,18 @@
 # Visual Testing Snapshot Report
 
-Generated on: Sun Nov  2 17:30:34 CET 2025
+Generated on: Sat Nov  8 15:01:41 CET 2025
 
 ## 📊 Snapshot Summary
 
 | Browser | Count | Status |
 |---------|-------|--------|
 | 🌐 Chromium |       17 | ✅ |
-| 🦊 Firefox |       17 | ✅ |
-| 🧭 WebKit |       17 | ✅ |
+| 🦊 Firefox |        0 | ✅ |
+| 🧭 WebKit |        0 | ✅ |
 
 ## � Snapshot Categories
 
-### 🔄 Main Workflow Snapshots:       18 total
+### 🔄 Main Workflow Snapshots:        6 total
 
 | Snapshot | Description | Browsers |
 |----------|-------------|----------|
@@ -23,7 +23,7 @@ Generated on: Sun Nov  2 17:30:34 CET 2025
 | `05-form-success-notification` | Success notification with customer details | Chromium, Firefox, WebKit |
 | `06-form-reset-after-submit` | Form reset, all fields cleared | Chromium, Firefox, WebKit |
 
-### ✅ NDA Visibility Tests:       18 total
+### ✅ NDA Visibility Tests:        6 total
 
 | Snapshot | Description | Key Change |
 |----------|-------------|------------|
@@ -34,7 +34,7 @@ Generated on: Sun Nov  2 17:30:34 CET 2025
 | `nda-05-government-sector-nda-reset-unchecked` | Back to Government sector | **NDA checkbox reset to unchecked** |
 | `nda-06-nonprofit-sector-nda-hidden` | Non profit sector selected | NDA checkbox hidden |
 
-### 🏛️ Government Customer Workflow:       15 total
+### 🏛️ Government Customer Workflow:        5 total
 
 | Snapshot | Description | Scenario |
 |----------|-------------|----------|
@@ -87,4 +87,4 @@ For detailed snapshot analysis, see:
 - [SNAPSHOTS_DOCUMENTATION.md](./SNAPSHOTS_DOCUMENTATION.md)
 
 ---
-*Report generated on Sun Nov  2 17:30:34 CET 2025*
+*Report generated on Sat Nov  8 15:01:41 CET 2025*
