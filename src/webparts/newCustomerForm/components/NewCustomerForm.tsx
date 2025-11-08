@@ -7,8 +7,6 @@ import * as strings from 'NewCustomerFormWebPartStrings';
 import Notification from './Notification';
 import { MessageBarType } from '@fluentui/react';
 
-// TODO: update to version 1.22
-
 const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
   const {
     userDisplayName
