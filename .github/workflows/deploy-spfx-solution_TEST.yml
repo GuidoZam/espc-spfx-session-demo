@@ -20,7 +20,7 @@ jobs:
       - name: Bundle & Package
         run: |
           npm run build
-          npm run package-solution:test
+          npm run package-solution:prod
       - name: Run unit tests
         run: npm run test:unit
       - name: CLI for Microsoft 365 Login
