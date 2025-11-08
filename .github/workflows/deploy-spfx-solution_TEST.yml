@@ -34,7 +34,8 @@ jobs:
         uses: pnp/action-cli-deploy@v5
         with:
           APP_FILE_PATH: sharepoint/solution/espc-spfx-session-demo.sppkg
-          SCOPE: tenant
+          SCOPE: site collection
+          SITE_COLLECTION_URL: ${{ vars.TEST_SHAREPOINT_SITE_URL }}
           SKIP_FEATURE_DEPLOYMENT: false
           OVERWRITE: true
       - name: Install Playwright Browsers
