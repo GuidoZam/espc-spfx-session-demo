@@ -35,7 +35,7 @@ jobs:
         with:
           APP_FILE_PATH: sharepoint/solution/espc-spfx-session-demo.sppkg
           SCOPE: sitecollection
-          SITE_COLLECTION_URL: ${{ vars.TEST_SHAREPOINT_SITE_URL }}
+          SITE_COLLECTION_URL: ${{ vars.TEST_SHAREPOINT_SITE_APP_CATALOG_URL }}
           SKIP_FEATURE_DEPLOYMENT: false
           OVERWRITE: true
       - name: Install Playwright Browsers
