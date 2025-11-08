@@ -9,6 +9,8 @@ define([], function() {
 		FormLabelCompany: "Company",
 		FormLabelSocialHandle: "Social Handle",
 		FormLabelNotes: "Notes:",
+		FormLabelCustomerSector: "Customer Sector:",
+		FormLabelRequiresNDA: "Requires NDA",
 		FormPlaceholderName: "Enter customer name",
 		FormPlaceholderEmail: "Enter customer email",
 		FormPlaceholderPhone: "Enter phone number",
@@ -23,5 +25,8 @@ define([], function() {
 		FormErrorSocialHandleFormat: "Social handle must start with @.",
 		FormButtonAddCustomer: "Add Customer",
 		FormAlertCustomerAdded: "Customer added: {0} ({1})",
+		FormSectorNonProfit: "Non profit",
+		FormSectorPrivate: "Private",
+		FormSectorGovernment: "Government",
 	};
 });

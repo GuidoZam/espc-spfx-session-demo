@@ -11,8 +11,9 @@
 
 This project demonstrates a SharePoint Framework (SPFx) web part solution integrated with modern CI/CD and automated testing practices. It features:
 
-- **NewCustomerForm Web Part**: A sample SPFx web part showcasing basic React integration, localization, and asset management.
-- **Automated Testing**: End-to-end tests using Playwright, including authentication flows for Microsoft 365 and SharePoint Online.
+- **NewCustomerForm Web Part**: A comprehensive SPFx web part showcasing React integration, conditional UI logic, localization, and asset management. Includes CustomerSector dropdown with conditional NDA checkbox functionality.
+- **Automated Testing**: End-to-end tests using Playwright with visual regression testing, including authentication flows for Microsoft 365 and SharePoint Online.
+- **Visual Testing**: Comprehensive snapshot testing to verify UI behavior across different browsers and scenarios.
 - **CI/CD Integration**: GitHub Actions workflows for building, testing, and deploying the solution.
 - **Azure Storage Deployment**: Example configuration for deploying assets to Azure Storage.
 
@@ -115,10 +116,101 @@ This solution provides a reference implementation for:
 This extension illustrates the following concepts:
 
 - SPFx web part development with React
+- **Conditional UI Logic**: CustomerSector dropdown with conditional NDA checkbox
+- **Form State Management**: Advanced form handling with business logic
 - Localization and asset management
 - Unit testing with Jest
-- Automated E2E testing with Playwright
+- **Visual Regression Testing**: Automated E2E testing with Playwright snapshots
 - CI/CD with GitHub Actions
+
+### Customer Form Features
+
+The NewCustomerForm web part demonstrates:
+
+- **CustomerSector Dropdown**: Three options (Non profit, Private, Government)
+- **Conditional NDA Checkbox**: Only visible for Government sector customers
+- **Smart Reset Logic**: NDA checkbox resets when sector changes
+- **Business Rules**: NDA value only applies to Government customers
+- **Form Validation**: Required field validation with user feedback
+- **Success Notifications**: Visual feedback on successful form submission
+
+## Testing
+
+This project includes comprehensive testing coverage:
+
+### Unit Tests (Jest)
+```bash
+npm test
+```
+
+- Component rendering tests
+- Form validation logic
+- Conditional field visibility
+- Business rule enforcement (NDA logic)
+- User interaction scenarios
+
+### End-to-End Tests (Playwright)
+```bash
+npm run test:e2e
+```
+
+- Cross-browser testing (Chromium, Firefox, WebKit)
+- SharePoint authentication flows
+- Complete user workflows
+- **Visual regression testing with snapshots**
+
+### Visual Testing & Snapshots
+
+The project includes comprehensive visual regression testing:
+
+```bash
+# Generate/update snapshots
+npm run test:e2e -- --update-snapshots
+
+# View snapshot analysis
+./view-snapshots.sh
+```
+
+**Snapshot Categories:**
+- **Main Workflow**: Form filling and submission process
+- **NDA Visibility**: Conditional checkbox behavior across sectors
+- **Government Workflow**: End-to-end government customer scenarios
+
+📖 **See [SNAPSHOTS_DOCUMENTATION.md](./SNAPSHOTS_DOCUMENTATION.md) for detailed visual testing documentation**
+
+## 📸 Visual Testing Overview
+
+<!-- BEGIN VISUAL_TESTING_OVERVIEW -->
+[View complete visual testing overview](./VISUAL_TESTING_OVERVIEW.md)
+
+
+### Quick Snapshot Summary
+
+The visual regression tests capture **51+ snapshots** across 3 browsers documenting:
+
+| Category | Purpose | Key Changes |
+|----------|---------|-------------|
+| **🔄 Main Workflow** (01-06) | Complete form submission flow | CustomerSector dropdown integration, form reset behavior |
+| **✅ NDA Visibility** (nda-) | Conditional checkbox logic | NDA checkbox shows/hides based on sector selection |
+| **🏛️ Government Flow** (gov-) | End-to-end government customer | Real-world scenario with NDA requirement |
+
+### Browser Coverage
+- 🌐 **Chromium**: Modern web standards (      17 snapshots)
+- 🦊 **Firefox**: Gecko rendering engine (      17 snapshots)
+- 🧭 **WebKit**: Safari/mobile compatibility (      17 snapshots)
+
+### Generate Snapshot Report
+```bash
+# Create markdown report of current snapshots
+./view-snapshots.sh
+
+# View generated report
+cat SNAPSHOT_REPORT.md
+```
+
+📊 **Latest Stats**:       18 main workflow,       18 NDA visibility,       15 government workflow snapshots
+
+<!-- END VISUAL_TESTING_OVERVIEW -->
 
 ## References
 
