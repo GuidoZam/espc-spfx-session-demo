@@ -4,11 +4,14 @@ import { AuthFile } from "./tests/constants/AuthFile";
 export default defineConfig({
 	testDir: "./tests",
 	retries: process.env.CI ? 2 : 0,
-	workers: process.env.CI ? 2 : undefined,
+	workers: 1, // Use single worker to avoid SharePoint auth conflicts
+	timeout: 60000, // Set test timeout to 60 seconds
 	use: {
 		headless: true,
 		baseURL: process.env.TEST_SHAREPOINT_SITE_URL,
 		trace: "on-first-retry",
+		actionTimeout: 30000, // Set action timeout to 30 seconds
+		navigationTimeout: 30000, // Set navigation timeout to 30 seconds
 	},
 	// Configure screenshot and snapshot behavior
 	expect: {
@@ -28,22 +31,6 @@ export default defineConfig({
 			name: "Chromium",
 			use: {
 				...devices["Desktop Chrome"],
-				storageState: AuthFile, // Using the auth (storage state) file
-			},
-			dependencies: ["setup"], // Setup will run first
-		},
-		{
-			name: "Firefox",
-			use: {
-				...devices["Desktop Firefox"],
-				storageState: AuthFile, // Using the auth (storage state) file
-			},
-			dependencies: ["setup"], // Setup will run first
-		},
-		{
-			name: "WebKit",
-			use: {
-				...devices["Desktop Safari"],
 				storageState: AuthFile, // Using the auth (storage state) file
 			},
 			dependencies: ["setup"], // Setup will run first

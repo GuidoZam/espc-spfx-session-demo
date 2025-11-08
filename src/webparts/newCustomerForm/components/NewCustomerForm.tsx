@@ -96,7 +96,7 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
   };
 
   return (
-    <section className={styles.newCustomerForm}>
+    <section className={styles.newCustomerForm} data-testid="new-customer-form-section">
       {notification && (
         <Notification
           message={notification}
@@ -107,7 +107,7 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
       <div className={styles.welcome}>
         <h2>{strings.WelcomeTitle.replace('{0}', escape(userDisplayName))}</h2>
       </div>
-      <form onSubmit={handleSubmit} className={styles.customerForm}>
+      <form onSubmit={handleSubmit} className={styles.customerForm} data-testid="customer-form">
         {error && <div className={styles.formError}>{error}</div>}
         <div className={styles.formRow}>
           <label htmlFor="customerName">Name<span className={styles.required} /></label>
@@ -167,7 +167,7 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
           <label htmlFor="customerNotes">Notes</label>
           <textarea id="customerNotes" value={customerNotes} onChange={handleNotesChange} className={styles.textarea} />
         </div>
-        <button type="submit" className={styles.submitBtn}>Add Customer</button>
+        <button type="submit" className={styles.submitBtn} data-testid="submit-button">Add Customer</button>
       </form>
     </section>
   );

@@ -5,15 +5,17 @@
   padding: 1em;
   color: "[theme:bodyText, default: #323130]";
   color: var(--bodyText);
-  &.teams {
-    font-family: $ms-font-family-fallbacks;
-  }
-  background: "theme:bodyBackground, default: #ffffff]";
+  //background: "[theme:bodyBackground, default: #ffffff]";
+  background-color: transparent;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   padding: 2rem;
   max-width: 500px;
   margin: 2rem auto;
+  
+  &.teams {
+    font-family: $ms-font-family-fallbacks;
+  }
 }
 
 .welcome {
