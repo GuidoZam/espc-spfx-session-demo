@@ -14,5 +14,8 @@
     "src/**/*.scss.ts": true,
     "**/node_modules": true
   },
-  "typescript.tsdk": ".\\node_modules\\typescript\\lib"
+  "typescript.tsdk": ".\\node_modules\\typescript\\lib",
+  "demoTime.defaultFileType": "json",
+  "demoTime.previousEnabled": true,
+  "demoTime.api.enabled": true
 }

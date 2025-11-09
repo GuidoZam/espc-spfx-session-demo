@@ -5,7 +5,13 @@ jest.mock('NewCustomerFormWebPartStrings', () => ({
   FormErrorNameRequired: 'Name is required',
   FormErrorEmailRequired: 'Email is required',
   FormErrorCompanyRequired: 'Company is required',
-  WelcomeTitle: 'Welcome, {0}!'
+  FormErrorSocialHandleFormat: 'Social handle must start with @',
+  WelcomeTitle: 'Welcome, {0}!',
+  FormLabelCustomerSector: 'Customer Sector:',
+  FormLabelRequiresNDA: 'Requires NDA',
+  FormSectorNonProfit: 'Non profit',
+  FormSectorPrivate: 'Private',
+  FormSectorGovernment: 'Government'
 }));
 
 jest.mock('@fluentui/react');
@@ -44,7 +50,9 @@ describe('NewCustomerForm Component', () => {
     expect(screen.getByLabelText(/Phone/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Address/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Company/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Customer Sector/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Notes/i)).toBeInTheDocument();
+
     expect(screen.getByRole('button', { name: /Add Customer/i })).toBeInTheDocument();
   });
 
@@ -56,7 +64,9 @@ describe('NewCustomerForm Component', () => {
     fireEvent.change(screen.getByLabelText(/Company/i), { target: { value: 'Acme Corp' } });
     fireEvent.change(screen.getByLabelText(/Phone/i), { target: { value: '1234567890' } });
     fireEvent.change(screen.getByLabelText(/Address/i), { target: { value: '123 Main St' } });
+    fireEvent.change(screen.getByLabelText(/Customer Sector/i), { target: { value: 'Private' } });
     fireEvent.change(screen.getByLabelText(/Notes/i), { target: { value: 'VIP customer' } });
+
     fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));
     expect(
       screen.getByText((content, element) =>
@@ -68,7 +78,9 @@ describe('NewCustomerForm Component', () => {
     expect(screen.getByLabelText(/Company/i)).toHaveValue('');
     expect(screen.getByLabelText(/Phone/i)).toHaveValue('');
     expect(screen.getByLabelText(/Address/i)).toHaveValue('');
+    expect(screen.getByLabelText(/Customer Sector/i)).toHaveValue('');
     expect(screen.getByLabelText(/Notes/i)).toHaveValue('');
+
   });
 
   it('shows error message only for missing field when submitting blank form', () => {
@@ -78,6 +90,7 @@ describe('NewCustomerForm Component', () => {
     expect(screen.queryAllByText(/Email is required/i).length).toBeGreaterThan(0);
     expect(screen.queryAllByText(/Company is required/i).length).toBeGreaterThan(0);
   });
+
 
   it('shows error message only for missing Name', () => {
     render(<NewCustomerForm {...baseProps} />);
@@ -107,5 +120,80 @@ describe('NewCustomerForm Component', () => {
     expect(screen.queryAllByText(/Company is required/i).length).toBeGreaterThan(0);
     expect(screen.queryAllByText(/Name is required/i).length).toBe(0);
     expect(screen.queryAllByText(/Email is required/i).length).toBe(0);
+  });
+
+  it('shows NDA checkbox only when Government sector is selected', () => {
+    render(<NewCustomerForm {...baseProps} />);
+    
+    // Initially, NDA checkbox should not be visible
+    expect(screen.queryByLabelText(/Requires NDA/i)).not.toBeInTheDocument();
+
+    // Select Government sector
+    fireEvent.change(screen.getByLabelText(/Customer Sector/i), { target: { value: 'Government' } });
+    
+    // Now NDA checkbox should be visible
+    expect(screen.getByLabelText(/Requires NDA/i)).toBeInTheDocument();
+
+    // Select Private sector
+    fireEvent.change(screen.getByLabelText(/Customer Sector/i), { target: { value: 'Private' } });
+    
+    // NDA checkbox should be hidden again
+    expect(screen.queryByLabelText(/Requires NDA/i)).not.toBeInTheDocument();
+  });
+
+  it('resets NDA checkbox when sector changes', () => {
+    render(<NewCustomerForm {...baseProps} />);
+    
+    // Select Government sector and check NDA
+    fireEvent.change(screen.getByLabelText(/Customer Sector/i), { target: { value: 'Government' } });
+    const ndaCheckbox = screen.getByLabelText(/Requires NDA/i);
+    fireEvent.click(ndaCheckbox);
+    expect(ndaCheckbox).toBeChecked();
+
+    // Change to Private sector and back to Government
+    fireEvent.change(screen.getByLabelText(/Customer Sector/i), { target: { value: 'Private' } });
+    fireEvent.change(screen.getByLabelText(/Customer Sector/i), { target: { value: 'Government' } });
+    
+    // NDA checkbox should be unchecked
+    const newNdaCheckbox = screen.getByLabelText(/Requires NDA/i);
+    expect(newNdaCheckbox).not.toBeChecked();
+  });
+
+  it('submits customer with NDA true only for Government sector', () => {
+    const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+    render(<NewCustomerForm {...baseProps} />);
+    
+    // Fill required fields
+    fireEvent.change(screen.getByLabelText(/Name/i), { target: { value: 'John Doe' } });
+    fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john@example.com' } });
+    fireEvent.change(screen.getByLabelText(/Company/i), { target: { value: 'Acme Corp' } });
+
+    // Test with Government sector and NDA checked
+    fireEvent.change(screen.getByLabelText(/Customer Sector/i), { target: { value: 'Government' } });
+    fireEvent.click(screen.getByLabelText(/Requires NDA/i));
+    fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));
+    
+    expect(consoleSpy).toHaveBeenCalledWith('Customer data:', expect.objectContaining({
+      sector: 'Government',
+      requiresNDA: true
+    }));
+
+    consoleSpy.mockClear();
+
+    // Fill required fields again
+    fireEvent.change(screen.getByLabelText(/Name/i), { target: { value: 'Jane Smith' } });
+    fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'jane@example.com' } });
+    fireEvent.change(screen.getByLabelText(/Company/i), { target: { value: 'Another Corp' } });
+
+    // Test with Private sector (NDA should be false even if it was checked before)
+    fireEvent.change(screen.getByLabelText(/Customer Sector/i), { target: { value: 'Private' } });
+    fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));
+    
+    expect(consoleSpy).toHaveBeenCalledWith('Customer data:', expect.objectContaining({
+      sector: 'Private',
+      requiresNDA: false
+    }));
+
+    consoleSpy.mockRestore();
   });
 });

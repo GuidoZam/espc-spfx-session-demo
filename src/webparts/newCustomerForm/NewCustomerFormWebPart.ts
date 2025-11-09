@@ -17,12 +17,15 @@ export default class NewCustomerFormWebPart extends BaseClientSideWebPart<INewCu
   public async onInit(): Promise<void> {
     await super.onInit();
     try {
+      // TODO: load tenant settings to get the enum with the name of the current environment
       const graph = graphfi().using(SPFx(this.context));
       const me = await graph.me();
+      // TODO: add DevProxy to test the 429 errors
       this.userFullName = me.displayName || '';
     } catch (error) {
-      if (error && (error.statusCode === 429 || error.statusCode === 502)) {
-        console.warn(`Graph API error (${error.statusCode}): ${error.message || error}`);
+      const apiError = error as { statusCode?: number; message?: string };
+      if (apiError && (apiError.statusCode === 429 || apiError.statusCode === 502)) {
+        console.warn(`Graph API error (${apiError.statusCode}): ${apiError.message || apiError}`);
       } else {
         console.error('Graph API error:', error);
       }

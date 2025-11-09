@@ -18,6 +18,9 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
   const [customerAddress, setCustomerAddress] = useState('');
   const [customerCompany, setCustomerCompany] = useState('');
   const [customerNotes, setCustomerNotes] = useState('');
+  const [customerSector, setCustomerSector] = useState('');
+  const [requiresNDA, setRequiresNDA] = useState(false);
+
   const [error, setError] = useState('');
   const [touched, setTouched] = useState({ name: false, email: false, company: false });
   const [notification, setNotification] = useState<string | null>(null);
@@ -43,6 +46,15 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
   const handleNotesChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     setCustomerNotes(e.target.value);
   };
+  const handleSectorChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    const sector = e.target.value;
+    setCustomerSector(sector);
+    // Reset NDA checkbox when sector changes
+    setRequiresNDA(false);
+  };
+  const handleNDAChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setRequiresNDA(e.target.checked);
+  };
 
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
@@ -51,6 +63,22 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
       setError(strings.FormErrorRequiredFields);
       return;
     }
+
+    // Create customer data object with NDA logic
+    const customerData = {
+      name: customerName,
+      email: customerEmail,
+      phone: customerPhone,
+      address: customerAddress,
+      company: customerCompany,
+      notes: customerNotes,
+      sector: customerSector,
+      requiresNDA: customerSector === 'Government' ? requiresNDA : false
+    };
+
+    // For demonstration purposes, we'll just log the customer data
+    console.log('Customer data:', customerData);
+
     setError('');
     setCustomerName('');
     setCustomerEmail('');
@@ -58,12 +86,15 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
     setCustomerAddress('');
     setCustomerCompany('');
     setCustomerNotes('');
+    setCustomerSector('');
+    setRequiresNDA(false);
+
     setTouched({ name: false, email: false, company: false });
     setNotification(strings.FormAlertCustomerAdded.replace('{0}', customerName).replace('{1}', customerEmail));
   };
 
   return (
-    <section className={styles.newCustomerForm}>
+    <section className={styles.newCustomerForm} data-testid="new-customer-form-section">
       {notification && (
         <Notification
           message={notification}
@@ -74,7 +105,7 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
       <div className={styles.welcome}>
         <h2>{strings.WelcomeTitle.replace('{0}', escape(userDisplayName))}</h2>
       </div>
-      <form onSubmit={handleSubmit} className={styles.customerForm}>
+      <form onSubmit={handleSubmit} className={styles.customerForm} data-testid="customer-form">
         {error && <div className={styles.formError}>{error}</div>}
         <div className={styles.formRow}>
           <label htmlFor="customerName">Name<span className={styles.required} /></label>
@@ -105,11 +136,36 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
             <span className={styles.fieldError}>{strings.FormErrorCompanyRequired}</span>
           )}
         </div>
+
+        <div className={styles.formRow}>
+          <label htmlFor="customerSector">{strings.FormLabelCustomerSector}</label>
+          <select id="customerSector" value={customerSector} onChange={handleSectorChange} className={styles.input}>
+            <option value="">Select sector...</option>
+            <option value="Non profit">{strings.FormSectorNonProfit}</option>
+            <option value="Private">{strings.FormSectorPrivate}</option>
+            <option value="Government">{strings.FormSectorGovernment}</option>
+          </select>
+        </div>
+
+        {customerSector === 'Government' && (
+          <div className={styles.formRow}>
+            <label htmlFor="requiresNDA">
+              <input 
+                id="requiresNDA" 
+                type="checkbox" 
+                checked={requiresNDA} 
+                onChange={handleNDAChange} 
+              />
+              {strings.FormLabelRequiresNDA}
+            </label>
+          </div>
+        )}
+
         <div className={styles.formRow}>
           <label htmlFor="customerNotes">Notes</label>
           <textarea id="customerNotes" value={customerNotes} onChange={handleNotesChange} className={styles.textarea} />
         </div>
-        <button type="submit" className={styles.submitBtn}>Add Customer</button>
+        <button type="submit" className={styles.submitBtn} data-testid="submit-button">Add Customer</button>
       </form>
     </section>
   );
