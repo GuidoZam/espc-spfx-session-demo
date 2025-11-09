@@ -20,7 +20,6 @@ export default class NewCustomerFormWebPart extends BaseClientSideWebPart<INewCu
       // TODO: load tenant settings to get the enum with the name of the current environment
       const graph = graphfi().using(SPFx(this.context));
       const me = await graph.me();
-      // TODO: add DevProxy to test the 429 errors
       this.userFullName = me.displayName || '';
     } catch (error) {
       const apiError = error as { statusCode?: number; message?: string };
@@ -29,6 +28,7 @@ export default class NewCustomerFormWebPart extends BaseClientSideWebPart<INewCu
       } else {
         console.error('Graph API error:', error);
       }
+      console.warn('Falling back to page context for user display name.');
       this.userFullName = this.context.pageContext.user.displayName || '';
     }
   }
