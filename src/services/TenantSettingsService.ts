@@ -23,18 +23,18 @@ export class TenantSettingsService implements ITenantSettingsService {
 
   /**
    * Gets the environment setting from tenant properties
-   * @returns Promise that resolves to 'TEST', 'PROD', or null if not found
+   * @returns Promise that resolves to 'TEST', 'PROD', or undefined if not found
    */
-  public async getEnvironment(): Promise<string | null> {
+  public async getEnvironment(): Promise<string | undefined> {
     return this.getTenantSetting(TenantSettingsService.ENVIRONMENT_KEY);
   }
 
   /**
    * Gets a tenant setting by key
    * @param key The key of the tenant setting to retrieve
-   * @returns Promise that resolves to the setting value or null if not found
+   * @returns Promise that resolves to the setting value or undefined if not found
    */
-  public async getTenantSetting(key: string): Promise<string | null> {
+  public async getTenantSetting(key: string): Promise<string | undefined> {
     try {
       if (!this._context) {
         throw new Error('TenantSettingsService not initialized. Call init() with WebPartContext first.');
@@ -52,7 +52,7 @@ export class TenantSettingsService implements ITenantSettingsService {
         return storageEntity.Value;
       } else {
         console.warn(`⚠️  Tenant setting '${key}' not found or has no value`);
-        return null;
+        return undefined;
       }
     } catch (error) {
       console.error(`❌ Error retrieving tenant setting '${key}':`, error);
@@ -66,7 +66,7 @@ export class TenantSettingsService implements ITenantSettingsService {
         }
       }
       
-      return null;
+      return undefined;
     }
   }
 }

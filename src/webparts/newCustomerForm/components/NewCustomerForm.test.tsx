@@ -16,9 +16,10 @@ jest.mock('NewCustomerFormWebPartStrings', () => ({
 
 // Mock @fluentui/react components that are used
 jest.mock('@fluentui/react', () => {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const React = require('react');
   return {
-    MessageBar: React.forwardRef((props: any, ref: any) => 
+    MessageBar: React.forwardRef((props: Record<string, unknown>, ref: unknown) => 
       React.createElement('div', { 
         ref, 
         'data-testid': 'customer-notification',
