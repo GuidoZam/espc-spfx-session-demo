@@ -23,7 +23,8 @@
 		"version:patch": "npm version patch --no-git-tag-version",
 		"test:unit": "jest --passWithNoTests",
 		"test:e2e": "playwright test",
-		"test:e2e:update-snapshots": "playwright test --update-snapshots && ./view-snapshots.sh && ./update-readme-visuals.sh && cat SNAPSHOT_REPORT.md"
+		"test:e2e:update-snapshots": "playwright test --update-snapshots && ./view-snapshots.sh && ./update-readme-visuals.sh && cat SNAPSHOT_REPORT.md",
+		"start:devproxy": "devproxy --config-file ./config/devproxy-spfx-config.json & heft start --clean"
 	},
 	"jest": {
 		"roots": [
@@ -40,8 +41,7 @@
 		],
 		"testEnvironment": "jsdom",
 		"moduleNameMapper": {
-			"^.+\\.(css|scss)$": "identity-obj-proxy",
-			"^NewCustomerFormWebPartStrings$": "<rootDir>/__mocks__/NewCustomerFormWebPartStrings.js"
+			"^.+\\.(css|scss)$": "identity-obj-proxy"
 		}
 	},
 	"dependencies": {

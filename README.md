@@ -59,6 +59,10 @@ For the deployment workflow to work, the following GitHub secrets and variables 
 
 If you encounter deployment issues, see the [CI/CD Troubleshooting Guide](docs/CI-CD-TROUBLESHOOTING.md) for common problems and solutions.
 
+### Configuration
+
+For tenant-specific environment settings (TEST/PROD), see the [Tenant Settings Implementation Guide](docs/TENANT-SETTINGS-IMPLEMENTATION.md) for setup instructions and PowerShell scripts.
+
 ## Summary
 
 This solution provides a reference implementation for:
@@ -118,6 +122,8 @@ This extension illustrates the following concepts:
 - SPFx web part development with React
 - **Conditional UI Logic**: CustomerSector dropdown with conditional NDA checkbox
 - **Form State Management**: Advanced form handling with business logic
+- **Tenant Settings Integration**: Environment configuration using SharePoint tenant properties
+- **Service Injection**: Service-based architecture for accessing tenant settings
 - Localization and asset management
 - Unit testing with Jest
 - **Visual Regression Testing**: Automated E2E testing with Playwright snapshots
@@ -133,6 +139,8 @@ The NewCustomerForm web part demonstrates:
 - **Business Rules**: NDA value only applies to Government customers
 - **Form Validation**: Required field validation with user feedback
 - **Success Notifications**: Visual feedback on successful form submission
+- **Environment Badge**: Displays current environment badge (hidden in PROD for clean UI)
+- **Service-Based Configuration**: Uses TenantSettingsService to load environment configuration
 
 ## Testing
 
