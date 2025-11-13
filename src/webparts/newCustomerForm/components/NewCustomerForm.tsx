@@ -9,7 +9,8 @@ import { MessageBarType } from '@fluentui/react';
 
 const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
   const {
-    userDisplayName
+    userDisplayName,
+    environment
   } = props;
 
   const [customerName, setCustomerName] = useState('');
@@ -104,6 +105,28 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
       )}
       <div className={styles.welcome}>
         <h2>{strings.WelcomeTitle.replace('{0}', escape(userDisplayName))}</h2>
+        {environment && environment.toLowerCase() !== 'prod' && (
+          <div 
+            style={{ marginTop: '1rem' }} 
+            data-testid="environment-badge"
+          >
+            <span 
+              style={{ 
+                display: 'inline-block',
+                padding: '0.25rem 0.75rem',
+                borderRadius: '12px',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px',
+                backgroundColor: '#0078d4', // Always blue for non-prod environments
+                color: '#ffffff'
+              }}
+            >
+              {environment}
+            </span>
+          </div>
+        )}
       </div>
       <form onSubmit={handleSubmit} className={styles.customerForm} data-testid="customer-form">
         {error && <div className={styles.formError}>{error}</div>}

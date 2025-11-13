@@ -41,8 +41,7 @@
 		],
 		"testEnvironment": "jsdom",
 		"moduleNameMapper": {
-			"^.+\\.(css|scss)$": "identity-obj-proxy",
-			"^NewCustomerFormWebPartStrings$": "<rootDir>/__mocks__/NewCustomerFormWebPartStrings.js"
+			"^.+\\.(css|scss)$": "identity-obj-proxy"
 		}
 	},
 	"dependencies": {

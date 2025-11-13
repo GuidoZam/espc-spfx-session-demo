@@ -1,4 +1,4 @@
-// jest.mock calls must come first
+// Mock NewCustomerFormWebPartStrings inline to ensure it works
 jest.mock('NewCustomerFormWebPartStrings', () => ({
   FormAlertCustomerAdded: 'Customer {0} ({1}) added successfully.',
   FormErrorRequiredFields: 'Required fields missing.',
@@ -14,32 +14,65 @@ jest.mock('NewCustomerFormWebPartStrings', () => ({
   FormSectorGovernment: 'Government'
 }));
 
-jest.mock('@fluentui/react');
-
+// Mock @fluentui/react components that are used
 jest.mock('@fluentui/react', () => {
-  const original = jest.requireActual('@fluentui/react');
-  const ReactImport = require('react'); // eslint-disable-line @typescript-eslint/no-var-requires
+  const React = require('react');
   return {
-    ...original,
-    MessageBar: ReactImport.forwardRef(
-      (props: { children?: React.ReactNode }, ref: React.Ref<HTMLDivElement>) =>
-        <div ref={ref}>{props.children}</div>
-    )
+    MessageBar: React.forwardRef((props: any, ref: any) => 
+      React.createElement('div', { 
+        ref, 
+        'data-testid': 'customer-notification',
+        ...props 
+      })
+    ),
+    MessageBarType: {
+      info: 'info',
+      error: 'error',
+      blocked: 'blocked',
+      severeWarning: 'severeWarning',
+      success: 'success',
+      warning: 'warning'
+    },
+    initializeIcons: jest.fn()
   };
 });
 
-import * as React from 'react';
+import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import NewCustomerForm from './NewCustomerForm';
 import { initializeIcons } from '@fluentui/react';
 
 const baseProps = {
-  userDisplayName: 'Test User'
+  userDisplayName: 'Test User',
+  environment: 'TEST'
 };
+
+// Store original window.alert
+const originalAlert = window.alert;
 
 beforeAll(() => {
   initializeIcons();
+  // Mock console methods to prevent warnings during tests
+  jest.spyOn(console, 'log').mockImplementation(() => {});
+  jest.spyOn(console, 'warn').mockImplementation(() => {});
+  jest.spyOn(console, 'error').mockImplementation(() => {});
+});
+
+beforeEach(() => {
+  // Mock window.alert for each test
+  window.alert = jest.fn();
+});
+
+afterEach(() => {
+  // Clean up any mocks after each test
+  jest.clearAllMocks();
+});
+
+afterAll(() => {
+  // Restore all mocks and original functions
+  window.alert = originalAlert;
+  jest.restoreAllMocks();
 });
 
 describe('NewCustomerForm Component', () => {
@@ -57,7 +90,6 @@ describe('NewCustomerForm Component', () => {
   });
 
   it('handles input and submit when required fields are filled', () => {
-    window.alert = jest.fn();
     render(<NewCustomerForm {...baseProps} />);
     fireEvent.change(screen.getByLabelText(/Name/i), { target: { value: 'John Doe' } });
     fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john@example.com' } });
@@ -195,5 +227,32 @@ describe('NewCustomerForm Component', () => {
     }));
 
     consoleSpy.mockRestore();
+  });
+
+  it('displays environment badge when environment is TEST', () => {
+    render(<NewCustomerForm {...baseProps} />);
+    const badge = screen.getByTestId('environment-badge');
+    expect(badge).toBeInTheDocument();
+    expect(badge).toHaveTextContent('TEST');
+  });
+
+  it('does not display badge in PROD environment', () => {
+    const prodProps = { ...baseProps, environment: 'PROD' };
+    render(<NewCustomerForm {...prodProps} />);
+    expect(screen.queryByTestId('environment-badge')).not.toBeInTheDocument();
+  });
+
+  it('does not display environment badge when environment is not provided', () => {
+    const propsWithoutEnvironment = { userDisplayName: 'Test User', environment: '' };
+    render(<NewCustomerForm {...propsWithoutEnvironment} />);
+    expect(screen.queryByTestId('environment-badge')).not.toBeInTheDocument();
+  });
+
+  it('displays environment badge for other non-PROD environments', () => {
+    const stagingProps = { ...baseProps, environment: 'STAGING' };
+    render(<NewCustomerForm {...stagingProps} />);
+    const badge = screen.getByTestId('environment-badge');
+    expect(badge).toBeInTheDocument();
+    expect(badge).toHaveTextContent('STAGING');
   });
 });
