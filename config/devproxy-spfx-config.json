@@ -104,7 +104,7 @@
 	"graphRandomErrorsPlugin": {
 		"$schema": "https://raw.githubusercontent.com/dotnet/dev-proxy/main/schemas/v0.29.2/graphrandomerrorplugin.schema.json",
 		"allowedErrors": [429, 500, 502, 503, 504, 507],
-		"rate": 50
+		"rate": 100
 	},
 	"graphMinimalPermissionsPlugin": {
 		"type": "Delegated"

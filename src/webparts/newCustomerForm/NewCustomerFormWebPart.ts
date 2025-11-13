@@ -7,20 +7,32 @@ import '@pnp/graph/users';
 
 import NewCustomerForm from "./components/NewCustomerForm";
 import { INewCustomerFormProps } from './components/INewCustomerFormProps';
+import { ITenantSettingsService, TenantSettingsService } from '../../services';
 
 export interface INewCustomerFormWebPartProps {
 }
 
 export default class NewCustomerFormWebPart extends BaseClientSideWebPart<INewCustomerFormWebPartProps> {
   private userFullName: string = '';
+  private environment: string = '';
+  private tenantSettingsService!: ITenantSettingsService;
 
   public async onInit(): Promise<void> {
     await super.onInit();
+    
+    // Initialize the tenant settings service
+    this.tenantSettingsService = new TenantSettingsService(this.context);
+    
     try {
-      // TODO: load tenant settings to get the enum with the name of the current environment
+      // Load tenant settings to get the current environment
+      console.log('🔍 Loading environment from tenant settings...');
+      const environmentFromSettings = await this.tenantSettingsService.getEnvironment();
+      this.environment = environmentFromSettings || 'UNKNOWN';
+      console.log(`🌍 Environment loaded: ${this.environment}`);
+      
+      // Load user information
       const graph = graphfi().using(SPFx(this.context));
       const me = await graph.me();
-      // TODO: add DevProxy to test the 429 errors
       this.userFullName = me.displayName || '';
     } catch (error) {
       const apiError = error as { statusCode?: number; message?: string };
@@ -29,6 +41,7 @@ export default class NewCustomerFormWebPart extends BaseClientSideWebPart<INewCu
       } else {
         console.error('Graph API error:', error);
       }
+      console.warn('Falling back to page context for user display name.');
       this.userFullName = this.context.pageContext.user.displayName || '';
     }
   }
@@ -37,7 +50,8 @@ export default class NewCustomerFormWebPart extends BaseClientSideWebPart<INewCu
     const element: React.ReactElement<INewCustomerFormProps> = React.createElement(
       NewCustomerForm,
       {
-        userDisplayName: this.userFullName
+        userDisplayName: this.userFullName,
+        environment: this.environment
       }
     );
 
