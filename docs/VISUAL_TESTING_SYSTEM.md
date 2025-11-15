@@ -7,12 +7,12 @@ This document provides an overview of the complete visual testing system impleme
 ### Core Documentation
 - **`VISUAL_TESTING_OVERVIEW.md`** - Complete visual testing overview with detailed tables
 - **`SNAPSHOTS_DOCUMENTATION.md`** - Detailed technical documentation of all snapshots
-- **`SNAPSHOT_REPORT.md`** - Auto-generated current snapshot status report
+- **`docs/SNAPSHOT_REPORT.md`** - Auto-generated current snapshot status report
 - **`README.md`** - Main project documentation with embedded visual testing section
 
 ### Scripts & Tools
-- **`view-snapshots.sh`** - Generates markdown snapshot analysis report
-- **`update-readme-visuals.sh`** - Updates README with current visual testing stats
+- **`scripts/view-snapshots.sh`** - Generates markdown snapshot analysis report
+- **`scripts/update-readme-visuals.sh`** - Updates README with current visual testing stats
 - **`playwright.config.ts`** - Playwright configuration with snapshot settings
 
 ### Test Files
@@ -29,10 +29,10 @@ This document provides an overview of the complete visual testing system impleme
 ### 2. **Automated Documentation**
 ```bash
 # Generate current snapshot report
-./view-snapshots.sh
+./scripts/view-snapshots.sh
 
 # Update README with latest stats  
-./update-readme-visuals.sh
+./scripts/update-readme-visuals.sh
 ```
 
 ### 3. **Markdown-Based Reporting**
@@ -72,13 +72,13 @@ npm test
 ### Documentation
 ```bash
 # Generate snapshot analysis report
-./view-snapshots.sh
+./scripts/view-snapshots.sh
 
 # Update README with current stats
-./update-readme-visuals.sh
+./scripts/update-readme-visuals.sh
 
 # View generated report
-cat SNAPSHOT_REPORT.md
+cat ./docs/SNAPSHOT_REPORT.md
 ```
 
 ## 🎨 Key Visual Changes Documented
@@ -118,8 +118,8 @@ The visual testing system provides:
 
 1. **Developer makes changes** to Customer Form
 2. **Run tests** with `npm run test:e2e:update-snapshots`
-3. **Generate report** with `./view-snapshots.sh`
-4. **Update README** with `./update-readme-visuals.sh`
+3. **Generate report** with `./scripts/view-snapshots.sh`
+4. **Update README** with `./scripts/update-readme-visuals.sh`
 5. **Review and commit** all documentation together
 
 This creates a comprehensive, self-maintaining visual testing documentation system that grows with the project.
