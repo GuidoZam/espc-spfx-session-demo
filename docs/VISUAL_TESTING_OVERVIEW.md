@@ -66,7 +66,7 @@ npm run test:e2e
 npm run test:e2e:update-snapshots
 
 # Analyze snapshots
-./view-snapshots.sh
+./scripts/view-snapshots.sh
 ```
 
 ## 📊 Snapshot Statistics

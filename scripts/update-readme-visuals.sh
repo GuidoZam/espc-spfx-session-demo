@@ -5,14 +5,14 @@
 
 README_FILE="README.md"
 VISUAL_OVERVIEW_FILE="VISUAL_TESTING_OVERVIEW.md"
-SNAPSHOT_REPORT="SNAPSHOT_REPORT.md"
+SNAPSHOT_REPORT="./docs/SNAPSHOT_REPORT.md"
 
 echo "📖 Updating README with visual testing overview..."
 
 # First, generate the snapshot report if it doesn't exist
 if [ ! -f "$SNAPSHOT_REPORT" ]; then
     echo "🔍 Generating snapshot report first..."
-    ./view-snapshots.sh
+    ./scripts/view-snapshots.sh
 fi
 
 # Check if snapshots exist
@@ -53,10 +53,10 @@ The visual regression tests capture **${TOTAL_SNAPSHOTS}+ snapshots** across 3 b
 ### Generate Snapshot Report
 \`\`\`bash
 # Create markdown report of current snapshots
-./view-snapshots.sh
+./scripts/view-snapshots.sh
 
 # View generated report
-cat SNAPSHOT_REPORT.md
+cat ./docs/SNAPSHOT_REPORT.md
 \`\`\`
 
 📊 **Latest Stats**: ${MAIN_WORKFLOW} main workflow, ${NDA_TESTS} NDA visibility, ${GOV_TESTS} government workflow snapshots
