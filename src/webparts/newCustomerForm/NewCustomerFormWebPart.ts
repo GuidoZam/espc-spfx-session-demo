@@ -21,7 +21,7 @@ export default class NewCustomerFormWebPart extends BaseClientSideWebPart<INewCu
     await super.onInit();
 
     // Retrieve the package version from the package.json file
-    const packageSolution: any =
+    const packageSolution: { solution: { version: string } } =
 			await require("../../../config/package-solution.json");
 		console.log(`NewCustomerFormWebPart: v.${packageSolution.solution.version}`);
     

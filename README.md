@@ -1,10 +1,10 @@
 # espc-spfx-session-demo
 
-[![Deploy SPFx Solution PROD](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_PROD.yml/badge.svg?branch=prod)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_PROD.yml)
+[![PROD](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_PROD.yml/badge.svg?branch=prod)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_PROD.yml)
 
-[![Deploy SPFx Solution TEST](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_TEST.yml/badge.svg?branch=test)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_TEST.yml)
+[![TEST](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_TEST.yml/badge.svg?branch=test)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/deploy-spfx-solution_TEST.yml)
 
-[![Execute unit tests](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute-unit-tests.yml/badge.svg?branch=dev)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute-unit-tests.yml)
+[![unit tests](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute-unit-tests.yml/badge.svg?branch=dev)](https://github.com/GuidoZam/espc-spfx-session-demo/actions/workflows/execute-unit-tests.yml)
 
 
 ## Solution Overview
@@ -176,7 +176,7 @@ The project includes comprehensive visual regression testing:
 npm run test:e2e -- --update-snapshots
 
 # View snapshot analysis
-./view-snapshots.sh
+./scripts/view-snapshots.sh
 ```
 
 **Snapshot Categories:**
@@ -210,10 +210,10 @@ The visual regression tests capture **17+ snapshots** across 3 browsers document
 ### Generate Snapshot Report
 ```bash
 # Create markdown report of current snapshots
-./view-snapshots.sh
+./scripts/view-snapshots.sh
 
 # View generated report
-cat SNAPSHOT_REPORT.md
+cat ./docs/SNAPSHOT_REPORT.md
 ```
 
 📊 **Latest Stats**:        6 main workflow,        6 NDA visibility,        5 government workflow snapshots

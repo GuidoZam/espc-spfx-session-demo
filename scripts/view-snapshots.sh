@@ -4,7 +4,7 @@
 # This script generates a markdown report of the snapshots
 
 SNAPSHOTS_DIR="tests/basic.spec.ts-snapshots"
-OUTPUT_FILE="SNAPSHOT_REPORT.md"
+OUTPUT_FILE="./docs/SNAPSHOT_REPORT.md"
 
 echo "🔍 Customer Form Visual Testing - Snapshot Analysis"
 echo "================================================="
@@ -175,7 +175,7 @@ npm run test:e2e
 npm run test:e2e:update-snapshots
 
 # Generate this report
-./view-snapshots.sh
+./scripts/view-snapshots.sh
 \`\`\`
 
 ## 📖 Documentation
