@@ -19,6 +19,11 @@ export default class NewCustomerFormWebPart extends BaseClientSideWebPart<INewCu
 
   public async onInit(): Promise<void> {
     await super.onInit();
+
+    // Retrieve the package version from the package.json file
+    const packageSolution: { solution: { version: string } } =
+			await require("../../../config/package-solution.json");
+		console.log(`NewCustomerFormWebPart: v.${packageSolution.solution.version}`);
     
     // Initialize the tenant settings service
     this.tenantSettingsService = new TenantSettingsService(this.context);
