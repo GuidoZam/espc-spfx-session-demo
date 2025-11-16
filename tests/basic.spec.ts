@@ -4,7 +4,7 @@ import { test, expect, Page } from '@playwright/test';
 async function checkCustomerFormExists(page: Page): Promise<boolean> {
 	console.log("Checking for customer form on page...");
 
-	await page.waitForTimeout(30000); // Extra wait for SPFx web part to initialize
+	await page.waitForTimeout(10000); // Extra wait for SPFx web part to initialize
 	
 	// Check for the specific inputs we know should exist
 	const customerNameInput = await page.locator('input#customerName').count();
@@ -155,7 +155,7 @@ test.describe("Page load", () => {
 		await page.click('[data-testid="submit-button"]');
 
 		// Wait longer to allow React to render notification
-		await page.waitForTimeout(3000);
+		await page.waitForTimeout(5000);
 
 		// Use robust Playwright expect for notification with data-testid
 		const notification = page.locator('[data-testid="customer-notification"]');
