@@ -20,7 +20,6 @@
 		"eject-webpack": "heft eject-webpack",
 		"trust-dev-cert": "heft trust-dev-cert",
 		"untrust-dev-cert": "heft untrust-dev-cert",
-		"version:patch": "npm version patch --no-git-tag-version",
 		"test:unit": "jest --passWithNoTests",
 		"test:e2e": "playwright test",
 		"test:e2e:debug": "playwright test --debug",
