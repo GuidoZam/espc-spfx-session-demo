@@ -4,790 +4,808 @@
   "description": "Demo highlights for ESPC 2025 session, covering project structure, form, tests, and CI/CD.",
   "version": 2,
   "demos": [
-    {
-      "title": "Title",
-      "steps": [
-        {
-          "action": "openSlide",
-          "path": ".demo/slides/Title.md"
-        }
-      ]
-    },
-    {
-      "title": "Speakers",
-      "steps": [
-        {
-          "action": "openSlide",
-          "path": ".demo/slides/Speakers.md",
-          "disabled": false
-        }
-      ]
-    },
-    {
-      "title": "Introduction",
-      "steps": [
-        {
-          "action": "openSlide",
-          "path": ".demo/slides/Introduction.md",
-          "disabled": false
-        }
-      ]
-    },
-    {
-      "title": "Steps performed",
-      "steps": [
-        {
-          "action": "openSlide",
-          "path": ".demo/slides/Steps performed.md",
-          "disabled": false
-        }
-      ],
-      "id": "demo-mh0z488q-ymyw"
-    },
-    {
-      "title": "Explore the solution",
-      "steps": [
-        {
-          "action": "openSlide",
-          "path": ".demo/slides/Explore the solution.md",
-          "disabled": false
-        }
-      ],
-      "id": "demo-mgw0r003-w4fp"
-    },
-    {
-      "title": "Web Part Form to Insert Data",
-      "description": "Showcase the NewCustomerForm web part, demonstrating how users can input and submit new customer data.",
-      "steps": [
-        {
-          "action": "open",
-          "title": "Open NewCustomerForm web part",
-          "path": "src/webparts/newCustomerForm/NewCustomerFormWebPart.ts",
-          "description": "Display the form UI and explain its fields and submission logic."
-        }
-      ],
-      "id": "demo-mgw0r003-w4fr"
-    },
-    {
-      "title": "Web Part Form to Insert Data",
-      "description": "Showcase the NewCustomerForm web part, demonstrating how users can input and submit new customer data.",
-      "steps": [
-        {
-          "action": "highlight",
-          "position": "33:42",
-          "highlightWholeLine": true,
-          "path": "src/webparts/newCustomerForm/NewCustomerFormWebPart.ts"
-        }
-      ],
-      "id": "demo-mgw0r003-w4fs"
-    },
-    {
-      "title": "Form to Insert Data",
-      "description": "Showcase the NewCustomerForm web part, demonstrating how users can input and submit new customer data.",
-      "steps": [
-        {
-          "action": "open",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx"
-        }
-      ],
-      "id": "demo-mgw0r003-w4ft"
-    },
-    {
-      "title": "Form - State hooks",
-      "description": "Showcase the NewCustomerForm web part, state hooks.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "position": "15:20",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w4fu"
-    },
-    {
-      "title": "Form - Actual form",
-      "description": "Showcase the NewCustomerForm web part, form tag.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "position": "77:117",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w4fv"
-    },
-    {
-      "title": "Form - Form submit button",
-      "description": "Showcase the NewCustomerForm web part, form submit button.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "position": "116",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w4fw"
-    },
-    {
-      "title": "Form - Form submit handler",
-      "description": "Showcase the NewCustomerForm web part, form submit handler.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "position": "48:66",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w4fx"
-    },
-    {
-      "title": "Tests",
-      "steps": [
-        {
-          "action": "openSlide",
-          "path": ".demo/slides/Tests.md",
-          "disabled": false
-        }
-      ],
-      "id": "demo-mgw0ui0p-w5vh"
-    },
-    {
-      "title": "Unit Tests using Jest",
-      "description": "Demonstrate the project's unit testing using Jest, setup and examples, highlighting test coverage for core logic.",
-      "steps": [
-        {
-          "action": "open",
-          "title": "Show unit test files",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "description": "Open a test file and explain the structure and purpose of the tests."
-        }
-      ],
-      "id": "demo-mgw0r003-w5fa"
-    },
-    {
-      "title": "Unit Tests - Check field presence",
-      "description": "Shows how jest check for the form fields to be present in the HTML.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "40:51",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w5fb"
-    },
-    {
-      "title": "Unit Tests - Check if error is returned when name is empty",
-      "description": "Shows how jest check if there is an error returned when the field name has no value specified.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "87:95",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w5fc"
-    },
-    {
-      "title": "Unit Tests - Run tests locally",
-      "description": "Show how to perform unit tests locally.",
-      "steps": [
-        {
-          "action": "openTerminal"
-        },
-        {
-          "action": "executeTerminalCommand",
-          "command": "npm run test"
-        }
-      ],
-      "id": "demo-mgw103hj-vvx4"
-    },
-    {
-      "title": "End to End Tests",
-      "description": "Present the Playwright-based E2E tests, showing how user flows are validated automatically.",
-      "steps": [
-        {
-          "action": "closeTerminal"
-        },
-        {
-          "action": "open",
-          "title": "Open Playwright config",
-          "path": "tests/basic.spec.ts",
-          "description": "Show the Playwright configuration and describe the E2E test setup."
-        }
-      ],
-      "id": "demo-mgw0r003-w5fd"
-    },
-    {
-      "title": "End to End Tests - Check page title",
-      "description": "Check that the page title has a specific string.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": "tests/basic.spec.ts",
-          "position": "19:23",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w5fe"
-    },
-    {
-      "title": "E2E Tests - Run tests locally",
-      "description": "Show how to perform unit tests locally.",
-      "steps": [
-        {
-          "action": "openTerminal"
-        },
-        {
-          "action": "executeTerminalCommand",
-          "command": "npm run test:e2e"
-        }
-      ],
-      "id": "demo-mgw124av-rq2y"
-    },
-    {
-      "title": "CI/CD",
-      "steps": [
-        {
-          "action": "closeTerminal"
-        },
-        {
-          "action": "openSlide",
-          "path": ".demo/slides/CICD.md",
-          "disabled": false
-        }
-      ],
-      "id": "demo-mgw0wgyw-bpie"
-    },
-    {
-      "title": "GitHub Actions for Unit Testing",
-      "description": "Explain the CI/CD pipeline, focusing on automated testing for specific branches using GitHub Actions.",
-      "steps": [
-        {
-          "action": "open",
-          "title": "Show GitHub Actions workflow",
-          "path": ".github/workflows/execute-unit-tests.yml",
-          "description": "Open the workflow file and explain the testing steps."
-        }
-      ],
-      "id": "demo-mgw0r003-w5ff"
-    },
-    {
-      "title": "GitHub Actions - Specific branch trigger",
-      "description": "Explain how GitHub action is triggered for a specific branch.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": ".github/workflows/execute-unit-tests.yml",
-          "position": "3:6",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w5fg"
-    },
-    {
-      "title": "GitHub Actions - Setup the testing environment",
-      "description": "Explain how GitHub action prepare the environment for testing.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": ".github/workflows/execute-unit-tests.yml",
-          "position": "13:20",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w5fh"
-    },
-    {
-      "title": "GitHub Actions - Install dependencies and bundle",
-      "description": "Explain how GitHub action install dependencies and run bundle.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": ".github/workflows/execute-unit-tests.yml",
-          "position": "22:26",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w5fi"
-    },
-    {
-      "title": "GitHub Actions - Run the unit tests",
-      "description": "Explain how GitHub action run unit tests.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": ".github/workflows/execute-unit-tests.yml",
-          "position": "28:29",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w5fj"
-    },
-    {
-      "title": "GitHub Actions for Deployment and Testing",
-      "description": "Explain the CI/CD pipeline, focusing on automated deployment and testing for specific branches using GitHub Actions.",
-      "steps": [
-        {
-          "action": "open",
-          "title": "Show GitHub Actions workflow",
-          "path": ".github/workflows/deploy-spfx-solution_TEST.yml",
-          "description": "Open the workflow file and explain the deployment and testing steps."
-        }
-      ],
-      "id": "demo-mgw0r003-w5fk"
-    },
-    {
-      "title": "GitHub Actions for Deployment and Testing - Specific branch trigger",
-      "description": "Explain how GitHub action is triggered for a specific branch.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": ".github/workflows/deploy-spfx-solution_TEST.yml",
-          "position": "2:5",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w5fl"
-    },
-    {
-      "title": "GitHub Actions for Deployment and Testing - Package solution",
-      "description": "Explain how GitHub action package the SPFx solution.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": ".github/workflows/deploy-spfx-solution_TEST.yml",
-          "position": "20:23",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w5fm"
-    },
-    {
-      "title": "GitHub Actions for Deployment and Testing - Setup M365 CLI",
-      "description": "Explain how GitHub action setup M365 CLI.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": ".github/workflows/deploy-spfx-solution_TEST.yml",
-          "position": "26:32",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w5fn"
-    },
-    {
-      "title": "GitHub Actions for Deployment and Testing - Deploy application",
-      "description": "Explain how GitHub action deploy the application to the tenant.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": ".github/workflows/deploy-spfx-solution_TEST.yml",
-          "position": "33:39",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w5fo"
-    },
-    {
-      "title": "GitHub Actions for Deployment and Testing - Execute end to end tests",
-      "description": "Explain how GitHub action execute end to end tests.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": ".github/workflows/deploy-spfx-solution_TEST.yml",
-          "position": "40:47",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w5fp"
-    },
-    {
-      "title": "GitHub actions in browser",
-      "steps": [
-        {
-          "action": "openSlide",
-          "path": ".demo/slides/GitHub actions history.md",
-          "position": "40:47",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgwnyv0p-5l75",
-      "description": "Navigate to GitHub and explain the historical actions execution."
-    },
-    {
-      "title": "Let's make a change",
-      "steps": [
-        {
-          "action": "openSlide",
-          "path": ".demo/slides/Lets make a change.md"
-        }
-      ]
-    },
-    {
-      "title": "Form - Add a new field for social media handle",
-      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
-      "steps": [
-        {
-          "action": "insert",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "  const [customerSocialHandle, setCustomerSocialHandle] = useState('');",
-          "position": "21",
-          "highlightWholeLine": true
-        },
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "  const [customerSocialHandle, setCustomerSocialHandle] = useState('');",
-          "position": "21",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgdye6at-fowb"
-    },
-    {
-      "title": "Form - Add a new field for social media handle 2",
-      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
-      "steps": [
-        {
-          "action": "insert",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "  const [touched, setTouched] = useState({ name: false, email: false, company: false, socialHandle: false });",
-          "position": "23",
-          "highlightWholeLine": true
-        },
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "  const [touched, setTouched] = useState({ name: false, email: false, company: false, socialHandle: false });",
-          "position": "23",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mgw0r003-w5fq"
-    },
-    {
-      "title": "Form - Add a new field for social media handle 3",
-      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
-      "steps": [
-        {
-          "action": "insert",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "  const handleSocialHandleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {\n    setCustomerSocialHandle(e.target.value);\n    setTouched(t => ({ ...t, socialHandle: true }));\n  };\n",
-          "position": "47",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant"
-        },
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "  const handleSocialHandleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {\n    setCustomerSocialHandle(e.target.value);\n    setTouched(t => ({ ...t, socialHandle: true }));\n  };\n",
-          "position": "47:50",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant"
-        }
-      ],
-      "id": "demo-mgdym6j6-eihv"
-    },
-    {
-      "title": "Form - Add a new field for social media handle 4",
-      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
-      "steps": [
-        {
-          "action": "insert",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "    setTouched({ name: true, email: true, company: true, socialHandle: true });",
-          "position": "54",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant"
-        },
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "position": "54",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant"
-        }
-      ],
-      "id": "demo-mgwdnxtn-ny96"
-    },
-    {
-      "title": "Form - Add a new field for social media handle 5",
-      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
-      "steps": [
-        {
-          "action": "insert",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "    if (customerSocialHandle && customerSocialHandle.indexOf('@') !== 0) {\n      setError(strings.FormErrorSocialHandleFormat);\n      return;\n    }\n",
-          "position": "59",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant"
-        },
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "    if (customerSocialHandle && customerSocialHandle.indexOf('@') !== 0) {\n      setError(strings.FormErrorSocialHandleFormat);\n      return;\n    }\n",
-          "position": "59:62",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant"
-        }
-      ],
-      "id": "demo-mgdyyzc3-bgtr"
-    },
-    {
-      "title": "Form - Add a new field for social media handle 6",
-      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
-      "steps": [
-        {
-          "action": "insert",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "    setCustomerSocialHandle('');\n    setTouched({ name: false, email: false, company: false, socialHandle: false });",
-          "position": "71",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant"
-        },
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "    setCustomerSocialHandle('');\n    setTouched({ name: false, email: false, company: false, socialHandle: false });",
-          "position": "71:72",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant"
-        },
-        {
-          "action": "delete",
-          "position": "73",
-          "highlightWholeLine": true,
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx"
-        }
-      ],
-      "id": "demo-mge6ummf-s4lw"
-    },
-    {
-      "title": "Form - Add a new field for social media handle 7",
-      "description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
-      "steps": [
-        {
-          "action": "insert",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "        <div className={styles.formRow}>\n          <label htmlFor=\"customerSocialHandle\">Social Handle</label>\n          <input id=\"customerSocialHandle\" type=\"text\" value={customerSocialHandle} onChange={handleSocialHandleChange} className={styles.input} placeholder={strings.FormPlaceholderSocialHandle} />\n          {touched.socialHandle && customerSocialHandle && customerSocialHandle.indexOf('@') !== 0 && (\n            <span className={styles.fieldError}>{strings.FormErrorSocialHandleFormat}</span>\n          )}\n        </div>",
-          "position": "120",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant"
-        },
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
-          "content": "        <div className={styles.formRow}>\n          <label htmlFor=\"customerSocialHandle\">Social Handle</label>\n          <input id=\"customerSocialHandle\" type=\"text\" value={customerSocialHandle} onChange={handleSocialHandleChange} className={styles.input} placeholder={strings.FormPlaceholderSocialHandle} />\n          {touched.socialHandle && customerSocialHandle && customerSocialHandle.indexOf('@') !== 0 && (\n            <span className={styles.fieldError}>{strings.FormErrorSocialHandleFormat}</span>\n          )}\n        </div>",
-          "position": "120:126",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant"
-        }
-      ],
-      "id": "demo-mgdz1kga-ikvo"
-    },
-    {
-      "title": "Unit Test - Add a new field for social media handle",
-      "description": "Enhance unit tests with the new field.",
-      "steps": [
-        {
-          "action": "insert",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "49",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant",
-          "content": "    expect(screen.getByLabelText(/Social Handle/i)).toBeInTheDocument();"
-        },
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "49",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant",
-          "content": "    expect(screen.getByLabelText(/Social Handle/i)).toBeInTheDocument();"
-        }
-      ],
-      "id": "demo-mgdz4une-l7ae"
-    },
-    {
-      "title": "Unit Test - Add a new field for social media handle 2",
-      "description": "Enhance unit tests with the new field.",
-      "steps": [
-        {
-          "action": "insert",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "62",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant",
-          "content": "    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: '@johndoe' } });"
-        },
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "62",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant",
-          "content": "    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: '@johndoe' } });"
-        }
-      ],
-      "id": "demo-mgdz8b3x-iuk3"
-    },
-    {
-      "title": "Unit Test - Add a new field for social media handle 3",
-      "description": "Enhance unit tests with the new field.",
-      "steps": [
-        {
-          "action": "insert",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "75",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant",
-          "content": "    expect(screen.getByLabelText(/Social Handle/i)).toHaveValue('');"
-        },
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "75",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant"
-        }
-      ],
-      "id": "demo-mgdz91xo-xk6r"
-    },
-    {
-      "title": "Unit Test - Add a new field for social media handle 4",
-      "description": "Enhance unit tests with the new field.",
-      "steps": [
-        {
-          "action": "insert",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "85",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant",
-          "content": "\n  it('shows error for social handle not starting with @', () => {\n    render(<NewCustomerForm {...baseProps} />);\n    fireEvent.change(screen.getByLabelText(/Name/i), { target: { value: 'John Doe' } });\n    fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john@example.com' } });\n    fireEvent.change(screen.getByLabelText(/Company/i), { target: { value: 'Acme Corp' } });\n    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: 'johndoe' } });\n    fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));\n    expect(screen.queryAllByText(/Social handle must start with @/i).length).toBeGreaterThan(0);\n  });"
-        },
-        {
-          "action": "highlight",
-          "path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
-          "position": "85:94",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant",
-          "content": "\n  it('shows error for social handle not starting with @', () => {\n    render(<NewCustomerForm {...baseProps} />);\n    fireEvent.change(screen.getByLabelText(/Name/i), { target: { value: 'John Doe' } });\n    fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john@example.com' } });\n    fireEvent.change(screen.getByLabelText(/Company/i), { target: { value: 'Acme Corp' } });\n    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: 'johndoe' } });\n    fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));\n    expect(screen.queryAllByText(/Social handle must start with @/i).length).toBeGreaterThan(0);\n  });"
-        }
-      ],
-      "id": "demo-mgdz9zs6-1wxe"
-    },
-    {
-      "title": "Run unit test with changes",
-      "description": "Run unit tests with the new field.",
-      "steps": [
-        {
-          "action": "openTerminal"
-        },
-        {
-          "action": "executeTerminalCommand",
-          "command": "npm run test"
-        }
-      ],
-      "id": "demo-mgwarbja-t60l"
-    },
-    {
-      "title": "E2E Test - Add a new field for social media handle",
-      "description": "Enhance unit tests with the new field.",
-      "steps": [
-        {
-          "action": "closeTerminal"
-        },
-        {
-          "action": "insert",
-          "path": "tests/basic.spec.ts",
-          "position": "56",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant",
-          "content": "\t\tawait page.fill('input[id=\"customerSocialHandle\"]', '@janedoe');"
-        },
-        {
-          "action": "highlight",
-          "path": "tests/basic.spec.ts",
-          "position": "56",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant",
-          "content": "\t\tawait page.fill('input[id=\"customerSocialHandle\"]', '@janedoe');"
-        }
-      ],
-      "id": "demo-mgw0r003-w5fr"
-    },
-    {
-      "title": "E2E Test - Add a new field for social media handle 2",
-      "description": "Enhance unit tests with the new field.",
-      "steps": [
-        {
-          "action": "insert",
-          "path": "tests/basic.spec.ts",
-          "position": "83",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant",
-          "content": "\t\tawait expect(page.locator('input[id=\"customerSocialHandle\"]')).toHaveValue('');"
-        },
-        {
-          "action": "highlight",
-          "path": "tests/basic.spec.ts",
-          "position": "83",
-          "highlightWholeLine": true,
-          "insertTypingMode": "instant",
-          "content": "\t\tawait expect(page.locator('input[id=\"customerSocialHandle\"]')).toHaveValue('');"
-        }
-      ],
-      "id": "demo-mgdzdhzo-hozh"
-    },
-    {
-      "title": "Run e2e test with changes",
-      "description": "Run e2e tests with the new field.",
-      "steps": [
-        {
-          "action": "openTerminal"
-        },
-        {
-          "action": "executeTerminalCommand",
-          "command": "npm run test:e2e"
-        }
-      ],
-      "id": "demo-mgwatm8k-f379"
-    },
-    {
-      "id": "demo-mgwamme2-oznn",
-      "title": "Commit to GitHub",
-      "steps": [
-        {
-          "action": "executeTerminalCommand",
-          "command": "git add -A"
-        },
-        {
-          "action": "executeTerminalCommand",
-          "command": "git commit -m \"Added new social handle field\""
-        },
-        {
-          "action": "executeTerminalCommand",
-          "command": "git push"
-        }
-      ]
-    },
-    {
-      "title": "The End",
-      "steps": [
-        {
-          "action": "openSlide",
-          "path": ".demo/slides/The end.md",
-          "disabled": false
-        }
-      ],
-      "id": "demo-mgwb3iyz-iufy"
-    }
-  ]
+		{
+			"title": "Title",
+			"steps": [
+				{
+					"action": "openSlide",
+					"path": ".demo/slides/Title.md"
+				}
+			]
+		},
+		{
+			"title": "Speakers",
+			"steps": [
+				{
+					"action": "openSlide",
+					"path": ".demo/slides/Speakers.md",
+					"disabled": false
+				}
+			]
+		},
+		{
+			"title": "Introduction",
+			"steps": [
+				{
+					"action": "openSlide",
+					"path": ".demo/slides/Introduction.md",
+					"disabled": false
+				}
+			]
+		},
+		{
+			"title": "Steps performed",
+			"steps": [
+				{
+					"action": "openSlide",
+					"path": ".demo/slides/Steps performed.md",
+					"disabled": false
+				}
+			],
+			"id": "demo-mh0z488q-ymyw"
+		},
+		{
+			"title": "Explore the solution",
+			"steps": [
+				{
+					"action": "openSlide",
+					"path": ".demo/slides/Explore the solution.md",
+					"disabled": false
+				}
+			],
+			"id": "demo-mgw0r003-w4fp"
+		},
+		{
+			"title": "Web Part Form to Insert Data",
+			"description": "Showcase the NewCustomerForm web part, demonstrating how users can input and submit new customer data.",
+			"steps": [
+				{
+					"action": "open",
+					"title": "Open NewCustomerForm web part",
+					"path": "src/webparts/newCustomerForm/NewCustomerFormWebPart.ts",
+					"description": "Display the form UI and explain its fields and submission logic."
+				}
+			],
+			"id": "demo-mgw0r003-w4fr"
+		},
+		{
+			"title": "Web Part - Highlight tenant settings",
+			"description": "Showcase how to use tenant settings in the NewCustomerForm web part.",
+			"steps": [
+				{
+					"action": "highlight",
+					"position": "34:35",
+					"highlightWholeLine": true,
+					"path": "src/webparts/newCustomerForm/NewCustomerFormWebPart.ts"
+				}
+			],
+			"id": "demo-mgw0r003-w5ha"
+		},
+		{
+			"title": "Web Part - Highlight Graph service usage",
+			"description": "Showcase how to use Graph service in the NewCustomerForm web part.",
+			"steps": [
+				{
+					"action": "highlight",
+					"position": "39:41",
+					"highlightWholeLine": true,
+					"path": "src/webparts/newCustomerForm/NewCustomerFormWebPart.ts"
+				}
+			],
+			"id": "demo-mgw0r003-w5hb"
+		},
+		{
+			"title": "Web Part - Highlight how to insert the form component",
+			"description": "Showcase the NewCustomerForm web part, demonstrating how users can input and submit new customer data.",
+			"steps": [
+				{
+					"action": "highlight",
+					"position": "54:64",
+					"highlightWholeLine": true,
+					"path": "src/webparts/newCustomerForm/NewCustomerFormWebPart.ts"
+				}
+			],
+			"id": "demo-mgw0r003-w4fs"
+		},
+		{
+			"title": "Form to Insert Data",
+			"description": "Showcase the NewCustomerForm web part, demonstrating how users can input and submit new customer data.",
+			"steps": [
+				{
+					"action": "open",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx"
+				}
+			],
+			"id": "demo-mgw0r003-w4ft"
+		},
+		{
+			"title": "Form - State hooks",
+			"description": "Showcase the NewCustomerForm web part, state hooks.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"position": "16:27",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w4fu"
+		},
+		{
+			"title": "Form - Actual form",
+			"description": "Showcase the NewCustomerForm web part, form tag.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"position": "97:194",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w4fv"
+		},
+		{
+			"title": "Form - Form submit button",
+			"description": "Showcase the NewCustomerForm web part, form submit button.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"position": "191",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w4fw"
+		},
+		{
+			"title": "Form - Form submit handler",
+			"description": "Showcase the NewCustomerForm web part, form submit handler.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"position": "60:95",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w4fx"
+		},
+		{
+			"title": "Tests",
+			"steps": [
+				{
+					"action": "openSlide",
+					"path": ".demo/slides/Tests.md",
+					"disabled": false
+				}
+			],
+			"id": "demo-mgw0ui0p-w5vh"
+		},
+		{
+			"title": "Unit Tests using Jest",
+			"description": "Demonstrate the project's unit testing using Jest, setup and examples, highlighting test coverage for core logic.",
+			"steps": [
+				{
+					"action": "open",
+					"title": "Show unit test files",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+					"description": "Open a test file and explain the structure and purpose of the tests."
+				}
+			],
+			"id": "demo-mgw0r003-w5fa"
+		},
+		{
+			"title": "Unit Tests - Check field presence",
+			"description": "Shows how jest check for the form fields to be present in the HTML.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+					"position": "80:91",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w5fb"
+		},
+		{
+			"title": "Unit Tests - Check if error is returned when name is empty",
+			"description": "Shows how jest check if there is an error returned when the field name has no value specified.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+					"position": "128:136",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w5fc"
+		},
+		{
+			"title": "Unit Tests - Run tests locally",
+			"description": "Show how to perform unit tests locally.",
+			"steps": [
+				{
+					"action": "openTerminal"
+				},
+				{
+					"action": "executeTerminalCommand",
+					"command": "npm run test:unit"
+				}
+			],
+			"id": "demo-mgw103hj-vvx4"
+		},
+		{
+			"title": "End to End Tests",
+			"description": "Present the Playwright-based E2E tests, showing how user flows are validated automatically.",
+			"steps": [
+				{
+					"action": "closeTerminal"
+				},
+				{
+					"action": "open",
+					"title": "Open Playwright config",
+					"path": "tests/basic.spec.ts",
+					"description": "Show the Playwright configuration and describe the E2E test setup."
+				}
+			],
+			"id": "demo-mgw0r003-w5fd"
+		},
+		{
+			"title": "End to End Tests - Check page title",
+			"description": "Check that the page title has a specific string.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": "tests/basic.spec.ts",
+					"position": "60:83",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w5fe"
+		},
+		{
+			"title": "E2E Tests - Run tests locally",
+			"description": "Show how to perform unit tests locally.",
+			"steps": [
+				{
+					"action": "openTerminal"
+				},
+				{
+					"action": "executeTerminalCommand",
+					"command": "npm run test:e2e"
+				}
+			],
+			"id": "demo-mgw124av-rq2y"
+		},
+		{
+			"title": "CI/CD",
+			"steps": [
+				{
+					"action": "closeTerminal"
+				},
+				{
+					"action": "openSlide",
+					"path": ".demo/slides/CICD.md",
+					"disabled": false
+				}
+			],
+			"id": "demo-mgw0wgyw-bpie"
+		},
+		{
+			"title": "GitHub Actions for Unit Testing",
+			"description": "Explain the CI/CD pipeline, focusing on automated testing for specific branches using GitHub Actions.",
+			"steps": [
+				{
+					"action": "open",
+					"title": "Show GitHub Actions workflow",
+					"path": ".github/workflows/execute-unit-tests.yml",
+					"description": "Open the workflow file and explain the testing steps."
+				}
+			],
+			"id": "demo-mgw0r003-w5ff"
+		},
+		{
+			"title": "GitHub Actions - Specific branch trigger",
+			"description": "Explain how GitHub action is triggered for a specific branch.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": ".github/workflows/execute-unit-tests.yml",
+					"position": "3:6",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w5fg"
+		},
+		{
+			"title": "GitHub Actions - Setup the testing environment",
+			"description": "Explain how GitHub action prepare the environment for testing.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": ".github/workflows/execute-unit-tests.yml",
+					"position": "10:12",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w5fh"
+		},
+		{
+			"title": "GitHub Actions - Install dependencies and bundle",
+			"description": "Explain how GitHub action install dependencies and run bundle.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": ".github/workflows/execute-unit-tests.yml",
+					"position": "22:26",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w5fi"
+		},
+		{
+			"title": "GitHub Actions - Run the unit tests",
+			"description": "Explain how GitHub action run unit tests.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": ".github/workflows/execute-unit-tests.yml",
+					"position": "28:29",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w5fj"
+		},
+		{
+			"title": "GitHub Actions for Deployment and Testing",
+			"description": "Explain the CI/CD pipeline, focusing on automated deployment and testing for specific branches using GitHub Actions.",
+			"steps": [
+				{
+					"action": "open",
+					"title": "Show GitHub Actions workflow",
+					"path": ".github/workflows/deploy-spfx-solution_TEST.yml",
+					"description": "Open the workflow file and explain the deployment and testing steps."
+				}
+			],
+			"id": "demo-mgw0r003-w5fk"
+		},
+		{
+			"title": "GitHub Actions for Deployment and Testing - Specific branch trigger",
+			"description": "Explain how GitHub action is triggered for a specific branch.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": ".github/workflows/deploy-spfx-solution_TEST.yml",
+					"position": "2:5",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w5fl"
+		},
+		{
+			"title": "GitHub Actions for Deployment and Testing - Package solution",
+			"description": "Explain how GitHub action package the SPFx solution.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": ".github/workflows/deploy-spfx-solution_TEST.yml",
+					"position": "20:23",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w5fm"
+		},
+		{
+			"title": "GitHub Actions for Deployment and Testing - Setup M365 CLI",
+			"description": "Explain how GitHub action setup M365 CLI.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": ".github/workflows/deploy-spfx-solution_TEST.yml",
+					"position": "26:32",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w5fn"
+		},
+		{
+			"title": "GitHub Actions for Deployment and Testing - Deploy application",
+			"description": "Explain how GitHub action deploy the application to the tenant.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": ".github/workflows/deploy-spfx-solution_TEST.yml",
+					"position": "33:40",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w5fo"
+		},
+		{
+			"title": "GitHub Actions for Deployment and Testing - Execute end to end tests",
+			"description": "Explain how GitHub action execute end to end tests.",
+			"steps": [
+				{
+					"action": "highlight",
+					"path": ".github/workflows/deploy-spfx-solution_TEST.yml",
+					"position": "41:54",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w5fp"
+		},
+		{
+			"title": "GitHub actions in browser",
+			"steps": [
+				{
+					"action": "openSlide",
+					"path": ".demo/slides/GitHub actions history.md"
+				}
+			],
+			"id": "demo-mgwnyv0p-5l75",
+			"description": "Navigate to GitHub and explain the historical actions execution."
+		},
+		{
+			"title": "Let's make a change",
+			"steps": [
+				{
+					"action": "openSlide",
+					"path": ".demo/slides/Lets make a change.md"
+				}
+			]
+		},
+		{
+			"title": "Form - Add a new hook for social media handle",
+			"description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
+			"steps": [
+				{
+					"action": "insert",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"content": "  const [customerSocialHandle, setCustomerSocialHandle] = useState('');",
+					"position": "24",
+					"highlightWholeLine": true
+				},
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"content": "  const [customerSocialHandle, setCustomerSocialHandle] = useState('');",
+					"position": "24",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgdye6at-fowb"
+		},
+		{
+			"title": "Form - Add a new handle to set social media handle as touched",
+			"description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
+			"steps": [
+				{
+					"action": "insert",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"content": "  const [touched, setTouched] = useState({ name: false, email: false, company: false, socialHandle: false });",
+					"position": "26",
+					"highlightWholeLine": true
+				},
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"content": "  const [touched, setTouched] = useState({ name: false, email: false, company: false, socialHandle: false });",
+					"position": "26",
+					"highlightWholeLine": true
+				}
+			],
+			"id": "demo-mgw0r003-w5fq"
+		},
+		{
+			"title": "Form - Add a new field for social media handle 3",
+			"description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
+			"steps": [
+				{
+					"action": "insert",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"content": "  const handleSocialHandleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {\n    setCustomerSocialHandle(e.target.value);\n    setTouched(t => ({ ...t, socialHandle: true }));\n  };\n",
+					"position": "59",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant"
+				},
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"content": "  const handleSocialHandleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {\n    setCustomerSocialHandle(e.target.value);\n    setTouched(t => ({ ...t, socialHandle: true }));\n  };\n",
+					"position": "59:62",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant"
+				}
+			],
+			"id": "demo-mgdym6j6-eihv"
+		},
+		{
+			"title": "Form - Add a new field for social media handle 4",
+			"description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
+			"steps": [
+				{
+					"action": "insert",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"content": "    setTouched({ name: true, email: true, company: true, socialHandle: true });",
+					"position": "66",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant"
+				},
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"position": "66",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant"
+				}
+			],
+			"id": "demo-mgwdnxtn-ny96"
+		},
+		{
+			"title": "Form - Add a new field for social media handle 5",
+			"description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
+			"steps": [
+				{
+					"action": "insert",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"content": "    if (customerSocialHandle && customerSocialHandle.indexOf('@') !== 0) {\n      setError(strings.FormErrorSocialHandleFormat);\n      return;\n    }\n",
+					"position": "71",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant"
+				},
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"content": "    if (customerSocialHandle && customerSocialHandle.indexOf('@') !== 0) {\n      setError(strings.FormErrorSocialHandleFormat);\n      return;\n    }\n",
+					"position": "71:74",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant"
+				}
+			],
+			"id": "demo-mgdyyzc3-bgtr"
+		},
+		{
+			"title": "Form - Add a new field for social media handle 6",
+			"description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
+			"steps": [
+				{
+					"action": "insert",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"content": "    setCustomerSocialHandle('');\n    setTouched({ name: false, email: false, company: false, socialHandle: false });",
+					"position": "101",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant"
+				},
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"content": "    setCustomerSocialHandle('');\n    setTouched({ name: false, email: false, company: false, socialHandle: false });",
+					"position": "101:102",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant"
+				}
+			],
+			"id": "demo-mge6ummf-s4lw"
+		},
+		{
+			"title": "Form - Add a new field for social media handle 7",
+			"description": "Enhance the NewCustomerForm component by adding a new input field for the customer's social media handle, including state management and validation.",
+			"steps": [
+				{
+					"action": "insert",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"content": "        <div className={styles.formRow}>\n          <label htmlFor=\"customerSocialHandle\">Social Handle</label>\n          <input id=\"customerSocialHandle\" type=\"text\" value={customerSocialHandle} onChange={handleSocialHandleChange} className={styles.input} placeholder={strings.FormPlaceholderSocialHandle} />\n          {touched.socialHandle && customerSocialHandle && customerSocialHandle.indexOf('@') !== 0 && (\n            <span className={styles.fieldError}>{strings.FormErrorSocialHandleFormat}</span>\n          )}\n        </div>",
+					"position": "195",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant"
+				},
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.tsx",
+					"content": "        <div className={styles.formRow}>\n          <label htmlFor=\"customerSocialHandle\">Social Handle</label>\n          <input id=\"customerSocialHandle\" type=\"text\" value={customerSocialHandle} onChange={handleSocialHandleChange} className={styles.input} placeholder={strings.FormPlaceholderSocialHandle} />\n          {touched.socialHandle && customerSocialHandle && customerSocialHandle.indexOf('@') !== 0 && (\n            <span className={styles.fieldError}>{strings.FormErrorSocialHandleFormat}</span>\n          )}\n        </div>",
+					"position": "195:201",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant"
+				}
+			],
+			"id": "demo-mgdz1kga-ikvo"
+		},
+		{
+			"title": "Unit Test - Add a new field for social media handle",
+			"description": "Enhance unit tests with the new field.",
+			"steps": [
+				{
+					"action": "insert",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+					"position": "89",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant",
+					"content": "    expect(screen.getByLabelText(/Social Handle/i)).toBeInTheDocument();"
+				},
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+					"position": "89",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant",
+					"content": "    expect(screen.getByLabelText(/Social Handle/i)).toBeInTheDocument();"
+				}
+			],
+			"id": "demo-mgdz4une-l7ae"
+		},
+		{
+			"title": "Unit Test - Add a new field for social media handle 2",
+			"description": "Enhance unit tests with the new field.",
+			"steps": [
+				{
+					"action": "insert",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+					"position": "102",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant",
+					"content": "    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: '@johndoe' } });"
+				},
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+					"position": "102",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant",
+					"content": "    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: '@johndoe' } });"
+				}
+			],
+			"id": "demo-mgdz8b3x-iuk3"
+		},
+		{
+			"title": "Unit Test - Add a new field for social media handle 3",
+			"description": "Enhance unit tests with the new field.",
+			"steps": [
+				{
+					"action": "insert",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+					"position": "116",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant",
+					"content": "    expect(screen.getByLabelText(/Social Handle/i)).toHaveValue('');"
+				},
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+					"position": "116",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant"
+				}
+			],
+			"id": "demo-mgdz91xo-xk6r"
+		},
+		{
+			"title": "Unit Test - Add a new field for social media handle 4",
+			"description": "Enhance unit tests with the new field.",
+			"steps": [
+				{
+					"action": "insert",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+					"position": "126",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant",
+					"content": "\n  it('shows error for social handle not starting with @', () => {\n    render(<NewCustomerForm {...baseProps} />);\n    fireEvent.change(screen.getByLabelText(/Name/i), { target: { value: 'John Doe' } });\n    fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john@example.com' } });\n    fireEvent.change(screen.getByLabelText(/Company/i), { target: { value: 'Acme Corp' } });\n    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: 'johndoe' } });\n    fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));\n    expect(screen.queryAllByText(/Social handle must start with @/i).length).toBeGreaterThan(0);\n  });"
+				},
+				{
+					"action": "highlight",
+					"path": "src/webparts/newCustomerForm/components/NewCustomerForm.test.tsx",
+					"position": "127:135",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant",
+					"content": "\n  it('shows error for social handle not starting with @', () => {\n    render(<NewCustomerForm {...baseProps} />);\n    fireEvent.change(screen.getByLabelText(/Name/i), { target: { value: 'John Doe' } });\n    fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john@example.com' } });\n    fireEvent.change(screen.getByLabelText(/Company/i), { target: { value: 'Acme Corp' } });\n    fireEvent.change(screen.getByLabelText(/Social Handle/i), { target: { value: 'johndoe' } });\n    fireEvent.click(screen.getByRole('button', { name: /Add Customer/i }));\n    expect(screen.queryAllByText(/Social handle must start with @/i).length).toBeGreaterThan(0);\n  });"
+				}
+			],
+			"id": "demo-mgdz9zs6-1wxe"
+		},
+		{
+			"title": "Run unit test with changes",
+			"description": "Run unit tests with the new field.",
+			"steps": [
+				{
+					"action": "openTerminal"
+				},
+				{
+					"action": "executeTerminalCommand",
+					"command": "npm run test:unit"
+				}
+			],
+			"id": "demo-mgwarbja-t60l"
+		},
+		{
+			"title": "E2E Test - Add a new field for social media handle",
+			"description": "Enhance unit tests with the new field.",
+			"steps": [
+				{
+					"action": "closeTerminal"
+				},
+				{
+					"action": "insert",
+					"path": "tests/basic.spec.ts",
+					"position": "141",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant",
+					"content": "\t\tawait page.fill('input[id=\"customerSocialHandle\"]', '@janedoe');"
+				},
+				{
+					"action": "highlight",
+					"path": "tests/basic.spec.ts",
+					"position": "141",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant",
+					"content": "\t\tawait page.fill('input[id=\"customerSocialHandle\"]', '@janedoe');"
+				}
+			],
+			"id": "demo-mgw0r003-w5fr"
+		},
+		{
+			"title": "E2E Test - Add a new field for social media handle 2",
+			"description": "Enhance unit tests with the new field.",
+			"steps": [
+				{
+					"action": "insert",
+					"path": "tests/basic.spec.ts",
+					"position": "186",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant",
+					"content": "\t\tawait expect(page.locator('input[id=\"customerSocialHandle\"]')).toHaveValue('');"
+				},
+				{
+					"action": "highlight",
+					"path": "tests/basic.spec.ts",
+					"position": "186",
+					"highlightWholeLine": true,
+					"insertTypingMode": "instant",
+					"content": "\t\tawait expect(page.locator('input[id=\"customerSocialHandle\"]')).toHaveValue('');"
+				}
+			],
+			"id": "demo-mgdzdhzo-hozh"
+		},
+		{
+			"title": "Run e2e test with changes",
+			"description": "Run e2e tests with the new field.",
+			"steps": [
+				{
+					"action": "openTerminal"
+				},
+				{
+					"action": "executeTerminalCommand",
+					"command": "npm run test:e2e"
+				}
+			],
+			"id": "demo-mgwatm8k-f379"
+		},
+		{
+			"id": "demo-mgwamme2-oznn",
+			"title": "Commit to GitHub",
+			"steps": [
+				{
+					"action": "executeTerminalCommand",
+					"command": "git add -A"
+				},
+				{
+					"action": "executeTerminalCommand",
+					"command": "git commit -m \"Added new social handle field\""
+				},
+				{
+					"action": "executeTerminalCommand",
+					"command": "git push"
+				}
+			]
+		},
+		{
+			"title": "The End",
+			"steps": [
+				{
+					"action": "openSlide",
+					"path": ".demo/slides/The end.md",
+					"disabled": false
+				}
+			],
+			"id": "demo-mgwb3iyz-iufy"
+		}
+	]
 }
