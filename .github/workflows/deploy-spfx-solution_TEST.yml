@@ -39,16 +39,11 @@ jobs:
           SKIP_FEATURE_DEPLOYMENT: false
           OVERWRITE: true
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-      - name: Run e2e snapshots update
+        run: npx playwright install --with-deps chromium
+      - name: Run tests and update snapshots
         env:
+          TEST_SHAREPOINT_SITE_URL: ${{ vars.TEST_SHAREPOINT_SITE_URL }}
           TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
           TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
-          TEST_SHAREPOINT_SITE_URL: ${{ vars.TEST_SHAREPOINT_SITE_URL }}
-        run: npm run test:e2e:update-snapshots
-      - name: Run e2e tests
-        env:
-          TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
-          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
-          TEST_SHAREPOINT_SITE_URL: ${{ vars.TEST_SHAREPOINT_SITE_URL }}
-        run: npm run test:e2e
+        run: |
+          npm run test:e2e -- --update-snapshots --project=Chromium
