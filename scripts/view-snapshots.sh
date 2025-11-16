@@ -181,8 +181,8 @@ npm run test:e2e:update-snapshots
 ## 📖 Documentation
 
 For detailed snapshot analysis, see:
-- [VISUAL_TESTING_OVERVIEW.md](./VISUAL_TESTING_OVERVIEW.md)
-- [SNAPSHOTS_DOCUMENTATION.md](./SNAPSHOTS_DOCUMENTATION.md)
+- [VISUAL_TESTING_OVERVIEW.md](./docs/VISUAL_TESTING_OVERVIEW.md)
+- [SNAPSHOTS_DOCUMENTATION.md](./docs/SNAPSHOTS_DOCUMENTATION.md)
 
 ---
 *Report generated on $(date)*
