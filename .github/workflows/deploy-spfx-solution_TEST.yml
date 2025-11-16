@@ -46,6 +46,20 @@ jobs:
           TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
           TEST_SHAREPOINT_SITE_URL: ${{ vars.TEST_SHAREPOINT_SITE_URL }}
         run: npm run test:e2e:update-snapshots
+      - name: Create Linux snapshots from Darwin snapshots
+        run: |
+          # Copy existing Darwin snapshots to Linux equivalents for cross-platform compatibility
+          if [ -d "tests/basic.spec.ts-snapshots" ]; then
+            cd tests/basic.spec.ts-snapshots
+            for file in *-Chromium-darwin.png; do
+              if [ -f "$file" ]; then
+                linux_file="${file/-darwin/-linux}"
+                cp "$file" "$linux_file"
+                echo "Copied $file to $linux_file"
+              fi
+            done
+            cd ../..
+          fi
       - name: Run e2e tests
         env:
           TEST_USERNAME: ${{ secrets.TEST_USERNAME }}

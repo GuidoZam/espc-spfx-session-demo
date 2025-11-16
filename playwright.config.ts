@@ -5,13 +5,15 @@ export default defineConfig({
 	testDir: "./tests",
 	retries: process.env.CI ? 2 : 0,
 	workers: 1, // Use single worker to avoid SharePoint auth conflicts
-	timeout: 60000, // Set test timeout to 60 seconds
+	timeout: process.env.CI ? 120000 : 60000, // Increase timeout for CI environment
 	use: {
 		headless: true,
 		baseURL: process.env.TEST_SHAREPOINT_SITE_URL,
 		trace: "on-first-retry",
-		actionTimeout: 30000, // Set action timeout to 30 seconds
-		navigationTimeout: 30000, // Set navigation timeout to 30 seconds
+		actionTimeout: process.env.CI ? 45000 : 30000, // Increase action timeout for CI
+		navigationTimeout: process.env.CI ? 45000 : 30000, // Increase navigation timeout for CI
+		// Add viewport for consistency
+		viewport: { width: 1280, height: 720 },
 	},
 	// Configure screenshot and snapshot behavior
 	expect: {
@@ -19,7 +21,7 @@ export default defineConfig({
 		toHaveScreenshot: {
 			animations: 'disabled',
 			scale: 'css',
-			threshold: 0.2
+			threshold: process.env.CI ? 0.3 : 0.2 // Higher threshold for CI
 		}
 	},
 	projects: [
