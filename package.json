@@ -23,7 +23,8 @@
 		"test:unit": "jest --passWithNoTests",
 		"test:e2e": "playwright test",
 		"test:e2e:debug": "playwright test --debug",
-		"test:e2e:update-snapshots": "playwright test --update-snapshots && ./scripts/view-snapshots.sh && ./scripts/update-readme-visuals.sh && cat ./docs/SNAPSHOT_REPORT.md",
+		"test:e2e:update-snapshots": "playwright test --update-snapshots && npm run test:e2e:sync-snapshots && ./scripts/view-snapshots.sh && ./scripts/update-readme-visuals.sh && cat ./docs/SNAPSHOT_REPORT.md",
+		"test:e2e:sync-snapshots": "./scripts/sync-snapshots.sh",
 		"start:devproxy": "devproxy --config-file ./config/devproxy-spfx-config.json & heft start --clean"
 	},
 	"jest": {
