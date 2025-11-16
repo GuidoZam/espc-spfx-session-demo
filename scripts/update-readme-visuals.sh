@@ -72,7 +72,7 @@ if grep -q "<!-- BEGIN VISUAL_TESTING_OVERVIEW -->" "$README_FILE"; then
     
     # Add the new visual testing section
     echo "<!-- BEGIN VISUAL_TESTING_OVERVIEW -->" >> "$TEMP_FILE"
-    echo "[View complete visual testing overview](./VISUAL_TESTING_OVERVIEW.md)" >> "$TEMP_FILE"
+    echo "[View complete visual testing overview](./docs/VISUAL_TESTING_OVERVIEW.md)" >> "$TEMP_FILE"
     echo "" >> "$TEMP_FILE"
     echo "$VISUAL_SECTION" >> "$TEMP_FILE"
     echo "<!-- END VISUAL_TESTING_OVERVIEW -->" >> "$TEMP_FILE"

@@ -184,12 +184,12 @@ npm run test:e2e -- --update-snapshots
 - **NDA Visibility**: Conditional checkbox behavior across sectors
 - **Government Workflow**: End-to-end government customer scenarios
 
-📖 **See [SNAPSHOTS_DOCUMENTATION.md](./SNAPSHOTS_DOCUMENTATION.md) for detailed visual testing documentation**
+📖 **See [SNAPSHOTS_DOCUMENTATION.md](./docs/SNAPSHOTS_DOCUMENTATION.md) for detailed visual testing documentation**
 
 ## 📸 Visual Testing Overview
 
 <!-- BEGIN VISUAL_TESTING_OVERVIEW -->
-[View complete visual testing overview](./VISUAL_TESTING_OVERVIEW.md)
+[View complete visual testing overview](./docs/VISUAL_TESTING_OVERVIEW.md)
 
 
 ### Quick Snapshot Summary

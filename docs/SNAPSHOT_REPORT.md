@@ -1,6 +1,6 @@
 # Visual Testing Snapshot Report
 
-Generated on: Sat Nov 15 17:55:13 CET 2025
+Generated on: Sun Nov 16 12:28:30 CET 2025
 
 ## 📊 Snapshot Summary
 
@@ -83,8 +83,8 @@ npm run test:e2e:update-snapshots
 ## 📖 Documentation
 
 For detailed snapshot analysis, see:
-- [VISUAL_TESTING_OVERVIEW.md](./VISUAL_TESTING_OVERVIEW.md)
-- [SNAPSHOTS_DOCUMENTATION.md](./SNAPSHOTS_DOCUMENTATION.md)
+- [VISUAL_TESTING_OVERVIEW.md](./docs/VISUAL_TESTING_OVERVIEW.md)
+- [SNAPSHOTS_DOCUMENTATION.md](./docs/SNAPSHOTS_DOCUMENTATION.md)
 
 ---
-*Report generated on Sat Nov 15 17:55:13 CET 2025*
+*Report generated on Sun Nov 16 12:28:30 CET 2025*
