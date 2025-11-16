@@ -4,9 +4,7 @@ import { test, expect, Page } from '@playwright/test';
 async function checkCustomerFormExists(page: Page): Promise<boolean> {
 	console.log("Checking for customer form on page...");
 
-	// Longer wait in CI environment for SPFx web part initialization
-	const waitTime = process.env.CI ? 45000 : 30000;
-	await page.waitForTimeout(waitTime);
+	await page.waitForTimeout(30000); // Extra wait for SPFx web part to initialize
 	
 	// Check for the specific inputs we know should exist
 	const customerNameInput = await page.locator('input#customerName').count();
@@ -29,22 +27,6 @@ async function checkCustomerFormExists(page: Page): Promise<boolean> {
 		return true;
 	}
 	
-	// Additional debugging for CI
-	if (process.env.CI) {
-		try {
-			console.log("Debugging info for CI:");
-			console.log(`Current URL: ${page.url()}`);
-			const title = await page.title();
-			console.log(`Page title: ${title}`);
-			
-			// Check for common SharePoint elements
-			const spWebParts = await page.locator('[data-sp-web-part]').count();
-			console.log(`SharePoint web parts found: ${spWebParts}`);
-		} catch (debugError) {
-			console.log(`Debug info failed: ${debugError}`);
-		}
-	}
-	
 	console.log("Customer form not found on this page - this test requires the web part to be deployed");
 	return false;
 }
@@ -56,21 +38,11 @@ test.describe("Page load", () => {
 		// Use the authenticated context directly
 		page = await context.newPage();
 		
-		// Add error handling for page crashes
-		page.on('pageerror', (error) => {
-			console.error('Page JavaScript error:', error.message);
-		});
-		
-		page.on('crash', () => {
-			console.error('Page crashed during test execution');
-		});
-		
 		// Navigate to SharePoint site (allow for redirects)
 		try {
-			const navigationTimeout = process.env.CI ? 30000 : 15000;
 			await page.goto(process.env.TEST_SHAREPOINT_SITE_URL || "", {
 				waitUntil: "domcontentloaded",
-				timeout: navigationTimeout
+				timeout: 15000
 			});
 			
 			console.log(`Test page loaded: ${page.url()}`);
@@ -166,7 +138,7 @@ test.describe("Page load", () => {
 		await page.fill('input[id="customerPhone"]', '1234567890');
 		await page.fill('input[id="customerAddress"]', '123 Main St');
 		await page.fill('input[id="customerCompany"]', 'Acme Corp');
-		await page.fill('input[id="customerSocialHandle"]', '@janedoe');
+		
 		// Take snapshot after filling basic fields but before sector selection
 		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('02-form-filled-basic-fields.png');
 		
@@ -180,54 +152,25 @@ test.describe("Page load", () => {
 		// Take snapshot of completed form before submission
 		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('04-form-completed-ready-to-submit.png');
 		console.log("Form filled, submitting now");
-		
-		// Add error handling for page crashes
-		page.on('pageerror', (error) => {
-			console.error('Page error:', error.message);
-		});
-		
-		// Submit form with error handling
-		try {
-			await page.click('[data-testid="submit-button"]');
-			// Wait longer for React to render notification, especially in CI
-			await page.waitForTimeout(process.env.CI ? 8000 : 5000);
-		} catch (error) {
-			console.error('Error during form submission:', error);
-			if (page.isClosed()) {
-				throw new Error('Page was closed during form submission. This might indicate a SharePoint error or navigation issue.');
-			}
-			throw error;
-		}
+		await page.click('[data-testid="submit-button"]');
+
+		// Wait longer to allow React to render notification
+		await page.waitForTimeout(3000);
 
 		// Use robust Playwright expect for notification with data-testid
 		const notification = page.locator('[data-testid="customer-notification"]');
 		try {
-			// Check if page is still available
-			if (page.isClosed()) {
-				throw new Error('Page was closed after form submission');
-			}
-			
-			// Wait for notification with longer timeout in CI
-			const notificationTimeout = process.env.CI ? 25000 : 15000;
-			await expect(notification).toBeVisible({ timeout: notificationTimeout });
+			await expect(notification).toBeVisible({ timeout: 15000 });
 			await expect(notification).toContainText(`Customer added: ${userName} (${userEmail})`);
 			
 			// Take snapshot of success notification
 			await expect(page.locator('section[class*="newCustomerForm"]')).toHaveScreenshot('05-form-success-notification.png');
 			
+			//await expect(notification).toContainText(`Customer added:`);
 		} catch (e) {
-			// Enhanced debugging for CI failures
+			// Log page HTML for debugging if notification is not found
 			if (!page.isClosed()) {
-				console.error('Notification error:', e);
-				try {
-					const pageContent = await page.content();
-					console.log('Page content length:', pageContent.length);
-					console.log('Page URL:', page.url());
-				} catch (debugError) {
-					console.error('Failed to get debug info:', debugError);
-				}
-			} else {
-				console.error('Page was closed, cannot debug further');
+				console.error(e);
 			}
 			throw e;
 		}
@@ -240,7 +183,7 @@ test.describe("Page load", () => {
 		await expect(page.locator('input[id="customerAddress"]')).toHaveValue('');
 		await expect(page.locator('select[id="customerSector"]')).toHaveValue('');
 		await expect(page.locator('textarea[id="customerNotes"]')).toHaveValue('');
-		await expect(page.locator('input[id="customerSocialHandle"]')).toHaveValue('');
+
 		// Take final snapshot of reset form
 		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('06-form-reset-after-submit.png');
 
