@@ -686,6 +686,19 @@
       "id": "demo-mgwatm8k-f379"
     },
     {
+      "title": "Update solution version",
+      "description": "Update the solution version.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": "config/package-solution.json",
+          "position": "6",
+          "highlightWholeLine": true
+        }
+      ],
+      "id": "demo-miadft67-5c94"
+    },
+    {
       "id": "demo-mgwamme2-oznn",
       "title": "Commit to GitHub",
       "steps": [
