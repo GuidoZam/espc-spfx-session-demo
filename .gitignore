@@ -37,3 +37,7 @@ playwright
 playwright-report
 test-results
 .env
+cert
+certs
+certificate
+certificates
