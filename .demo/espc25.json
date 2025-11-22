@@ -120,15 +120,6 @@
       "id": "demo-mgw0r003-w4fx"
     },
     {
-      "title": "Tests",
-      "steps": [
-        {
-          "action": "openPowerPoint"
-        }
-      ],
-      "id": "demo-mgw0ui0p-w5vh"
-    },
-    {
       "title": "Unit Tests using Jest",
       "description": "Demonstrate the project's unit testing using Jest, setup and examples, highlighting test coverage for core logic.",
       "steps": [
@@ -182,16 +173,6 @@
       "id": "demo-mgw103hj-vvx4"
     },
     {
-      "title": "Unit Tests - Return to slides",
-      "description": "Show how to perform unit tests locally.",
-      "steps": [
-        {
-          "action": "openPowerPoint"
-        }
-      ],
-      "id": "demo-mi664xtr-x25i"
-    },
-    {
       "title": "End to End Tests",
       "description": "Present the Playwright-based E2E tests, showing how user flows are validated automatically.",
       "steps": [
@@ -221,6 +202,19 @@
       "id": "demo-mgw0r003-w5fe"
     },
     {
+      "title": "End to End Tests - Check NDA visibility",
+      "description": "Check that the NDA checkbox is shown when user select \"Government\" and not shown for others.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": "tests/basic.spec.ts",
+          "position": "193:271",
+          "highlightWholeLine": true
+        }
+      ],
+      "id": "demo-miad4mjd-jclc"
+    },
+    {
       "title": "E2E Tests - Run tests locally",
       "description": "Show how to perform unit tests locally.",
       "steps": [
@@ -233,16 +227,6 @@
         }
       ],
       "id": "demo-mgw124av-rq2y"
-    },
-    {
-      "title": "E2E Tests - Return to slides",
-      "description": "Show how to perform unit tests locally.",
-      "steps": [
-        {
-          "action": "openPowerPoint"
-        }
-      ],
-      "id": "demo-mi7wnxzh-5g4b"
     },
     {
       "title": "GitHub Actions - Specific branch trigger",
@@ -376,25 +360,6 @@
         }
       ],
       "id": "demo-mgw0r003-w5fp"
-    },
-    {
-      "title": "GitHub actions in browser",
-      "steps": [
-        {
-          "action": "openWebsite",
-          "url": "GitHub Actions for Deployment and Testing - Execute end to end tests"
-        }
-      ],
-      "id": "demo-mgwnyv0p-5l75",
-      "description": "Navigate to GitHub and explain the historical actions execution."
-    },
-    {
-      "title": "Let's make a change",
-      "steps": [
-        {
-          "action": "openPowerPoint"
-        }
-      ]
     },
     {
       "title": "Form - Add a new hook for social media handle",

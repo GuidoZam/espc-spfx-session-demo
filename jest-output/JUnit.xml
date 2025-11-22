@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="13" failures="0" errors="0" time="1">
-  <testsuite name="NewCustomerForm Component" errors="0" failures="0" skipped="0" timestamp="2025-11-15T16:11:12" time="0.72" tests="13">
-    <testcase classname="NewCustomerForm Component &gt; " name="renders all customer fields (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.035">
+<testsuites name="jest tests" tests="13" failures="0" errors="0" time="1.035">
+  <testsuite name="NewCustomerForm Component" errors="0" failures="0" skipped="0" timestamp="2025-11-22T13:54:58" time="0.739" tests="13">
+    <testcase classname="NewCustomerForm Component &gt; " name="renders all customer fields (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.037">
     </testcase>
-    <testcase classname="NewCustomerForm Component &gt; " name="handles input and submit when required fields are filled (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.043">
+    <testcase classname="NewCustomerForm Component &gt; " name="handles input and submit when required fields are filled (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.045">
     </testcase>
     <testcase classname="NewCustomerForm Component &gt; " name="shows error message only for missing field when submitting blank form (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.008">
     </testcase>
-    <testcase classname="NewCustomerForm Component &gt; " name="shows error message only for missing Name (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.01">
+    <testcase classname="NewCustomerForm Component &gt; " name="shows error message only for missing Name (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.009">
     </testcase>
-    <testcase classname="NewCustomerForm Component &gt; " name="shows error message only for missing Email (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.01">
+    <testcase classname="NewCustomerForm Component &gt; " name="shows error message only for missing Email (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.012">
     </testcase>
     <testcase classname="NewCustomerForm Component &gt; " name="shows error message only for missing Company (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.009">
     </testcase>
     <testcase classname="NewCustomerForm Component &gt; " name="shows NDA checkbox only when Government sector is selected (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.006">
     </testcase>
-    <testcase classname="NewCustomerForm Component &gt; " name="resets NDA checkbox when sector changes (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.007">
+    <testcase classname="NewCustomerForm Component &gt; " name="resets NDA checkbox when sector changes (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.008">
     </testcase>
-    <testcase classname="NewCustomerForm Component &gt; " name="submits customer with NDA true only for Government sector (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.02">
+    <testcase classname="NewCustomerForm Component &gt; " name="submits customer with NDA true only for Government sector (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.021">
     </testcase>
-    <testcase classname="NewCustomerForm Component &gt; " name="displays environment badge when environment is TEST (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.002">
+    <testcase classname="NewCustomerForm Component &gt; " name="displays environment badge when environment is TEST (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.003">
     </testcase>
-    <testcase classname="NewCustomerForm Component &gt; " name="does not display badge in PROD environment (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.002">
+    <testcase classname="NewCustomerForm Component &gt; " name="does not display badge in PROD environment (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.001">
     </testcase>
     <testcase classname="NewCustomerForm Component &gt; " name="does not display environment badge when environment is not provided (lib/webparts/newCustomerForm/components/NewCustomerForm.test.js)" time="0.002">
     </testcase>
