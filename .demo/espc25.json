@@ -202,6 +202,19 @@
       "id": "demo-mgw0r003-w5fe"
     },
     {
+      "title": "End to End Tests - Check NDA visibility",
+      "description": "Check that the NDA checkbox is shown when user select \"Government\" and not shown for others.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": "tests/basic.spec.ts",
+          "position": "193:271",
+          "highlightWholeLine": true
+        }
+      ],
+      "id": "demo-miad4mjd-jclc"
+    },
+    {
       "title": "E2E Tests - Run tests locally",
       "description": "Show how to perform unit tests locally.",
       "steps": [
