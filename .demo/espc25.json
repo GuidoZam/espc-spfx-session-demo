@@ -5,6 +5,12 @@
   "version": 2,
   "demos": [
     {
+      "title": "Start",
+      "description": "Empty initial demo",
+      "steps": [],
+      "id": "demo-miadrrds-0gu7"
+    },
+    {
       "title": "Web Part Form to Insert Data",
       "description": "Showcase the NewCustomerForm web part, demonstrating how users can input and submit new customer data.",
       "steps": [
@@ -120,6 +126,12 @@
       "id": "demo-mgw0r003-w4fx"
     },
     {
+      "title": "Back to slides",
+      "description": "Back to slides",
+      "steps": [],
+      "id": "demo-miadt8zv-dnb8"
+    },
+    {
       "title": "Unit Tests using Jest",
       "description": "Demonstrate the project's unit testing using Jest, setup and examples, highlighting test coverage for core logic.",
       "steps": [
@@ -171,6 +183,12 @@
         }
       ],
       "id": "demo-mgw103hj-vvx4"
+    },
+    {
+      "title": "Back to slides",
+      "description": "Back to slides",
+      "steps": [],
+      "id": "demo-miadtt3y-m3cf"
     },
     {
       "title": "End to End Tests",
@@ -229,6 +247,12 @@
       "id": "demo-mgw124av-rq2y"
     },
     {
+      "title": "Back to slides",
+      "description": "Back to slides",
+      "steps": [],
+      "id": "demo-miadua6b-ao5a"
+    },
+    {
       "title": "GitHub Actions - Specific branch trigger",
       "description": "Explain how GitHub action is triggered for a specific branch.",
       "steps": [
@@ -284,19 +308,6 @@
       "id": "demo-mgw0r003-w5fj"
     },
     {
-      "title": "GitHub Actions for Deployment and Testing",
-      "description": "Explain the CI/CD pipeline, focusing on automated deployment and testing for specific branches using GitHub Actions.",
-      "steps": [
-        {
-          "action": "open",
-          "title": "Show GitHub Actions workflow",
-          "path": ".github/workflows/deploy-spfx-solution_TEST.yml",
-          "description": "Open the workflow file and explain the deployment and testing steps."
-        }
-      ],
-      "id": "demo-mgw0r003-w5fk"
-    },
-    {
       "title": "GitHub Actions for Deployment and Testing - Specific branch trigger",
       "description": "Explain how GitHub action is triggered for a specific branch.",
       "steps": [
@@ -349,17 +360,36 @@
       "id": "demo-mgw0r003-w5fo"
     },
     {
-      "title": "GitHub Actions for Deployment and Testing - Execute end to end tests",
-      "description": "Explain how GitHub action execute end to end tests.",
+      "title": "GitHub Actions for Deployment and Testing - Playwright install",
+      "description": "Explain the CI/CD pipeline, focusing on automated deployment and testing for specific branches using GitHub Actions.",
       "steps": [
         {
           "action": "highlight",
           "path": ".github/workflows/deploy-spfx-solution_TEST.yml",
-          "position": "41:54",
+          "position": "41:42",
           "highlightWholeLine": true
         }
       ],
-      "id": "demo-mgw0r003-w5fp"
+      "id": "demo-mgw0r103-w5fk"
+    },
+    {
+      "title": "GitHub Actions for Deployment and Testing",
+      "description": "Explain the CI/CD pipeline, focusing on automated deployment and testing for specific branches using GitHub Actions.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": ".github/workflows/deploy-spfx-solution_TEST.yml",
+          "position": "43:49",
+          "highlightWholeLine": true
+        }
+      ],
+      "id": "demo-mgw0r023-w9fk"
+    },
+    {
+      "title": "Back to slides",
+      "description": "Back to slides",
+      "steps": [],
+      "id": "demo-miadv0wu-0ixe"
     },
     {
       "title": "Form - Add a new hook for social media handle",
@@ -686,6 +716,19 @@
       "id": "demo-mgwatm8k-f379"
     },
     {
+      "title": "Update solution version",
+      "description": "Update the solution version.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": "config/package-solution.json",
+          "position": "6",
+          "highlightWholeLine": true
+        }
+      ],
+      "id": "demo-miadft67-5c94"
+    },
+    {
       "id": "demo-mgwamme2-oznn",
       "title": "Commit to GitHub",
       "steps": [
@@ -705,13 +748,9 @@
     },
     {
       "title": "Open GitHub actions",
-      "steps": [
-        {
-          "action": "openWebsite",
-          "url": "https://github.com/GuidoZam/espc-spfx-session-demo/actions"
-        }
-      ],
-      "id": "demo-mi66odq7-8b75"
+      "steps": [],
+      "id": "demo-mi66odq7-8b75",
+      "description": "Open GitHub actions"
     }
   ]
 }
