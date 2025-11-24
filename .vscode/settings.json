@@ -17,5 +17,6 @@
   "typescript.tsdk": ".\\node_modules\\typescript\\lib",
   "demoTime.defaultFileType": "json",
   "demoTime.previousEnabled": true,
-  "demoTime.api.enabled": true
+  "demoTime.api.enabled": true,
+  "search.useIgnoreFiles": true
 }
