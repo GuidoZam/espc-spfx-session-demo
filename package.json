@@ -20,7 +20,7 @@
 		"eject-webpack": "heft eject-webpack",
 		"trust-dev-cert": "heft trust-dev-cert",
 		"untrust-dev-cert": "heft untrust-dev-cert",
-		"test:unit": "jest --passWithNoTests",
+		"test:unit": "jest",
 		"test:e2e": "playwright test",
 		"test:e2e:debug": "playwright test --debug",
 		"test:e2e:update-snapshots": "playwright test --update-snapshots && npm run test:e2e:sync-snapshots && ./scripts/view-snapshots.sh && ./scripts/update-readme-visuals.sh && cat ./docs/SNAPSHOT_REPORT.md",
