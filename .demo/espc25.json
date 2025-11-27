@@ -716,7 +716,7 @@
       "id": "demo-mgwatm8k-f379"
     },
     {
-      "title": "Update solution version",
+      "title": "Update package-solution version",
       "description": "Update the solution version.",
       "steps": [
         {
@@ -727,6 +727,19 @@
         }
       ],
       "id": "demo-miadft67-5c94"
+    },
+    {
+      "title": "Update package version",
+      "description": "Update the solution version.",
+      "steps": [
+        {
+          "action": "highlight",
+          "path": "package.json",
+          "position": "3",
+          "highlightWholeLine": true
+        }
+      ],
+      "id": "demo-mihy6h3g-bc6s"
     },
     {
       "id": "demo-mgwamme2-oznn",
