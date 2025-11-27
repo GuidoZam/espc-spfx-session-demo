@@ -3,9 +3,9 @@
     "solution": {
         "name": "espc-spfx-session-demo-client-side-solution",
         "id": "20c09b62-3dc3-4072-9052-f6ddb4434851",
-        "version": "1.0.14.0",
+        "version": "1.0.15.0",
         "includeClientSideAssets": true,
-        "skipFeatureDeployment": true,
+        "skipFeatureDeployment": false,
         "isDomainIsolated": false,
         "developer": {
             "name": "",
