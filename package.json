@@ -1,6 +1,6 @@
 {
 	"name": "espc-spfx-session-demo",
-	"version": "1.0.15",
+	"version": "1.0.16",
 	"private": true,
 	"engines": {
 		"node": ">=22.14.0 < 23.0.0"
