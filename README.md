@@ -194,7 +194,7 @@ npm run test:e2e -- --update-snapshots
 
 ### Quick Snapshot Summary
 
-The visual regression tests capture **51+ snapshots** across 3 browsers documenting:
+The visual regression tests capture **85+ snapshots** across 3 browsers documenting:
 
 | Category | Purpose | Key Changes |
 |----------|---------|-------------|
@@ -204,8 +204,8 @@ The visual regression tests capture **51+ snapshots** across 3 browsers document
 
 ### Browser Coverage
 - 🌐 **Chromium**: Modern web standards (      51 snapshots)
-- 🦊 **Firefox**: Gecko rendering engine (       0 snapshots)
-- 🧭 **WebKit**: Safari/mobile compatibility (       0 snapshots)
+- 🦊 **Firefox**: Gecko rendering engine (      17 snapshots)
+- 🧭 **WebKit**: Safari/mobile compatibility (      17 snapshots)
 
 ### Generate Snapshot Report
 ```bash
@@ -216,7 +216,7 @@ The visual regression tests capture **51+ snapshots** across 3 browsers document
 cat ./docs/SNAPSHOT_REPORT.md
 ```
 
-📊 **Latest Stats**:       18 main workflow,       18 NDA visibility,       15 government workflow snapshots
+📊 **Latest Stats**:       30 main workflow,       30 NDA visibility,       25 government workflow snapshots
 
 <!-- END VISUAL_TESTING_OVERVIEW -->
 
