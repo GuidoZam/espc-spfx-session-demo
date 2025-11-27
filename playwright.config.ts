@@ -37,5 +37,21 @@ export default defineConfig({
 			},
 			dependencies: ["setup"], // Setup will run first
 		},
+		{
+			name: "Firefox",
+			use: {
+				...devices["Desktop Firefox"],
+				storageState: AuthFile, // Using the auth (storage state) file
+			},
+			dependencies: ["setup"], // Setup will run first
+		},
+		{
+			name: "WebKit",
+			use: {
+				...devices["Desktop Safari"],
+				storageState: AuthFile, // Using the auth (storage state) file
+			},
+			dependencies: ["setup"], // Setup will run first
+		}
 	],
 });
