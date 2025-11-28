@@ -1,6 +1,6 @@
 {
 	"name": "espc-spfx-session-demo",
-	"version": "1.0.18",
+	"version": "1.0.19",
 	"private": true,
 	"engines": {
 		"node": ">=22.14.0 < 23.0.0"
@@ -20,6 +20,7 @@
 		"eject-webpack": "heft eject-webpack",
 		"trust-dev-cert": "heft trust-dev-cert",
 		"untrust-dev-cert": "heft untrust-dev-cert",
+		"bump-patch": "npm version patch --no-git-tag-version && node scripts/bump-solution-version.js",
 		"test:unit": "jest",
 		"test:e2e": "playwright test",
 		"test:e2e:debug": "playwright test --debug",

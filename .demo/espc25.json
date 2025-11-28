@@ -716,30 +716,15 @@
       "id": "demo-mgwatm8k-f379"
     },
     {
-      "title": "Update package-solution version",
+      "title": "Update solution version",
       "description": "Update the solution version.",
       "steps": [
         {
-          "action": "highlight",
-          "path": "config/package-solution.json",
-          "position": "6",
-          "highlightWholeLine": true
+          "action": "executeTerminalCommand",
+          "command": "npm run bump-patch"
         }
       ],
       "id": "demo-miadft67-5c94"
-    },
-    {
-      "title": "Update package version",
-      "description": "Update the solution version.",
-      "steps": [
-        {
-          "action": "highlight",
-          "path": "package.json",
-          "position": "3",
-          "highlightWholeLine": true
-        }
-      ],
-      "id": "demo-mihy6h3g-bc6s"
     },
     {
       "id": "demo-mgwamme2-oznn",
