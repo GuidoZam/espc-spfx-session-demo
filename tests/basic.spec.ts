@@ -36,7 +36,7 @@ test.describe("Page load", () => {
 
 	test.beforeEach(async ({ browser, context }) => {
 		// Use the authenticated context directly
-		page = (await (await browser.newContext()).newPage());
+		page = await context.newPage();
 		
 		// Navigate to SharePoint site (allow for redirects)
 		try {
