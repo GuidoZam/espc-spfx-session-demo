@@ -13,10 +13,7 @@ export default defineConfig({
 		actionTimeout: process.env.CI ? 60000 : 30000, // Increase action timeout for CI
 		navigationTimeout: process.env.CI ? 60000 : 30000, // Increase navigation timeout for CI
 		// Add viewport for consistency
-		viewport: { width: 1920, height: 1080 },
-		launchOptions: {
-			args: ['--disable-http-cache']
-		}
+		viewport: { width: 1920, height: 1080 }
 	},
 	// Configure screenshot and snapshot behavior
 	expect: {
