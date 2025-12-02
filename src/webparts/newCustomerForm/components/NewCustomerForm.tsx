@@ -21,9 +21,9 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
   const [customerNotes, setCustomerNotes] = useState('');
   const [customerSector, setCustomerSector] = useState('');
   const [requiresNDA, setRequiresNDA] = useState(false);
-  const [customerSocialHandle, setCustomerSocialHandle] = useState('');
+
   const [error, setError] = useState('');
-  const [touched, setTouched] = useState({ name: false, email: false, company: false, socialHandle: false });
+  const [touched, setTouched] = useState({ name: false, email: false, company: false });
   const [notification, setNotification] = useState<string | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -56,20 +56,12 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
   const handleNDAChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setRequiresNDA(e.target.checked);
   };
-  const handleSocialHandleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setCustomerSocialHandle(e.target.value);
-    setTouched(t => ({ ...t, socialHandle: true }));
-  };
 
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
-    setTouched({ name: true, email: true, company: true, socialHandle: true });
+    setTouched({ name: true, email: true, company: true });
     if (!customerName || !customerEmail || !customerCompany) {
       setError(strings.FormErrorRequiredFields);
-      return;
-    }
-    if (customerSocialHandle && customerSocialHandle.indexOf('@') !== 0) {
-      setError(strings.FormErrorSocialHandleFormat);
       return;
     }
 
@@ -98,8 +90,7 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
     setCustomerSector('');
     setRequiresNDA(false);
 
-    setCustomerSocialHandle('');
-    setTouched({ name: false, email: false, company: false, socialHandle: false });
+    setTouched({ name: false, email: false, company: false });
     setNotification(strings.FormAlertCustomerAdded.replace('{0}', customerName).replace('{1}', customerEmail));
   };
 
@@ -192,13 +183,7 @@ const NewCustomerForm: React.FC<INewCustomerFormProps> = (props) => {
             </label>
           </div>
         )}
-        <div className={styles.formRow}>
-          <label htmlFor="customerSocialHandle">Social Handle</label>
-          <input id="customerSocialHandle" type="text" value={customerSocialHandle} onChange={handleSocialHandleChange} className={styles.input} placeholder={strings.FormPlaceholderSocialHandle} />
-          {touched.socialHandle && customerSocialHandle && customerSocialHandle.indexOf('@') !== 0 && (
-            <span className={styles.fieldError}>{strings.FormErrorSocialHandleFormat}</span>
-          )}
-        </div>
+
         <div className={styles.formRow}>
           <label htmlFor="customerNotes">Notes</label>
           <textarea id="customerNotes" value={customerNotes} onChange={handleNotesChange} className={styles.textarea} />

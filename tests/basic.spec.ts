@@ -36,7 +36,7 @@ test.describe("Page load", () => {
 
 	test.beforeEach(async ({ browser, context }) => {
 		// Use the authenticated context directly
-		page = (await (await browser.newContext()).newPage());
+		page = await context.newPage();
 		
 		// Navigate to SharePoint site (allow for redirects)
 		try {
@@ -138,7 +138,7 @@ test.describe("Page load", () => {
 		await page.fill('input[id="customerPhone"]', '1234567890');
 		await page.fill('input[id="customerAddress"]', '123 Main St');
 		await page.fill('input[id="customerCompany"]', 'Acme Corp');
-		await page.fill('input[id="customerSocialHandle"]', '@janedoe');
+		
 		// Take snapshot after filling basic fields but before sector selection
 		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('02-form-filled-basic-fields.png');
 		
@@ -183,7 +183,7 @@ test.describe("Page load", () => {
 		await expect(page.locator('input[id="customerAddress"]')).toHaveValue('');
 		await expect(page.locator('select[id="customerSector"]')).toHaveValue('');
 		await expect(page.locator('textarea[id="customerNotes"]')).toHaveValue('');
-		await expect(page.locator('input[id="customerSocialHandle"]')).toHaveValue('');
+
 		// Take final snapshot of reset form
 		await expect(page.locator('form[class*="customerForm"]')).toHaveScreenshot('06-form-reset-after-submit.png');
 
