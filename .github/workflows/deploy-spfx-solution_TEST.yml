@@ -36,7 +36,7 @@ jobs:
           APP_FILE_PATH: sharepoint/solution/espc-spfx-session-demo.sppkg
           SCOPE: sitecollection
           SITE_COLLECTION_URL: ${{ vars.TEST_SHAREPOINT_SITE_APP_CATALOG_URL }}
-          SKIP_FEATURE_DEPLOYMENT: false
+          SKIP_FEATURE_DEPLOYMENT: true
           OVERWRITE: true
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium

@@ -10,10 +10,10 @@ export default defineConfig({
 		headless: true,
 		baseURL: process.env.TEST_SHAREPOINT_SITE_URL,
 		trace: "on-first-retry",
-		actionTimeout: process.env.CI ? 45000 : 30000, // Increase action timeout for CI
-		navigationTimeout: process.env.CI ? 45000 : 30000, // Increase navigation timeout for CI
+		actionTimeout: process.env.CI ? 60000 : 30000, // Increase action timeout for CI
+		navigationTimeout: process.env.CI ? 60000 : 30000, // Increase navigation timeout for CI
 		// Add viewport for consistency
-		viewport: { width: 1280, height: 720 },
+		viewport: { width: 1920, height: 1080 }
 	},
 	// Configure screenshot and snapshot behavior
 	expect: {
