@@ -241,7 +241,7 @@
         },
         {
           "action": "executeTerminalCommand",
-          "command": "npm run test:e2e"
+          "command": "npm run test:e2e:update-snapshots"
         }
       ],
       "id": "demo-mgw124av-rq2y"

@@ -18,5 +18,6 @@
   "demoTime.defaultFileType": "json",
   "demoTime.previousEnabled": true,
   "demoTime.api.enabled": true,
-  "search.useIgnoreFiles": true
+  "search.useIgnoreFiles": true,
+  "demoTime.highlightZoomEnabled": false
 }
