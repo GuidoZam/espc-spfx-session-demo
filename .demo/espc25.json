@@ -726,23 +726,29 @@
       ],
       "id": "demo-miadft67-5c94"
     },
+    // {
+    //   "id": "demo-mgwamme2-oznn",
+    //   "title": "Commit to GitHub",
+    //   "steps": [
+    //     {
+    //       "action": "executeTerminalCommand",
+    //       "command": "git add -A"
+    //     },
+    //     {
+    //       "action": "executeTerminalCommand",
+    //       "command": "git commit -m \"Added new social handle field\""
+    //     },
+    //     {
+    //       "action": "executeTerminalCommand",
+    //       "command": "git push"
+    //     }
+    //   ]
+    // },
     {
       "id": "demo-mgwamme2-oznn",
       "title": "Commit to GitHub",
-      "steps": [
-        {
-          "action": "executeTerminalCommand",
-          "command": "git add -A"
-        },
-        {
-          "action": "executeTerminalCommand",
-          "command": "git commit -m \"Added new social handle field\""
-        },
-        {
-          "action": "executeTerminalCommand",
-          "command": "git push"
-        }
-      ]
+      "description": "This is the point where you should commit the changes to GitHub",
+      "steps": []
     },
     {
       "title": "Open GitHub actions",
