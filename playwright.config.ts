@@ -1,5 +1,9 @@
+require('dotenv').config();
 import { defineConfig, devices } from '@playwright/test';
 import { AuthFile } from "./tests/constants/AuthFile";
+
+const USE_MFA = process.env.MFA_TOTP_SECRET ? true : false;
+console.log(`Using MFA: ${USE_MFA}`);
 
 export default defineConfig({
 	testDir: "./tests",
@@ -27,7 +31,7 @@ export default defineConfig({
 	projects: [
 		{
 			name: "setup",
-			testMatch: /login\.setup.ts/,
+			testMatch: USE_MFA ? /mfa.setup.ts/ : /login.setup.ts/,
 		},
 		{
 			name: "Chromium",
