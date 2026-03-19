@@ -282,3 +282,5 @@ The repository is organized as follows:
   gulp package-solution --ship
   ```
 - Deploy the `.sppkg` file from `sharepoint/solution/` to your SharePoint App Catalog.
+
+TODO: delete, here for testing purpose
